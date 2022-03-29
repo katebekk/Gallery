@@ -8,11 +8,8 @@
 import UIKit
 
 class MenuButton: UIButton {
-     
-    init(title: String, color: UIColor)
-    {
+    init(title: String, color: UIColor) {
         super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        
         self.setTitle(title, for: .normal)
         self.backgroundColor = color
         self.layer.cornerRadius = 5.0
@@ -25,8 +22,8 @@ class MenuButton: UIButton {
     }
 }
 
+// MARK: - Button animation
 extension MenuButton {
-    
     func startAnimatingPressActions() {
         addTarget(self, action: #selector(animateDown), for: [.touchDown, .touchDragEnter])
         addTarget(self, action: #selector(animateUp), for: [.touchDragExit, .touchCancel, .touchUpInside, .touchUpOutside])
@@ -45,10 +42,9 @@ extension MenuButton {
                        delay: 0,
                        usingSpringWithDamping: 0.5,
                        initialSpringVelocity: 3,
-                       options: [.curveEaseInOut],
-                       animations: {
-                        button.transform = transform
-        }, completion: nil)
+                       options: [.curveEaseInOut]) {
+            button.transform = transform
+        }
     }
     
 }

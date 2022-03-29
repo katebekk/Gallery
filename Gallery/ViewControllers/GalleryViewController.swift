@@ -7,23 +7,18 @@
 
 import UIKit
 
-enum Section {
-    case main
-}
-
 class GalleryViewController: UIViewController {
     // MARK: - Properties
-    private let galleryImages: [GalleryItem]
+    private let galleryImagesInitialState: [GalleryItem]
+    private var galleryImagesCurrentState: [GalleryItem]
     private let pageTitle: String
     private let cellIdentifier = "Cell"
-    private let spacing: CGFloat = 10.0
-    private lazy var dataSource = makeDataSource()
+    private let spacing = 10.0
     
     private let collectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
         collectionView.alwaysBounceVertical = true
-        
         return collectionView
     }()
     
@@ -33,16 +28,14 @@ class GalleryViewController: UIViewController {
         return refresh
     }()
     
-    @objc private func handelRefresh(sender: UIRefreshControl){
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
-                self.applySnapshot()
-                self.refresh.endRefreshing()
+    @objc private func handelRefresh(sender: UIRefreshControl) {
+        galleryImagesCurrentState = galleryImagesInitialState
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            let indexSet = IndexSet(integer: 0)
+            self.collectionView.reloadSections(indexSet)
+            self.refresh.endRefreshing()
         }
     }
-    
-    // MARK: - Value Types
-    typealias DataSource = UICollectionViewDiffableDataSource<Section, GalleryItem>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, GalleryItem>
     
     // MARK: - Life Cycles
     override func viewDidLoad() {
@@ -50,16 +43,15 @@ class GalleryViewController: UIViewController {
         self.title = pageTitle
         setupViews()
         setupLayouts()
-        applySnapshot()
     }
     
     convenience init() {
         self.init(galleryItemsList: [], title: "")
     }
     
-    init(galleryItemsList:[GalleryItem], title: String)
-    {
-        self.galleryImages = galleryItemsList
+    init(galleryItemsList:[GalleryItem], title: String) {
+        self.galleryImagesInitialState = galleryItemsList
+        self.galleryImagesCurrentState = galleryItemsList
         self.pageTitle = title
         
         super.init(nibName: nil, bundle: nil)
@@ -73,7 +65,7 @@ class GalleryViewController: UIViewController {
     private func setupViews() {
         view.addSubview(collectionView)
         collectionView.refreshControl = refresh
-        collectionView.dataSource = dataSource
+        collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(GalleryCell.self, forCellWithReuseIdentifier: cellIdentifier)
     }
@@ -99,63 +91,54 @@ class GalleryViewController: UIViewController {
             self.collectionView.collectionViewLayout.invalidateLayout()
         })
     }
-    
-    // MARK: - DataSource Functions
-    private func makeDataSource() -> DataSource {
-        let dataSource = DataSource(
-            collectionView: collectionView,
-            cellProvider:
-                { (collectionView, indexPath, galleryItemHashable) -> UICollectionViewCell? in
-                    let cell = collectionView.dequeueReusableCell(
-                        withReuseIdentifier: self.cellIdentifier,
-                        for: indexPath) as? GalleryCell
-                    cell?.galleryItem = galleryItemHashable
-                    return cell
-                })
-        
-        return dataSource
-    }
-    
-    private func applySnapshot(animatingDifferences: Bool = true) {
-        var snapshot = Snapshot()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(galleryImages)
-        dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
-    }
 }
 
+
+// MARK: - UICollectionViewDataSource
+extension GalleryViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return galleryImagesCurrentState.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! GalleryCell
+        cell.contentView.backgroundColor = .gray
+        cell.galleryItem = galleryImagesCurrentState[indexPath.row]
+        return cell
+    }
+}
 
 // MARK: - UICollectionViewDelegate
 extension GalleryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let collectionViewCell = collectionView.cellForItem(at: indexPath) else {
+        guard let collectionViewCell = collectionView.cellForItem(at: indexPath) as? GalleryCell else {
             return
         }
-        
-        UIView.animate(withDuration:  1, delay: 0,
-                       options: .curveEaseInOut,
-                       animations: {
+        UIView.animate(withDuration: 1, delay: 0) {
             collectionViewCell.frame.origin.x += collectionViewCell.frame.width + self.spacing
             collectionViewCell.layer.opacity = 0
-        })
-
-        removeItem(indexPath)
-    }
-    
-    private func removeItem(_ indexPath: IndexPath) {
-        guard let item = dataSource.itemIdentifier(for: indexPath) else {
-            return
         }
         
-        var newSnapshot = dataSource.snapshot()
-        newSnapshot.deleteItems([item])
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
-           self.dataSource.apply(newSnapshot, animatingDifferences: true)
+        collectionView.isUserInteractionEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.galleryImagesCurrentState.remove(at: indexPath.row)
+            self.collectionView.deleteItems(at: [indexPath])
+            self.collectionView.isUserInteractionEnabled = true
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) {
+            cell.contentView.layer.opacity = 0.9
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) {
+            cell.contentView.layer.opacity = 1
         }
     }
 }
-
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension GalleryViewController: UICollectionViewDelegateFlowLayout {

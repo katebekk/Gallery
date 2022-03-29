@@ -9,7 +9,7 @@ import UIKit
 
 class MenuViewController: UIViewController {
     // MARK: - Properties
-    private var galleryCityButton = MenuButton(title: "Города",color: .gray)
+    private var galleryCityButton = MenuButton(title: "Города", color: .gray)
     private var galleryCatsButton = MenuButton(title: "Коты", color: .systemPink)
     
     // MARK: - Life Cycles
@@ -42,23 +42,23 @@ class MenuViewController: UIViewController {
         let viewController = GalleryViewController(galleryItemsList: GalleryItem.imagesCatsUrls, title: "Коты")
         self.navigationController?.pushViewController(viewController, animated: true)
     }
-
+    
     private func setupLayouts() {
         galleryCityButton.translatesAutoresizingMaskIntoConstraints = false
         galleryCatsButton.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
             galleryCityButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             galleryCityButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: -20),
             galleryCityButton.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1/2),
         ])
-
+        
         NSLayoutConstraint.activate([
             galleryCatsButton.topAnchor.constraint(equalTo: galleryCityButton.bottomAnchor,constant: 20),
             galleryCatsButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             galleryCatsButton.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1/2),
         ])
     }
-
+    
 }
 

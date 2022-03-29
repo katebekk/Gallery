@@ -16,28 +16,33 @@ public class ImageCache {
         return cachedImages.object(forKey: url)
     }
     
-    final func fetchImage(urlString: String, imageView: UIImageView) {
-        if let url = URL(string: urlString) {
-            let getDataTask = URLSession.shared.dataTask(with: url) { data, _,  error in
-                guard let data = data, error == nil else {
-                    return
+    final func fetchImage(urlString: String, imageView: UIImageView, spiner: UIActivityIndicatorView) {
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        
+        let getDataTask = URLSession.shared.dataTask(with: url) { data, _,  error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            if let cachedImage = self.image(url: urlString as NSString ) {
+                DispatchQueue.main.async {
+                    imageView.image = cachedImage
+                    spiner.stopAnimating()
                 }
-                
-                if let cachedImage = self.image(url: urlString as NSString ) {
-                    DispatchQueue.main.async {
-                        imageView.image = cachedImage
-                    }
-                    return
-                }
-                if let image = UIImage(data: data) {
-                    self.cachedImages.setObject(image, forKey: urlString as NSString)
-                    DispatchQueue.main.async {
-                        imageView.image = image
-                    }
+                return
+            }
+            if let image = UIImage(data: data) {
+                self.cachedImages.setObject(image, forKey: urlString as NSString)
+                DispatchQueue.main.async {
+                    imageView.image = image
+                    spiner.stopAnimating()
                 }
             }
-
-            getDataTask.resume()
         }
+        
+        getDataTask.resume()
+        
     }
 }
