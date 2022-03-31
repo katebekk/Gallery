@@ -49,7 +49,7 @@ class GalleryViewController: UIViewController {
         self.init(galleryItemsList: [], title: "")
     }
     
-    init(galleryItemsList:[GalleryItem], title: String) {
+    init(galleryItemsList: [GalleryItem], title: String) {
         self.galleryImagesInitialState = galleryItemsList
         self.galleryImagesCurrentState = galleryItemsList
         self.pageTitle = title
@@ -160,5 +160,5 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return spacing
     }
-
+    
 }

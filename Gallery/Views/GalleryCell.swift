@@ -23,7 +23,7 @@ final class GalleryCell: UICollectionViewCell {
         didSet {
             spiner.startAnimating()
             if let imageSourseUrl = galleryItem?.imageSourseUrl {
-                ImageCache.publicCache.fetchImage(urlString: imageSourseUrl, imageView: galleryImageView, spiner: spiner)
+                ImageCache.shared.fetchImage(urlString: imageSourseUrl, imageView: galleryImageView, spiner: spiner)
             }
             else if let image = galleryItem?.imageName {
                 galleryImageView.image = UIImage(named: image)

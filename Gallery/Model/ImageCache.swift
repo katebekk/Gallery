@@ -9,10 +9,12 @@ import Foundation
 import UIKit
 
 public class ImageCache {
-    public static let publicCache = ImageCache()
+    static let shared = ImageCache()
     private let cachedImages = NSCache<NSString, UIImage>()
     
-    public final func image(url: NSString) -> UIImage? {
+    private init(){}
+    
+    private func image(url: NSString) -> UIImage? {
         return cachedImages.object(forKey: url)
     }
     
