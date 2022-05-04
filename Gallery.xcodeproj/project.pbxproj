@@ -13,7 +13,6 @@
 		C09ED72627E029D700460FDE /* GalleryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09ED72527E029D700460FDE /* GalleryItem.swift */; };
 		C0BF55B227CC503D00D8C7B4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BF55B127CC503D00D8C7B4 /* ImageCache.swift */; };
 		C0FBCB0E27AFE2A70078C90D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FBCB0D27AFE2A70078C90D /* AppDelegate.swift */; };
-		C0FBCB1027AFE2A70078C90D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FBCB0F27AFE2A70078C90D /* SceneDelegate.swift */; };
 		C0FBCB1227AFE2A70078C90D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FBCB1127AFE2A70078C90D /* MenuViewController.swift */; };
 		C0FBCB1527AFE2A70078C90D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0FBCB1327AFE2A70078C90D /* Main.storyboard */; };
 		C0FBCB1727AFE2A80078C90D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0FBCB1627AFE2A80078C90D /* Assets.xcassets */; };
@@ -40,7 +39,6 @@
 		C0BF55B127CC503D00D8C7B4 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		C0FBCB0A27AFE2A70078C90D /* Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0FBCB0D27AFE2A70078C90D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C0FBCB0F27AFE2A70078C90D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C0FBCB1127AFE2A70078C90D /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		C0FBCB1427AFE2A70078C90D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0FBCB1627AFE2A80078C90D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 				C0FBCB2227AFE2C20078C90D /* Model */,
 				C0FBCB2127AFE2B00078C90D /* Views */,
 				C0FBCB0D27AFE2A70078C90D /* AppDelegate.swift */,
-				C0FBCB0F27AFE2A70078C90D /* SceneDelegate.swift */,
 				C0FBCB1327AFE2A70078C90D /* Main.storyboard */,
 				C0FBCB1627AFE2A80078C90D /* Assets.xcassets */,
 				C0FBCB1827AFE2A80078C90D /* LaunchScreen.storyboard */,
@@ -250,7 +247,6 @@
 				C0FBCB1227AFE2A70078C90D /* MenuViewController.swift in Sources */,
 				C0FBCB0E27AFE2A70078C90D /* AppDelegate.swift in Sources */,
 				C0869A0427E40DB000BF5ED8 /* MenuButton.swift in Sources */,
-				C0FBCB1027AFE2A70078C90D /* SceneDelegate.swift in Sources */,
 				C0BF55B227CC503D00D8C7B4 /* ImageCache.swift in Sources */,
 				C0FBCB2727AFE5F60078C90D /* GalleryCell.swift in Sources */,
 			);
@@ -383,7 +379,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -438,7 +434,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

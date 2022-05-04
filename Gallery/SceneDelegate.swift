@@ -7,6 +7,7 @@
 
 import UIKit
 
+@available(iOS 13.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -14,14 +15,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene)
-        window?.backgroundColor = UIColor.white
-        
-        let viewController = MenuViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
-        
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
+//        window = UIWindow(windowScene: windowScene)
+//        window?.backgroundColor = UIColor.white
+//
+//        let viewController = MenuViewController()
+//        let navigationController = UINavigationController(rootViewController: viewController)
+//
+//        window?.rootViewController = navigationController
+//        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -51,7 +52,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
 
 }
 
