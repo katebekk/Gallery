@@ -42,9 +42,10 @@ final class GalleryCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // MARK: - Functions
-    private func setupViews() {
+}
+
+private extension GalleryCell {
+    func setupViews() {
         contentView.clipsToBounds = true
         contentView.backgroundColor = .gray
         contentView.layer.cornerRadius = contentViewCornerRadius
@@ -52,7 +53,7 @@ final class GalleryCell: UICollectionViewCell {
         contentView.addSubview(galleryImageView)
     }
     
-    private func setupLayouts() {
+    func setupLayouts() {
         spiner.translatesAutoresizingMaskIntoConstraints = false
         galleryImageView.translatesAutoresizingMaskIntoConstraints = false
         

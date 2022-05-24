@@ -24,18 +24,9 @@ final class GalleryViewController: UIViewController {
     
     private let refresh: UIRefreshControl = {
         let refresh = UIRefreshControl()
-        refresh.addTarget(self, action: #selector(handelRefresh), for: .allEvents)
+        refresh.addTarget(self, action: #selector(handleRefresh), for: .allEvents)
         return refresh
     }()
-    
-    @objc private func handelRefresh(sender: UIRefreshControl) {
-        galleryImagesCurrentState = galleryImagesInitialState
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            let indexSet = IndexSet(integer: 0)
-            self.collectionView.reloadSections(indexSet)
-            self.refresh.endRefreshing()
-        }
-    }
     
     // MARK: - Life Cycles
     override func viewDidLoad() {
@@ -59,26 +50,6 @@ final class GalleryViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Functions
-    private func setupViews() {
-        view.addSubview(collectionView)
-        collectionView.refreshControl = refresh
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(GalleryCell.self, forCellWithReuseIdentifier: cellIdentifier)
-    }
-    
-    private func setupLayouts() {
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-        ])
     }
     
     override func viewDidLayoutSubviews() {
@@ -158,5 +129,36 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return spacing
+    }
+}
+
+// MARK: - Private
+private extension GalleryViewController {
+    @objc func handleRefresh(sender: UIRefreshControl) {
+        galleryImagesCurrentState = galleryImagesInitialState
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            let indexSet = IndexSet(integer: 0)
+            self.collectionView.reloadSections(indexSet)
+            self.refresh.endRefreshing()
+        }
+    }
+    
+    func setupViews() {
+        view.addSubview(collectionView)
+        collectionView.refreshControl = refresh
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(GalleryCell.self, forCellWithReuseIdentifier: cellIdentifier)
+    }
+    
+    func setupLayouts() {
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+        ])
     }
 }

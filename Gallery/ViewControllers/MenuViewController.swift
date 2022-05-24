@@ -20,30 +20,32 @@ final class MenuViewController: UIViewController {
         setupButtons()
         setupLayouts()
     }
+}
+
+// MARK: - Private
+private extension MenuViewController {
+    @objc func goToCityGalleryView(sender: UIButton) {
+        let viewController = GalleryViewController(galleryItemsList: GalleryItem.imagesCityUrls, title: "Города")
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
     
-    // MARK: - Functions
-    private func setupViews() {
+    @objc func goToCatsGalleryView(sender: UIButton) {
+        let viewController = GalleryViewController(galleryItemsList: GalleryItem.imagesCatsUrls, title: "Коты")
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func setupViews() {
         view.backgroundColor = .white
         view.addSubview(galleryCityButton)
         view.addSubview(galleryCatsButton)
     }
     
-    private func setupButtons() {
+    func setupButtons() {
         galleryCityButton.addTarget(self, action: #selector(goToCityGalleryView), for: .touchUpInside)
         galleryCatsButton.addTarget(self, action: #selector(goToCatsGalleryView), for: .touchUpInside)
     }
     
-    @objc private func goToCityGalleryView(sender: UIButton) {
-        let viewController = GalleryViewController(galleryItemsList: GalleryItem.imagesCityUrls, title: "Города")
-        self.navigationController?.pushViewController(viewController, animated: true)
-    }
-    
-    @objc private func goToCatsGalleryView(sender: UIButton) {
-        let viewController = GalleryViewController(galleryItemsList: GalleryItem.imagesCatsUrls, title: "Коты")
-        self.navigationController?.pushViewController(viewController, animated: true)
-    }
-    
-    private func setupLayouts() {
+    func setupLayouts() {
         galleryCityButton.translatesAutoresizingMaskIntoConstraints = false
         galleryCatsButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -60,4 +62,5 @@ final class MenuViewController: UIViewController {
         ])
     }
 }
+
 

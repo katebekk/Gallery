@@ -14,10 +14,6 @@ final class ImageCache {
     
     private init(){}
     
-    private func image(url: NSString) -> UIImage? {
-        return cachedImages.object(forKey: url)
-    }
-    
     final func fetchImage(urlString: String, imageView: UIImageView, spiner: UIActivityIndicatorView) {
         guard let url = URL(string: urlString) else {
             return
@@ -45,5 +41,11 @@ final class ImageCache {
         }
         
         getDataTask.resume()
+    }
+}
+
+private extension ImageCache {
+    func image(url: NSString) -> UIImage? {
+        return cachedImages.object(forKey: url)
     }
 }
