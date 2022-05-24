@@ -35,5 +35,4 @@ extension GalleryItem {
         GalleryItem(imageSourseUrl: "https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"),
         GalleryItem(imageSourseUrl: "https://cdn.pixabay.com/photo/2016/02/10/16/37/cat-1192026_1280.jpg"),
     ]
-    
 }

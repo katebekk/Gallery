@@ -46,6 +46,5 @@ extension MenuButton {
             button.transform = transform
         }
     }
-    
 }
 

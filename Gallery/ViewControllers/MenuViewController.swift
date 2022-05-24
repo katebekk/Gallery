@@ -59,6 +59,5 @@ class MenuViewController: UIViewController {
             galleryCatsButton.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1/2),
         ])
     }
-    
 }
 

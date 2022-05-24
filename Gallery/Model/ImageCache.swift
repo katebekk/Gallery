@@ -28,7 +28,7 @@ public class ImageCache {
                 return
             }
             
-            if let cachedImage = self.image(url: urlString as NSString ) {
+            if let cachedImage = self.image(url: urlString as NSString) {
                 DispatchQueue.main.async {
                     imageView.image = cachedImage
                     spiner.stopAnimating()
@@ -45,6 +45,5 @@ public class ImageCache {
         }
         
         getDataTask.resume()
-        
     }
 }
