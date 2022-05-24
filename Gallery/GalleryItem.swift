@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GalleryItem {
+final class GalleryItem {
     var imageName: String?
     var imageSourseUrl: String?
     

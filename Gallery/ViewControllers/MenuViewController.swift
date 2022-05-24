@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+final class MenuViewController: UIViewController {
     // MARK: - Properties
     private var galleryCityButton = MenuButton(title: "Города", color: .gray)
     private var galleryCatsButton = MenuButton(title: "Коты", color: .systemPink)

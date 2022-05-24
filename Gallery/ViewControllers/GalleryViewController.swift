@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GalleryViewController: UIViewController {
+final class GalleryViewController: UIViewController {
     // MARK: - Properties
     private let galleryImagesInitialState: [GalleryItem]
     private var galleryImagesCurrentState: [GalleryItem]
