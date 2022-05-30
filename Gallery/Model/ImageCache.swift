@@ -13,8 +13,10 @@ final class ImageCache {
     private let cachedImages = NSCache<NSString, UIImage>()
     
     private init(){}
-    
-    final func fetchImage(urlString: String, imageView: UIImageView, spiner: UIActivityIndicatorView) {
+}
+
+extension ImageCache {
+    func fetchImage(urlString: String, imageView: UIImageView, spiner: UIActivityIndicatorView) {
         guard let url = URL(string: urlString) else {
             return
         }
@@ -24,7 +26,7 @@ final class ImageCache {
                 return
             }
             
-            if let cachedImage = self.image(url: urlString as NSString) {
+            if let cachedImage = self.getImageFromCache(url: urlString as NSString) {
                 DispatchQueue.main.async {
                     imageView.image = cachedImage
                     spiner.stopAnimating()
@@ -45,7 +47,7 @@ final class ImageCache {
 }
 
 private extension ImageCache {
-    func image(url: NSString) -> UIImage? {
+    func getImageFromCache(url: NSString) -> UIImage? {
         return cachedImages.object(forKey: url)
     }
 }

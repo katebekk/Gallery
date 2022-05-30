@@ -8,29 +8,15 @@
 import UIKit
 
 final class GalleryCell: UICollectionViewCell {
-    // MARK: - Properties
-    private let contentViewCornerRadius = 4.0
-    private let spiner = UIActivityIndicatorView()
-    
-    private let galleryImageView: UIImageView = {
-        let imageView = UIImageView(frame: .zero)
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        return imageView
-    }()
-    
-    var galleryItem: GalleryItem? {
-        didSet {
-            spiner.startAnimating()
-            if let imageSourseUrl = galleryItem?.imageSourseUrl {
-                ImageCache.shared.fetchImage(urlString: imageSourseUrl, imageView: galleryImageView, spiner: spiner)
-            }
-            else if let image = galleryItem?.imageName {
-                galleryImageView.image = UIImage(named: image)
-                spiner.stopAnimating()
-            }
-        }
+    private enum Constants {
+        static let contentViewCornerRadius = 4.0
+        static let backgroundColor = UIColor.gray
     }
+    
+    // MARK: - Properties
+    private let spiner: UIActivityIndicatorView = UIActivityIndicatorView()
+    private let galleryImageView: UIImageView = UIImageView()
+    private var galleryItem: GalleryItem?
     
     // MARK: - Life Cycles
     override init(frame: CGRect) {
@@ -44,12 +30,29 @@ final class GalleryCell: UICollectionViewCell {
     }
 }
 
+extension GalleryCell {
+    func setGalleryItem(galleryItem: GalleryItem) {
+        if let imageSourseUrl = galleryItem.imageSourseUrl {
+            ImageCache.shared.fetchImage(urlString: imageSourseUrl, imageView: galleryImageView, spiner: spiner)
+        }
+        else if let image = galleryItem.imageName {
+            galleryImageView.image = UIImage(named: image)
+            spiner.stopAnimating()
+        }
+    }
+}
+
 private extension GalleryCell {
     func setupViews() {
         contentView.clipsToBounds = true
-        contentView.backgroundColor = .gray
-        contentView.layer.cornerRadius = contentViewCornerRadius
+        contentView.backgroundColor = Constants.backgroundColor
+        contentView.layer.cornerRadius = Constants.contentViewCornerRadius
         contentView.addSubview(spiner)
+        spiner.startAnimating()
+        
+        galleryImageView.frame = .zero
+        galleryImageView.contentMode = .scaleAspectFill
+        galleryImageView.clipsToBounds = true
         contentView.addSubview(galleryImageView)
     }
     

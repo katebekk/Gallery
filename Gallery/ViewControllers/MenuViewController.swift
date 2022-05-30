@@ -8,14 +8,23 @@
 import UIKit
 
 final class MenuViewController: UIViewController {
+    private enum Constants {
+        static let menuViewTitle = "Меню"
+        static let cityTitle = "Города"
+        static let catsTitle = "Коты"
+        
+        static let cityButtonColor = UIColor.gray
+        static let catsButtonColor = UIColor.systemPink
+    }
+    
     // MARK: - Properties
-    private var galleryCityButton = MenuButton(title: "Города", color: .gray)
-    private var galleryCatsButton = MenuButton(title: "Коты", color: .systemPink)
+    private var galleryCityButton = MenuButton(title: Constants.cityTitle, color: Constants.cityButtonColor)
+    private var galleryCatsButton = MenuButton(title: Constants.catsTitle, color: Constants.catsButtonColor)
     
     // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Меню"
+        title = Constants.menuViewTitle
         setupViews()
         setupButtons()
         setupLayouts()
@@ -25,13 +34,13 @@ final class MenuViewController: UIViewController {
 // MARK: - Private
 private extension MenuViewController {
     @objc func goToCityGalleryView(sender: UIButton) {
-        let viewController = GalleryViewController(galleryItemsList: GalleryItem.imagesCityUrls, title: "Города")
-        self.navigationController?.pushViewController(viewController, animated: true)
+        let viewController = GalleryViewController(galleryItemsList: GalleryItem.imagesCityUrls, title: Constants.cityTitle)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     @objc func goToCatsGalleryView(sender: UIButton) {
-        let viewController = GalleryViewController(galleryItemsList: GalleryItem.imagesCatsUrls, title: "Коты")
-        self.navigationController?.pushViewController(viewController, animated: true)
+        let viewController = GalleryViewController(galleryItemsList: GalleryItem.imagesCatsUrls, title: Constants.catsTitle)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     func setupViews() {

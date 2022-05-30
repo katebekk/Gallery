@@ -8,11 +8,18 @@
 import UIKit
 
 final class MenuButton: UIButton {
+    private enum Constants {
+        static let width = 100
+        static let height = 100
+        static let cornerRadius = 5.0
+        static let scale = 0.95
+    }
+    
     init(title: String, color: UIColor) {
-        super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        super.init(frame: CGRect(x: 0, y: 0, width: Constants.width, height: Constants.height))
         self.setTitle(title, for: .normal)
         self.backgroundColor = color
-        self.layer.cornerRadius = 5.0
+        self.layer.cornerRadius = Constants.cornerRadius
         self.setTitleColor(.white, for: .normal)
         self.startAnimatingPressActions()
     }
@@ -30,7 +37,7 @@ private extension MenuButton {
     }
     
     @objc func animateDown(sender: UIButton) {
-        animate(sender, transform: CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95))
+        animate(sender, transform: CGAffineTransform.identity.scaledBy(x: Constants.scale, y: Constants.scale))
     }
     
     @objc func animateUp(sender: UIButton) {

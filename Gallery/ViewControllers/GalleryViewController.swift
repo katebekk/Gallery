@@ -8,24 +8,28 @@
 import UIKit
 
 final class GalleryViewController: UIViewController {
+    private enum Constants {
+        static let cellIdentifier = "Cell"
+        
+        static let spacing = 10.0
+        static let highlightedItemOpacity: Float = 0.9
+        static let cellBackgroundColor = UIColor.gray
+        
+        static let refreshDuration = 1.0
+        static let сellAnimationDuration = 1.0
+    }
+    
     // MARK: - Properties
     private let galleryImagesInitialState: [GalleryItem]
-    private var galleryImagesCurrentState: [GalleryItem]
+    private lazy var galleryImagesCurrentState: [GalleryItem] = galleryImagesInitialState
+    private let refresh: UIRefreshControl = UIRefreshControl()
     private let pageTitle: String
-    private let cellIdentifier = "Cell"
-    private let spacing = 10.0
     
     private let collectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
         collectionView.alwaysBounceVertical = true
         return collectionView
-    }()
-    
-    private let refresh: UIRefreshControl = {
-        let refresh = UIRefreshControl()
-        refresh.addTarget(self, action: #selector(handleRefresh), for: .allEvents)
-        return refresh
     }()
     
     // MARK: - Life Cycles
@@ -42,7 +46,6 @@ final class GalleryViewController: UIViewController {
     
     init(galleryItemsList: [GalleryItem], title: String) {
         self.galleryImagesInitialState = galleryItemsList
-        self.galleryImagesCurrentState = galleryItemsList
         self.pageTitle = title
         
         super.init(nibName: nil, bundle: nil)
@@ -71,9 +74,9 @@ extension GalleryViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! GalleryCell
-        cell.contentView.backgroundColor = .gray
-        cell.galleryItem = galleryImagesCurrentState[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! GalleryCell
+        cell.contentView.backgroundColor = Constants.cellBackgroundColor
+        cell.setGalleryItem(galleryItem: galleryImagesCurrentState[indexPath.row])
         return cell
     }
 }
@@ -84,13 +87,13 @@ extension GalleryViewController: UICollectionViewDelegate {
         guard let collectionViewCell = collectionView.cellForItem(at: indexPath) as? GalleryCell else {
             return
         }
-        UIView.animate(withDuration: 1, delay: 0) {
-            collectionViewCell.frame.origin.x += collectionViewCell.frame.width + self.spacing
+        UIView.animate(withDuration: Constants.сellAnimationDuration, delay: 0) {
+            collectionViewCell.frame.origin.x += collectionViewCell.frame.width + Constants.spacing
             collectionViewCell.layer.opacity = 0
         }
         
         collectionView.isUserInteractionEnabled = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.сellAnimationDuration) {
             self.galleryImagesCurrentState.remove(at: indexPath.row)
             self.collectionView.deleteItems(at: [indexPath])
             self.collectionView.isUserInteractionEnabled = true
@@ -99,7 +102,7 @@ extension GalleryViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) {
-            cell.contentView.layer.opacity = 0.9
+            cell.contentView.layer.opacity = Constants.highlightedItemOpacity
         }
     }
     
@@ -113,22 +116,17 @@ extension GalleryViewController: UICollectionViewDelegate {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let width = view.frame.width - 2 * spacing
+        let width = view.frame.width - 2 * Constants.spacing
         
         return CGSize(width: width, height: width)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        return UIEdgeInsets(top: Constants.spacing, left: Constants.spacing, bottom: Constants.spacing, right: Constants.spacing)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return spacing
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return spacing
+        return Constants.spacing
     }
 }
 
@@ -136,7 +134,7 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
 private extension GalleryViewController {
     @objc func handleRefresh(sender: UIRefreshControl) {
         galleryImagesCurrentState = galleryImagesInitialState
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.refreshDuration) {
             let indexSet = IndexSet(integer: 0)
             self.collectionView.reloadSections(indexSet)
             self.refresh.endRefreshing()
@@ -145,10 +143,12 @@ private extension GalleryViewController {
     
     func setupViews() {
         view.addSubview(collectionView)
-        collectionView.refreshControl = refresh
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(GalleryCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.register(GalleryCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
+        
+        refresh.addTarget(self, action: #selector(handleRefresh), for: .allEvents)
+        collectionView.refreshControl = refresh
     }
     
     func setupLayouts() {
