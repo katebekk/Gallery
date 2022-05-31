@@ -63,6 +63,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C05B59CE2845928B00E820B1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C05B59CF2845929F00E820B1 /* ImageCacheService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C05B59CF2845929F00E820B1 /* ImageCacheService */ = {
+			isa = PBXGroup;
+			children = (
+				C0BF55B127CC503D00D8C7B4 /* ImageCache.swift */,
+			);
+			path = ImageCacheService;
+			sourceTree = "<group>";
+		};
 		C0869A0A27E4644300BF5ED8 /* GalleryTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +108,7 @@
 		C0FBCB0C27AFE2A70078C90D /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				C05B59CE2845928B00E820B1 /* Services */,
 				C0FBCB2327AFE2CD0078C90D /* ViewControllers */,
 				C0FBCB2227AFE2C20078C90D /* Model */,
 				C0FBCB2127AFE2B00078C90D /* Views */,
@@ -116,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				C09ED72527E029D700460FDE /* GalleryItem.swift */,
-				C0BF55B127CC503D00D8C7B4 /* ImageCache.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

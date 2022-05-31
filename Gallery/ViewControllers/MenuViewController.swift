@@ -65,7 +65,7 @@ private extension MenuViewController {
         ])
         
         NSLayoutConstraint.activate([
-            galleryCatsButton.topAnchor.constraint(equalTo: galleryCityButton.bottomAnchor,constant: 20),
+            galleryCatsButton.topAnchor.constraint(equalTo: galleryCityButton.bottomAnchor, constant: 20),
             galleryCatsButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             galleryCatsButton.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1/2),
         ])

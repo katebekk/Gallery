@@ -61,9 +61,9 @@ final class GalleryViewController: UIViewController {
     }
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        coordinator.animate(alongsideTransition: { context in
+        coordinator.animate { context in
             self.collectionView.collectionViewLayout.invalidateLayout()
-        })
+        }
     }
 }
 
