@@ -8,14 +8,14 @@
 import Foundation
 import UIKit
 
-final class ImageCache {
-    static let shared = ImageCache()
+final class ImageCacheService {
+    static let shared = ImageCacheService()
     private let cachedImages = NSCache<NSString, UIImage>()
     
     private init(){}
 }
 
-extension ImageCache {
+extension ImageCacheService {
     func fetchImage(urlString: String, imageView: UIImageView, spiner: UIActivityIndicatorView) {
         guard let url = URL(string: urlString) else {
             return
@@ -46,7 +46,7 @@ extension ImageCache {
     }
 }
 
-private extension ImageCache {
+private extension ImageCacheService {
     func getImageFromCache(url: NSString) -> UIImage? {
         return cachedImages.object(forKey: url)
     }

@@ -33,7 +33,7 @@ final class GalleryCell: UICollectionViewCell {
 extension GalleryCell {
     func setGalleryItem(galleryItem: GalleryItem) {
         if let imageSourseUrl = galleryItem.imageSourseUrl {
-            ImageCache.shared.fetchImage(urlString: imageSourseUrl, imageView: galleryImageView, spiner: spiner)
+            ImageCacheService.shared.fetchImage(urlString: imageSourseUrl, imageView: galleryImageView, spiner: spiner)
         }
         else if let image = galleryItem.imageName {
             galleryImageView.image = UIImage(named: image)
