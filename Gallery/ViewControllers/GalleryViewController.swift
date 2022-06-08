@@ -10,28 +10,31 @@ import UIKit
 final class GalleryViewController: UIViewController {
     private enum Constants {
         static let cellIdentifier = "Cell"
-        
+
         static let spacing = 10.0
         static let highlightedItemOpacity: Float = 0.9
         static let cellBackgroundColor = UIColor.gray
-        
+
         static let refreshDuration = 1.0
         static let сellAnimationDuration = 1.0
     }
-    
+
     // MARK: - Properties
     private let galleryImagesInitialState: [GalleryItem]
     private lazy var galleryImagesCurrentState: [GalleryItem] = galleryImagesInitialState
-    private let refresh: UIRefreshControl = UIRefreshControl()
     private let pageTitle: String
-    
+
+    private let refresh: UIRefreshControl = {
+        let refresh = UIRefreshControl()
+        return refresh
+    }()
     private let collectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
         collectionView.alwaysBounceVertical = true
         return collectionView
     }()
-    
+
     // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,29 +42,30 @@ final class GalleryViewController: UIViewController {
         setupViews()
         setupLayouts()
     }
-    
+
     convenience init() {
         self.init(galleryItemsList: [], title: "")
     }
-    
+
     init(galleryItemsList: [GalleryItem], title: String) {
         self.galleryImagesInitialState = galleryItemsList
         self.pageTitle = title
-        
+
         super.init(nibName: nil, bundle: nil)
     }
-    
+
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.collectionViewLayout.invalidateLayout()
     }
-    
+
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        coordinator.animate { context in
+        coordinator.animate { _ in
             self.collectionView.collectionViewLayout.invalidateLayout()
         }
     }
@@ -70,9 +74,9 @@ final class GalleryViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 extension GalleryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return galleryImagesCurrentState.count
+        galleryImagesCurrentState.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! GalleryCell
         cell.contentView.backgroundColor = Constants.cellBackgroundColor
@@ -91,7 +95,7 @@ extension GalleryViewController: UICollectionViewDelegate {
             collectionViewCell.frame.origin.x += collectionViewCell.frame.width + Constants.spacing
             collectionViewCell.layer.opacity = 0
         }
-        
+
         collectionView.isUserInteractionEnabled = false
         DispatchQueue.main.asyncAfter(deadline: .now() + Constants.сellAnimationDuration) {
             self.galleryImagesCurrentState.remove(at: indexPath.row)
@@ -99,13 +103,13 @@ extension GalleryViewController: UICollectionViewDelegate {
             self.collectionView.isUserInteractionEnabled = true
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) {
             cell.contentView.layer.opacity = Constants.highlightedItemOpacity
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) {
             cell.contentView.layer.opacity = 1
@@ -117,17 +121,15 @@ extension GalleryViewController: UICollectionViewDelegate {
 extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width - 2 * Constants.spacing
-        
+
         return CGSize(width: width, height: width)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: Constants.spacing, left: Constants.spacing, bottom: Constants.spacing, right: Constants.spacing)
+        UIEdgeInsets(top: Constants.spacing, left: Constants.spacing, bottom: Constants.spacing, right: Constants.spacing)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return Constants.spacing
-    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat { Constants.spacing }
 }
 
 // MARK: - Private
@@ -140,25 +142,25 @@ private extension GalleryViewController {
             self.refresh.endRefreshing()
         }
     }
-    
+
     func setupViews() {
         view.addSubview(collectionView)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(GalleryCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
-        
+
         refresh.addTarget(self, action: #selector(handleRefresh), for: .allEvents)
         collectionView.refreshControl = refresh
     }
-    
+
     func setupLayouts() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
 }

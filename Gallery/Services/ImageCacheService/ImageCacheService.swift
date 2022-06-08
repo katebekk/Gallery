@@ -11,8 +11,8 @@ import UIKit
 final class ImageCacheService {
     static let shared = ImageCacheService()
     private let cachedImages = NSCache<NSString, UIImage>()
-    
-    private init(){}
+
+    private init() {}
 }
 
 extension ImageCacheService {
@@ -20,12 +20,12 @@ extension ImageCacheService {
         guard let url = URL(string: urlString) else {
             return
         }
-        
-        let getDataTask = URLSession.shared.dataTask(with: url) { data, _,  error in
+
+        let getDataTask = URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data, error == nil else {
                 return
             }
-            
+
             if let cachedImage = self.getImageFromCache(url: urlString as NSString) {
                 DispatchQueue.main.async {
                     imageView.image = cachedImage
@@ -41,13 +41,13 @@ extension ImageCacheService {
                 }
             }
         }
-        
+
         getDataTask.resume()
     }
 }
 
 private extension ImageCacheService {
     func getImageFromCache(url: NSString) -> UIImage? {
-        return cachedImages.object(forKey: url)
+        cachedImages.object(forKey: url)
     }
 }
