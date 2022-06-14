@@ -10,7 +10,7 @@ import UIKit
 final class GalleryCell: UICollectionViewCell {
     private enum Constants {
         static let contentViewCornerRadius = 4.0
-        static let backgroundColor = UIColor.gray
+        static let backgroundColor: UIColor = .gray
     }
 
     // MARK: - Properties

@@ -17,11 +17,11 @@ final class MenuButton: UIButton {
 
     init(title: String, color: UIColor) {
         super.init(frame: CGRect(x: 0, y: 0, width: Constants.width, height: Constants.height))
-        self.setTitle(title, for: .normal)
-        self.backgroundColor = color
-        self.layer.cornerRadius = Constants.cornerRadius
-        self.setTitleColor(.white, for: .normal)
-        self.startAnimatingPressActions()
+        setTitle(title, for: .normal)
+        backgroundColor = color
+        layer.cornerRadius = Constants.cornerRadius
+        setTitleColor(.white, for: .normal)
+        setupTargets()
     }
 
     @available(*, unavailable)
@@ -32,7 +32,7 @@ final class MenuButton: UIButton {
 
 // MARK: - Button animation
 private extension MenuButton {
-    func startAnimatingPressActions() {
+    func setupTargets() {
         addTarget(self, action: #selector(animateDown), for: [.touchDown, .touchDragEnter])
         addTarget(self, action: #selector(animateUp), for: [.touchDragExit, .touchCancel, .touchUpInside, .touchUpOutside])
     }

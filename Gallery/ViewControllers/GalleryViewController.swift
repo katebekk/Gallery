@@ -13,7 +13,7 @@ final class GalleryViewController: UIViewController {
 
         static let spacing = 10.0
         static let highlightedItemOpacity: Float = 0.9
-        static let cellBackgroundColor = UIColor.gray
+        static let cellBackgroundColor: UIColor = .gray
 
         static let refreshDuration = 1.0
         static let сellAnimationDuration = 1.0
@@ -21,7 +21,7 @@ final class GalleryViewController: UIViewController {
 
     // MARK: - Properties
     private let galleryImagesInitialState: [GalleryItem]
-    private lazy var galleryImagesCurrentState: [GalleryItem] = galleryImagesInitialState
+    private var galleryImagesCurrentState: [GalleryItem]
     private let pageTitle: String
 
     private let refresh: UIRefreshControl = {
@@ -38,7 +38,7 @@ final class GalleryViewController: UIViewController {
     // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = pageTitle
+        title = pageTitle
         setupViews()
         setupLayouts()
     }
@@ -48,8 +48,9 @@ final class GalleryViewController: UIViewController {
     }
 
     init(galleryItemsList: [GalleryItem], title: String) {
-        self.galleryImagesInitialState = galleryItemsList
-        self.pageTitle = title
+        galleryImagesInitialState = galleryItemsList
+        galleryImagesCurrentState = galleryItemsList
+        pageTitle = title
 
         super.init(nibName: nil, bundle: nil)
     }

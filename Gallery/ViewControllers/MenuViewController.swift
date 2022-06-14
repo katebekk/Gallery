@@ -13,8 +13,8 @@ final class MenuViewController: UIViewController {
         static let cityTitle = "Города"
         static let catsTitle = "Коты"
 
-        static let cityButtonColor = UIColor.gray
-        static let catsButtonColor = UIColor.systemPink
+        static let cityButtonColor: UIColor = .gray
+        static let catsButtonColor: UIColor = .systemPink
     }
 
     // MARK: - Properties
