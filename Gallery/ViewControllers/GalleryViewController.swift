@@ -98,7 +98,8 @@ extension GalleryViewController: UICollectionViewDelegate {
         }
 
         collectionView.isUserInteractionEnabled = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.сellAnimationDuration) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.сellAnimationDuration) { [weak self] in
+            guard let self = self else { return }
             self.galleryImagesCurrentState.remove(at: indexPath.row)
             self.collectionView.deleteItems(at: [indexPath])
             self.collectionView.isUserInteractionEnabled = true
@@ -137,7 +138,8 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
 private extension GalleryViewController {
     @objc func handleRefresh(sender: UIRefreshControl) {
         galleryImagesCurrentState = galleryImagesInitialState
-        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.refreshDuration) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.refreshDuration) { [weak self] in
+            guard let self = self else { return }
             let indexSet = IndexSet(integer: 0)
             self.collectionView.reloadSections(indexSet)
             self.refresh.endRefreshing()
