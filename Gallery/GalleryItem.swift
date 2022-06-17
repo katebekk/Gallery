@@ -19,20 +19,20 @@ final class GalleryItem {
 
 extension GalleryItem {
     static let imagesCityUrls = [
-        GalleryItem(imageSourseUrl: "https://cdn.pixabay.com/photo/2017/08/31/05/36/buildings-2699520_1280.jpg"),
-        GalleryItem(imageSourseUrl: "https://cdn.pixabay.com/photo/2016/04/01/00/08/toronto-1298016_1280.jpg"),
-        GalleryItem(imageSourseUrl: "https://cdn.pixabay.com/photo/2016/01/19/19/26/amsterdam-1150319_1280.jpg"),
-        GalleryItem(imageSourseUrl: "https://cdn.pixabay.com/photo/2016/10/16/13/06/new-york-1745089_1280.jpg"),
-        GalleryItem(imageSourseUrl: "https://cdn.pixabay.com/photo/2016/10/28/13/09/usa-1777986_1280.jpg"),
-        GalleryItem(imageSourseUrl: "https://cdn.pixabay.com/photo/2015/03/11/12/31/buildings-668616_1280.jpg")
+        GalleryItem(imageSourseUrl: "https://img.freepik.com/free-photo/shiny-night-city_1127-8.jpg?w=800"),
+        GalleryItem(imageSourseUrl: "https://img.freepik.com/free-photo/low-angle-view-of-skyscrapers_1359-1105.jpg?w=800"),
+        GalleryItem(imageSourseUrl: "https://img.freepik.com/free-photo/chao-phraya-river-and-bangkok-cityscape-at-twilight_554837-817.jpg?w=800"),
+        GalleryItem(imageSourseUrl: "https://img.freepik.com/free-photo/the-skyscraper_1112-1088.jpg?w=800"),
+        GalleryItem(imageSourseUrl: "https://img.freepik.com/free-photo/buildings-and-highway-in-the-bund-of-shanghai-china_1112-6033.jpg?w=800"),
+        GalleryItem(imageSourseUrl: "https://img.freepik.com/free-photo/skyscraper-urban-view_1112-269.jpg?w=800")
     ]
 
     static let imagesCatsUrls = [
-        GalleryItem(imageSourseUrl: "https://cdn.pixabay.com/photo/2021/01/04/12/07/cat-5887341_1280.jpg"),
-        GalleryItem(imageSourseUrl: "https://cdn.pixabay.com/photo/2015/03/27/13/16/maine-coon-694730_1280.jpg"),
-        GalleryItem(imageSourseUrl: "https://cdn.pixabay.com/photo/2017/11/13/07/14/cats-eyes-2944820_1280.jpg"),
-        GalleryItem(imageSourseUrl: "https://cdn.pixabay.com/photo/2016/07/10/21/47/cat-1508613_1280.jpg"),
-        GalleryItem(imageSourseUrl: "https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"),
-        GalleryItem(imageSourseUrl: "https://cdn.pixabay.com/photo/2016/02/10/16/37/cat-1192026_1280.jpg")
+        GalleryItem(imageSourseUrl: "https://img.freepik.com/free-photo/the-red-or-white-cat-i-on-white-studio_155003-13189.jpg?w=900"),
+        GalleryItem(imageSourseUrl: "https://img.freepik.com/free-photo/gray-kitty-with-monochrome-wall-behind-her_23-2148955129.jpg"),
+        GalleryItem(imageSourseUrl: "https://img.freepik.com/free-photo/kitty-with-monochrome-wall-behind-her_23-2148955132.jpg?w=900"),
+        GalleryItem(imageSourseUrl: "https://img.freepik.com/free-photo/adorable-white-kitty-with-monochrome-wall-behind-her_23-2148955161.jpg?w=996"),
+        GalleryItem(imageSourseUrl: "https://img.freepik.com/free-photo/kitty-with-monochrome-wall-behind-her_23-2148955134.jpg?w=900"),
+        GalleryItem(imageSourseUrl: "https://img.freepik.com/free-photo/gorgeous-maine-coon-cat-looking-up-on-brown-studio-background-extreme-cute-looking-pet_482257-36557.jpg?w=900")
     ]
 }

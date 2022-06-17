@@ -42,13 +42,11 @@ extension GalleryCell {
         if let imageSourseUrl = galleryItem.imageSourseUrl {
             ImageCacheService.shared.fetchImage(
                 urlString: imageSourseUrl,
-                setImage: { [weak self] fetchedImage in
-                    guard let self = self else { return }
-                    self.galleryImageView.image = fetchedImage
+                setImageHandler: { [weak self] fetchedImage in
+                    self?.galleryImageView.image = fetchedImage
                 },
-                stopSpiner: { [weak self] in
-                    guard let self = self else { return }
-                    self.spiner.stopAnimating()
+                stopSpinerHandler: { [weak self] in
+                    self?.spiner.stopAnimating()
                 })
         } else if let image = galleryItem.imageName {
             galleryImageView.image = UIImage(named: image)
