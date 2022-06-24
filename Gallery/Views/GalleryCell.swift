@@ -21,12 +21,14 @@ final class GalleryCell: UICollectionViewCell {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+
         return imageView
     }()
 
     // MARK: - Life Cycles
     override init(frame: CGRect) {
         super.init(frame: .zero)
+
         setupViews()
         setupLayouts()
     }
@@ -40,14 +42,10 @@ final class GalleryCell: UICollectionViewCell {
 extension GalleryCell {
     func setGalleryItem(galleryItem: GalleryItem) {
         if let imageSourseUrl = galleryItem.imageSourseUrl {
-            ImageCacheService.shared.fetchImage(
-                urlString: imageSourseUrl,
-                setImageHandler: { [weak self] fetchedImage in
-                    self?.galleryImageView.image = fetchedImage
-                },
-                stopSpinerHandler: { [weak self] in
-                    self?.spiner.stopAnimating()
-                })
+            ImageCacheService.shared.fetchImage(urlString: imageSourseUrl) { [weak self] fetchedImage in
+                self?.galleryImageView.image = fetchedImage
+                self?.spiner.stopAnimating()
+            }
         } else if let image = galleryItem.imageName {
             galleryImageView.image = UIImage(named: image)
             spiner.stopAnimating()

@@ -16,7 +16,7 @@ final class ImageCacheService {
 }
 
 extension ImageCacheService {
-    func fetchImage(urlString: String, setImageHandler: @escaping (UIImage) -> Void, stopSpinerHandler: @escaping () -> Void) {
+    func fetchImage(urlString: String, completionHandler: @escaping (UIImage) -> Void) {
         guard let url = URL(string: urlString) else {
             return
         }
@@ -28,16 +28,14 @@ extension ImageCacheService {
 
             if let cachedImage = self?.getImageFromCache(url: urlString as NSString) {
                 DispatchQueue.main.async {
-                    setImageHandler(cachedImage)
-                    stopSpinerHandler()
+                    completionHandler(cachedImage)
                 }
                 return
             }
             if let image = UIImage(data: data) {
                 self?.cachedImages.setObject(image, forKey: urlString as NSString)
                 DispatchQueue.main.async {
-                    setImageHandler(image)
-                    stopSpinerHandler()
+                    completionHandler(image)
                 }
             }
         }

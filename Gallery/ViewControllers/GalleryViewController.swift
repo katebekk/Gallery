@@ -24,27 +24,22 @@ final class GalleryViewController: UIViewController {
     private var galleryImagesCurrentState: [GalleryItem]
     private let pageTitle: String
 
-    private let refresh: UIRefreshControl = {
-        let refresh = UIRefreshControl()
-        return refresh
-    }()
+    private let refresh = UIRefreshControl()
     private let collectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
         collectionView.alwaysBounceVertical = true
+
         return collectionView
     }()
 
     // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = pageTitle
+
+        setupSelf()
         setupViews()
         setupLayouts()
-    }
-
-    convenience init() {
-        self.init(galleryItemsList: [], title: "")
     }
 
     init(galleryItemsList: [GalleryItem], title: String) {
@@ -66,8 +61,8 @@ final class GalleryViewController: UIViewController {
     }
 
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        coordinator.animate { _ in
-            self.collectionView.collectionViewLayout.invalidateLayout()
+        coordinator.animate { [weak self] _ in
+            self?.collectionView.collectionViewLayout.invalidateLayout()
         }
     }
 }
@@ -82,6 +77,7 @@ extension GalleryViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! GalleryCell
         cell.contentView.backgroundColor = Constants.cellBackgroundColor
         cell.setGalleryItem(galleryItem: galleryImagesCurrentState[indexPath.row])
+
         return cell
     }
 }
@@ -92,6 +88,7 @@ extension GalleryViewController: UICollectionViewDelegate {
         guard let collectionViewCell = collectionView.cellForItem(at: indexPath) as? GalleryCell else {
             return
         }
+
         UIView.animate(withDuration: Constants.сellAnimationDuration, delay: 0) {
             collectionViewCell.frame.origin.x += collectionViewCell.frame.width + Constants.spacing
             collectionViewCell.layer.opacity = 0
@@ -100,6 +97,7 @@ extension GalleryViewController: UICollectionViewDelegate {
         collectionView.isUserInteractionEnabled = false
         DispatchQueue.main.asyncAfter(deadline: .now() + Constants.сellAnimationDuration) { [weak self] in
             guard let self = self else { return }
+
             self.galleryImagesCurrentState.remove(at: indexPath.row)
             self.collectionView.deleteItems(at: [indexPath])
             self.collectionView.isUserInteractionEnabled = true
@@ -131,23 +129,20 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
         UIEdgeInsets(top: Constants.spacing, left: Constants.spacing, bottom: Constants.spacing, right: Constants.spacing)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat { Constants.spacing }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        Constants.spacing
+    }
 }
 
 // MARK: - Private
 private extension GalleryViewController {
-    @objc func handleRefresh(sender: UIRefreshControl) {
-        galleryImagesCurrentState = galleryImagesInitialState
-        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.refreshDuration) { [weak self] in
-            guard let self = self else { return }
-            let indexSet = IndexSet(integer: 0)
-            self.collectionView.reloadSections(indexSet)
-            self.refresh.endRefreshing()
-        }
+    func setupSelf() {
+        title = pageTitle
     }
 
     func setupViews() {
         view.addSubview(collectionView)
+
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(GalleryCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
@@ -165,5 +160,16 @@ private extension GalleryViewController {
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
+    }
+
+    @objc func handleRefresh(sender: UIRefreshControl) {
+        galleryImagesCurrentState = galleryImagesInitialState
+        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.refreshDuration) { [weak self] in
+            guard let self = self else { return }
+
+            let indexSet = IndexSet(integer: 0)
+            self.collectionView.reloadSections(indexSet)
+            self.refresh.endRefreshing()
+        }
     }
 }
