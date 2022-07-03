@@ -23,7 +23,7 @@ final class MenuViewController: UIViewController {
     private let galleryCityButton = MenuButton(title: Constants.cityTitle, color: Constants.cityButtonColor)
     private let galleryCatsButton = MenuButton(title: Constants.catsTitle, color: Constants.catsButtonColor)
 
-    // MARK: - Life Cycles
+    // MARK: - LifeCycle
     init() {
         super.init(nibName: nil, bundle: nil)
 
@@ -40,7 +40,7 @@ final class MenuViewController: UIViewController {
 
         setupSelf()
         setupViews()
-        setupButtons()
+        setupActions()
         setupLayouts()
     }
 }
@@ -58,7 +58,7 @@ private extension MenuViewController {
         view.addSubview(galleryCatsButton)
     }
 
-    func setupButtons() {
+    func setupActions() {
         galleryCityButton.addTarget(self, action: #selector(galleryCityButtonTouchedSender), for: .touchUpInside)
         galleryCatsButton.addTarget(self, action: #selector(galleryCatsButtonTouchedSender), for: .touchUpInside)
     }
@@ -84,10 +84,10 @@ private extension MenuViewController {
 // MARK: - Actions
 private extension MenuViewController {
     @objc func galleryCityButtonTouchedSender(sender: UIButton) {
-        menuViewControllerRouter.presentGalleryView(galleryItemsList: GalleryItem.imagesCityUrls, title: Constants.cityTitle)
+        menuViewControllerRouter.presentGalleryView(galleryItems: GalleryItem.imagesCityUrls, title: Constants.cityTitle)
     }
 
     @objc func galleryCatsButtonTouchedSender(sender: UIButton) {
-        menuViewControllerRouter.presentGalleryView(galleryItemsList: GalleryItem.imagesCatsUrls, title: Constants.catsTitle)
+        menuViewControllerRouter.presentGalleryView(galleryItems: GalleryItem.imagesCatsUrls, title: Constants.catsTitle)
     }
 }

@@ -60,6 +60,7 @@ private extension GalleryCell {
         contentView.layer.cornerRadius = Constants.contentViewCornerRadius
         contentView.addSubview(spiner)
         contentView.addSubview(galleryImageView)
+
         spiner.startAnimating()
     }
 
