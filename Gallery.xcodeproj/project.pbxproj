@@ -11,6 +11,8 @@
 		A48D46F12B780624A3A4FEF5 /* Pods_Gallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AC376461F26EBD5A82C0DC /* Pods_Gallery.framework */; };
 		C0739CF02869708D006B8BB2 /* GalleryCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0739CEF2869708D006B8BB2 /* GalleryCollectionViewModel.swift */; };
 		C0739CF2286970B9006B8BB2 /* GalleryCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0739CF1286970B9006B8BB2 /* GalleryCollectionViewManager.swift */; };
+		C0845BB22872E6000082D035 /* GalleryItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0845BB12872E6000082D035 /* GalleryItemBuilder.swift */; };
+		C0845BB52872E7230082D035 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0845BB42872E7230082D035 /* GlobalConstants.swift */; };
 		C0869A0427E40DB000BF5ED8 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0869A0327E40DB000BF5ED8 /* MenuButton.swift */; };
 		C0869A0C27E4644300BF5ED8 /* GalleryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0869A0B27E4644300BF5ED8 /* GalleryTests.swift */; };
 		C09C23F227B238080059755D /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09C23F127B238080059755D /* GalleryViewController.swift */; };
@@ -40,6 +42,8 @@
 		3882D8BD2AC9866F4CB5DB16 /* Pods-GalleryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GalleryTests.release.xcconfig"; path = "Target Support Files/Pods-GalleryTests/Pods-GalleryTests.release.xcconfig"; sourceTree = "<group>"; };
 		C0739CEF2869708D006B8BB2 /* GalleryCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewModel.swift; sourceTree = "<group>"; };
 		C0739CF1286970B9006B8BB2 /* GalleryCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewManager.swift; sourceTree = "<group>"; };
+		C0845BB12872E6000082D035 /* GalleryItemBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryItemBuilder.swift; sourceTree = "<group>"; };
+		C0845BB42872E7230082D035 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		C0869A0327E40DB000BF5ED8 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		C0869A0927E4644300BF5ED8 /* GalleryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GalleryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0869A0B27E4644300BF5ED8 /* GalleryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryTests.swift; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 		C05B59CE2845928B00E820B1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C0845BB02872E5F30082D035 /* GalleryItemBuilder */,
 				C05B59CF2845929F00E820B1 /* ImageCacheService */,
 			);
 			path = Services;
@@ -111,6 +116,48 @@
 				C0739CF1286970B9006B8BB2 /* GalleryCollectionViewManager.swift */,
 			);
 			path = CollectionViewManeger;
+			sourceTree = "<group>";
+		};
+		C0845BB02872E5F30082D035 /* GalleryItemBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				C0845BB12872E6000082D035 /* GalleryItemBuilder.swift */,
+			);
+			path = GalleryItemBuilder;
+			sourceTree = "<group>";
+		};
+		C0845BB32872E6CF0082D035 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C0845BB42872E7230082D035 /* GlobalConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		C0845BB62872E8BE0082D035 /* MenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C0845BB82872E9140082D035 /* MenuViewControllerRouter */,
+				C0FBCB1127AFE2A70078C90D /* MenuViewController.swift */,
+			);
+			path = MenuViewController;
+			sourceTree = "<group>";
+		};
+		C0845BB72872E8E90082D035 /* GalleryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C0739CF3286BD43C006B8BB2 /* CollectionViewManeger */,
+				C09C23F127B238080059755D /* GalleryViewController.swift */,
+			);
+			path = GalleryViewController;
+			sourceTree = "<group>";
+		};
+		C0845BB82872E9140082D035 /* MenuViewControllerRouter */ = {
+			isa = PBXGroup;
+			children = (
+				C0B93DDF2865742200378B2B /* MenuViewControllerRouter.swift */,
+			);
+			path = MenuViewControllerRouter;
 			sourceTree = "<group>";
 		};
 		C0869A0A27E4644300BF5ED8 /* GalleryTests */ = {
@@ -144,6 +191,7 @@
 		C0FBCB0C27AFE2A70078C90D /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				C0845BB32872E6CF0082D035 /* Constants */,
 				C05B59CE2845928B00E820B1 /* Services */,
 				C0FBCB2327AFE2CD0078C90D /* ViewControllers */,
 				C0FBCB2227AFE2C20078C90D /* Model */,
@@ -176,10 +224,8 @@
 		C0FBCB2327AFE2CD0078C90D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C0739CF3286BD43C006B8BB2 /* CollectionViewManeger */,
-				C0FBCB1127AFE2A70078C90D /* MenuViewController.swift */,
-				C09C23F127B238080059755D /* GalleryViewController.swift */,
-				C0B93DDF2865742200378B2B /* MenuViewControllerRouter.swift */,
+				C0845BB72872E8E90082D035 /* GalleryViewController */,
+				C0845BB62872E8BE0082D035 /* MenuViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -378,7 +424,9 @@
 				C0869A0427E40DB000BF5ED8 /* MenuButton.swift in Sources */,
 				C0BF55B227CC503D00D8C7B4 /* ImageCacheService.swift in Sources */,
 				C0739CF02869708D006B8BB2 /* GalleryCollectionViewModel.swift in Sources */,
+				C0845BB22872E6000082D035 /* GalleryItemBuilder.swift in Sources */,
 				C0B93DE02865742200378B2B /* MenuViewControllerRouter.swift in Sources */,
+				C0845BB52872E7230082D035 /* GlobalConstants.swift in Sources */,
 				C0FBCB2727AFE5F60078C90D /* GalleryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
