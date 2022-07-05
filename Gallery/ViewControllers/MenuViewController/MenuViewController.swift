@@ -18,16 +18,19 @@ final class MenuViewController: UIViewController {
     }
 
     // MARK: - Properties
-    private var menuViewControllerRouter: MenuViewControllerRouter!
+    private var router: MenuViewControllerRouter!
+    private var galleryItemBuilder: GalleryItemBuilder
 
     private let galleryCityButton = MenuButton(title: Constants.cityTitle, color: Constants.cityButtonColor)
     private let galleryCatsButton = MenuButton(title: Constants.catsTitle, color: Constants.catsButtonColor)
 
     // MARK: - LifeCycle
     init() {
+        galleryItemBuilder = GalleryItemBuilder()
+
         super.init(nibName: nil, bundle: nil)
 
-        menuViewControllerRouter = MenuViewControllerRouter(menuViewController: self)
+        router = MenuViewControllerRouter(menuViewController: self)
     }
 
     @available(*, unavailable)
@@ -84,10 +87,12 @@ private extension MenuViewController {
 // MARK: - Actions
 private extension MenuViewController {
     @objc func galleryCityButtonTouchedSender(sender: UIButton) {
-        menuViewControllerRouter.presentGalleryView(galleryItems: GalleryItem.imagesCityUrls, title: Constants.cityTitle)
+        let items = galleryItemBuilder.buildItemsArray(urlStrings: GlobalConstants.сityImagesUrlStings)
+        router.presentGalleryView(items: items, title: Constants.cityTitle)
     }
 
     @objc func galleryCatsButtonTouchedSender(sender: UIButton) {
-        menuViewControllerRouter.presentGalleryView(galleryItems: GalleryItem.imagesCatsUrls, title: Constants.catsTitle)
+        let items = galleryItemBuilder.buildItemsArray(urlStrings: GlobalConstants.сatsImagesUrlStings)
+        router.presentGalleryView(items: items, title: Constants.catsTitle)
     }
 }

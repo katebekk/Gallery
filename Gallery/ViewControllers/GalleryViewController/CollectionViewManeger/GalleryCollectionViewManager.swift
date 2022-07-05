@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GalleryCollectionViewManager: NSObject {
+final class GalleryCollectionViewManager: NSObject {
     private enum Constants {
         static let spacing = 10.0
         static let highlightedItemOpacity: Float = 0.9
@@ -29,38 +29,20 @@ class GalleryCollectionViewManager: NSObject {
 
 // MARK: - Public
 extension GalleryCollectionViewManager {
-    func configure(items: [GalleryItem]) {
+    func updateItems(items: [GalleryItem]) {
         self.items = items
-        collectionViewModel.initWithArray(items: items)
-    }
-
-    func updateCollectionViewModelWithArray(items: [GalleryItem]) {
-        self.items = items
-        collectionViewModel.updateWithArray(items: items)
+        collectionViewModel.updateItems(items: items)
     }
 }
 
 // MARK: - UICollectionViewDelegate
 extension GalleryCollectionViewManager: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let collectionViewCell = collectionView.cellForItem(at: indexPath) as? GalleryCell else {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? GalleryCell else {
             return
         }
 
-        UIView.animate(withDuration: Constants.сellAnimationDuration, delay: 0) {
-            collectionViewCell.frame.origin.x += collectionViewCell.frame.width + Constants.spacing
-            collectionViewCell.layer.opacity = 0
-        }
-
-        collectionView.isUserInteractionEnabled = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.сellAnimationDuration) { [weak self] in
-            guard let self = self else { return }
-
-            self.items.remove(at: indexPath.row)
-            self.updateCollectionViewModelWithArray(items: self.items)
-            self.collectionView.deleteItems(at: [indexPath])
-            self.collectionView.isUserInteractionEnabled = true
-        }
+        deleteCell(cell, indexPath)
     }
 
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
@@ -90,5 +72,25 @@ extension GalleryCollectionViewManager: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         Constants.spacing
+    }
+}
+
+// MARK: - Private
+private extension GalleryCollectionViewManager {
+    func deleteCell(_ cell: GalleryCell, _ indexPath: IndexPath) {
+        UIView.animate(withDuration: Constants.сellAnimationDuration, delay: 0) {
+            cell.frame.origin.x += cell.frame.width + Constants.spacing
+            cell.layer.opacity = 0
+        }
+
+        collectionView.isUserInteractionEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.сellAnimationDuration) { [weak self] in
+            guard let self = self else { return }
+
+            self.items.remove(at: indexPath.row)
+            self.updateItems(items: self.items)
+            self.collectionView.deleteItems(at: [indexPath])
+            self.collectionView.isUserInteractionEnabled = true
+        }
     }
 }

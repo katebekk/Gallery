@@ -40,15 +40,10 @@ final class GalleryCell: UICollectionViewCell {
 }
 
 extension GalleryCell {
-    func setGalleryItem(galleryItem: GalleryItem) {
-        if let imageSourseUrl = galleryItem.imageSourseUrl {
-            ImageCacheService.shared.fetchImage(urlString: imageSourseUrl) { [weak self] fetchedImage in
-                self?.galleryImageView.image = fetchedImage
-                self?.spiner.stopAnimating()
-            }
-        } else if let image = galleryItem.imageName {
-            galleryImageView.image = UIImage(named: image)
-            spiner.stopAnimating()
+    func setItem(item: GalleryItem) {
+        ImageCacheService.shared.fetchImage(urlString: item.urlString) { [weak self] fetchedImage in
+            self?.galleryImageView.image = fetchedImage
+            self?.spiner.stopAnimating()
         }
     }
 }

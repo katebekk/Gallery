@@ -34,7 +34,6 @@ final class GalleryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupSelf()
         setupViews()
         setupActions()
         setupCollectionView()
@@ -46,7 +45,6 @@ final class GalleryViewController: UIViewController {
         pageTitle = title
 
         collectionViewManager = GalleryCollectionViewManager(collectionView: collectionView)
-        collectionViewManager.configure(items: galleryItems)
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -70,11 +68,8 @@ final class GalleryViewController: UIViewController {
 
 // MARK: - Private
 private extension GalleryViewController {
-    func setupSelf() {
-        title = pageTitle
-    }
-
     func setupViews() {
+        title = pageTitle
         view.addSubview(collectionView)
     }
 
@@ -83,6 +78,8 @@ private extension GalleryViewController {
     }
 
     func setupCollectionView() {
+        collectionViewManager.updateItems(items: galleryItems)
+
         collectionView.dataSource = collectionViewManager.collectionViewModel
         collectionView.delegate = collectionViewManager
         collectionView.register(GalleryCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
@@ -109,7 +106,8 @@ private extension GalleryViewController {
             guard let self = self else { return }
 
             let indexSet = IndexSet(integer: 0)
-            self.collectionViewManager.updateCollectionViewModelWithArray(items: self.galleryItems)
+            self.collectionViewManager.updateItems(items: self.galleryItems)
+            ImageCacheService.shared.cleanCache()
             self.collectionView.reloadSections(indexSet)
             self.refresh.endRefreshing()
         }

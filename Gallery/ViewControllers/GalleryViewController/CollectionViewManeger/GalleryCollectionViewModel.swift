@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GalleryCollectionViewModel: NSObject {
+final class GalleryCollectionViewModel: NSObject {
     private enum Constants {
         static let cellIdentifier = "Cell"
     }
@@ -15,11 +15,7 @@ class GalleryCollectionViewModel: NSObject {
     private var items: [GalleryItem] = []
 
     // MARK: - LifeCycle
-    func initWithArray(items: [GalleryItem]) {
-        self.items = items
-    }
-
-    func updateWithArray(items: [GalleryItem]) {
+    func updateItems(items: [GalleryItem]) {
         self.items = items
     }
 }
@@ -32,7 +28,7 @@ extension GalleryCollectionViewModel: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! GalleryCell
-        cell.setGalleryItem(galleryItem: items[indexPath.row])
+        cell.setItem(item: items[indexPath.row])
 
         return cell
     }
