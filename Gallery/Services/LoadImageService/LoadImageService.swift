@@ -8,15 +8,23 @@
 import Foundation
 import UIKit
 
-final class ImageCacheService {
-    static let shared = ImageCacheService()
+final class LoadImageService {
+    static let shared = LoadImageService()
     private let cachedImages = NSCache<NSString, UIImage>()
 
     private init() {}
 }
 
-extension ImageCacheService {
+extension LoadImageService {
     func fetchImage(urlString: String, completionHandler: @escaping (UIImage) -> Void) {
+        if let cachedImage = self.getImageFromCache(url: urlString as NSString) {
+            DispatchQueue.main.async {
+                completionHandler(cachedImage)
+            }
+
+            return
+        }
+
         guard let url = URL(string: urlString) else {
             return
         }
@@ -26,12 +34,6 @@ extension ImageCacheService {
                 return
             }
 
-            if let cachedImage = self?.getImageFromCache(url: urlString as NSString) {
-                DispatchQueue.main.async {
-                    completionHandler(cachedImage)
-                }
-                return
-            }
             if let image = UIImage(data: data) {
                 self?.cachedImages.setObject(image, forKey: urlString as NSString)
                 DispatchQueue.main.async {
@@ -42,9 +44,13 @@ extension ImageCacheService {
 
         getDataTask.resume()
     }
+
+    func clearCache() {
+        cachedImages.removeAllObjects()
+    }
 }
 
-private extension ImageCacheService {
+private extension LoadImageService {
     func getImageFromCache(url: NSString) -> UIImage? {
         cachedImages.object(forKey: url)
     }

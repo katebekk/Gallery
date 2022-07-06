@@ -17,6 +17,8 @@ final class GalleryCell: UICollectionViewCell {
     private let spiner = UIActivityIndicatorView()
     private var galleryItem: GalleryItem?
 
+    private let loadImageService = LoadImageService.shared
+
     private let galleryImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleAspectFill
@@ -40,8 +42,8 @@ final class GalleryCell: UICollectionViewCell {
 }
 
 extension GalleryCell {
-    func setItem(item: GalleryItem) {
-        ImageCacheService.shared.fetchImage(urlString: item.urlString) { [weak self] fetchedImage in
+    func set(galleryItem: GalleryItem) {
+        loadImageService.fetchImage(urlString: galleryItem.urlString) { [weak self] fetchedImage in
             self?.galleryImageView.image = fetchedImage
             self?.spiner.stopAnimating()
         }

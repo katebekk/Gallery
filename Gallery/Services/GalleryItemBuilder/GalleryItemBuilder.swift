@@ -9,11 +9,12 @@ import Foundation
 
 final class GalleryItemBuilder {
     func buildItemsArray(urlStrings: [String]) -> [GalleryItem] {
-        var galleryItems = [GalleryItem]()
+        var items = [GalleryItem]()
+
         for url in urlStrings {
-            galleryItems.append(GalleryItem(urlString: url))
+            items.append(GalleryItem(urlString: url))
         }
 
-        return galleryItems
+        return items
     }
 }

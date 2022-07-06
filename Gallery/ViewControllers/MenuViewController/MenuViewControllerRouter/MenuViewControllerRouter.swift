@@ -15,7 +15,7 @@ final class MenuViewControllerRouter {
     }
 
     func presentGalleryView(items: [GalleryItem], title: String) {
-        let galleryViewController = GalleryViewController(galleryItems: items, title: title)
+        let galleryViewController = GalleryViewController(items: items, title: title)
 
         viewController?.navigationController?.pushViewController(galleryViewController, animated: true)
     }

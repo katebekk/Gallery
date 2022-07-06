@@ -42,7 +42,7 @@ extension GalleryCollectionViewManager: UICollectionViewDelegate {
             return
         }
 
-        deleteCell(cell, indexPath)
+        deleteCell(cell, indexPath: indexPath)
     }
 
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
@@ -77,7 +77,7 @@ extension GalleryCollectionViewManager: UICollectionViewDelegateFlowLayout {
 
 // MARK: - Private
 private extension GalleryCollectionViewManager {
-    func deleteCell(_ cell: GalleryCell, _ indexPath: IndexPath) {
+    func deleteCell(_ cell: GalleryCell, indexPath: IndexPath) {
         UIView.animate(withDuration: Constants.сellAnimationDuration, delay: 0) {
             cell.frame.origin.x += cell.frame.width + Constants.spacing
             cell.layer.opacity = 0

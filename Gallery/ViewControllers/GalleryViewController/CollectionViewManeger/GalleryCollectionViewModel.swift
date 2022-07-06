@@ -28,7 +28,7 @@ extension GalleryCollectionViewModel: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! GalleryCell
-        cell.setItem(item: items[indexPath.row])
+        cell.set(galleryItem: items[indexPath.row])
 
         return cell
     }

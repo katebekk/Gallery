@@ -40,8 +40,8 @@ final class GalleryViewController: UIViewController {
         setupLayouts()
     }
 
-    init(galleryItems: [GalleryItem], title: String) {
-        self.galleryItems = galleryItems
+    init(items: [GalleryItem], title: String) {
+        self.galleryItems = items
         pageTitle = title
 
         collectionViewManager = GalleryCollectionViewManager(collectionView: collectionView)
@@ -106,8 +106,8 @@ private extension GalleryViewController {
             guard let self = self else { return }
 
             let indexSet = IndexSet(integer: 0)
+
             self.collectionViewManager.updateItems(items: self.galleryItems)
-            ImageCacheService.shared.cleanCache()
             self.collectionView.reloadSections(indexSet)
             self.refresh.endRefreshing()
         }
