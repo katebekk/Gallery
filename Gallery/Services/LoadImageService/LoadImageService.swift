@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 
 final class LoadImageService {
+    private enum Constants {
+        static let imageErrorMessage = "Не удалось загрузить изображение"
+    }
+
     static let shared = LoadImageService()
     private let cachedImages = NSCache<NSString, UIImage>()
 }
@@ -43,7 +47,7 @@ extension LoadImageService {
                 }
             } else {
                 DispatchQueue.main.async {
-                    completionHandler(nil, "Не удалось загрузить изображение")
+                    completionHandler(nil, Constants.imageErrorMessage)
                 }
             }
         }
