@@ -87,12 +87,12 @@ private extension MenuViewController {
 // MARK: - Actions
 private extension MenuViewController {
     @objc func galleryCityButtonTouchedSender(sender: UIButton) {
-        let items = galleryItemBuilder.buildItemsArray(urlStrings: GlobalConstants.сityImagesUrlStings)
+        let items = galleryItemBuilder.build(urlStrings: GlobalConstants.сityImagesUrlStings)
         router.presentGalleryView(items: items, title: Constants.cityTitle)
     }
 
     @objc func galleryCatsButtonTouchedSender(sender: UIButton) {
-        let items = galleryItemBuilder.buildItemsArray(urlStrings: GlobalConstants.сatsImagesUrlStings)
+        let items = galleryItemBuilder.build(urlStrings: GlobalConstants.сatsImagesUrlStings)
         router.presentGalleryView(items: items, title: Constants.catsTitle)
     }
 }

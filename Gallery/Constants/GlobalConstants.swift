@@ -10,8 +10,8 @@ import Foundation
 enum GlobalConstants {
     static let сityImagesUrlStings = [
         "https://img.freepik.com/free-photo/shiny-night-city_1127-8.jpg?w=800",
-        "https://img.freepik.com/free-photo/low-angle-view-of-skyscrapers_1359-1105.jpg?w=800",
-        "https://img.freepik.com/free-photo/chao-phraya-river-and-bangkok-cityscape-at-twilight_554837-817.jpg?w=800",
+        "https://freepik.com/free-photo/low-angle-view-of-skyscrapers_1359-1105.jpg?w=800",
+        "https://img.freepikree-photo/chao-phraya-river-and-bangkok-cityscape-at-twilight_554837-817.jpg?w=800",
         "https://img.freepik.com/free-photo/the-skyscraper_1112-1088.jpg?w=800",
         "https://img.freepik.com/free-photo/buildings-and-highway-in-the-bund-of-shanghai-china_1112-6033.jpg?w=800",
         "https://img.freepik.com/free-photo/skyscraper-urban-view_1112-269.jpg?w=800"

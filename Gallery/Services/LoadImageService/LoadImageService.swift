@@ -11,15 +11,13 @@ import UIKit
 final class LoadImageService {
     static let shared = LoadImageService()
     private let cachedImages = NSCache<NSString, UIImage>()
-
-    private init() {}
 }
 
 extension LoadImageService {
-    func fetchImage(urlString: String, completionHandler: @escaping (UIImage) -> Void) {
-        if let cachedImage = self.getImageFromCache(url: urlString as NSString) {
+    func fetchImage(urlString: String, completionHandler: @escaping (UIImage?, String?) -> Void) {
+        if let cachedImage = getImageFromCache(url: urlString as NSString) {
             DispatchQueue.main.async {
-                completionHandler(cachedImage)
+                completionHandler(cachedImage, nil)
             }
 
             return
@@ -31,13 +29,21 @@ extension LoadImageService {
 
         let getDataTask = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
             guard let data = data, error == nil else {
+                DispatchQueue.main.async {
+                    completionHandler(nil, error?.localizedDescription)
+                }
+
                 return
             }
 
             if let image = UIImage(data: data) {
                 self?.cachedImages.setObject(image, forKey: urlString as NSString)
                 DispatchQueue.main.async {
-                    completionHandler(image)
+                    completionHandler(image, nil)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completionHandler(nil, "Не удалось загрузить изображение")
                 }
             }
         }

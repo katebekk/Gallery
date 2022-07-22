@@ -78,7 +78,7 @@ private extension GalleryViewController {
     }
 
     func setupCollectionView() {
-        collectionViewManager.updateItems(items: galleryItems)
+        collectionViewManager.update(items: galleryItems)
 
         collectionView.dataSource = collectionViewManager.collectionViewModel
         collectionView.delegate = collectionViewManager
@@ -107,7 +107,7 @@ private extension GalleryViewController {
 
             let indexSet = IndexSet(integer: 0)
 
-            self.collectionViewManager.updateItems(items: self.galleryItems)
+            self.collectionViewManager.update(items: self.galleryItems)
             self.collectionView.reloadSections(indexSet)
             self.refresh.endRefreshing()
         }

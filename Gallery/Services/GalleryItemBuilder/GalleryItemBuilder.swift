@@ -8,7 +8,7 @@
 import Foundation
 
 final class GalleryItemBuilder {
-    func buildItemsArray(urlStrings: [String]) -> [GalleryItem] {
+    func build(urlStrings: [String]) -> [GalleryItem] {
         var items = [GalleryItem]()
 
         for url in urlStrings {

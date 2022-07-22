@@ -29,7 +29,7 @@ final class GalleryCollectionViewManager: NSObject {
 
 // MARK: - Public
 extension GalleryCollectionViewManager {
-    func updateItems(items: [GalleryItem]) {
+    func update(items: [GalleryItem]) {
         self.items = items
         collectionViewModel.updateItems(items: items)
     }
@@ -78,6 +78,7 @@ extension GalleryCollectionViewManager: UICollectionViewDelegateFlowLayout {
 // MARK: - Private
 private extension GalleryCollectionViewManager {
     func deleteCell(_ cell: GalleryCell, indexPath: IndexPath) {
+        collectionView.isUserInteractionEnabled = false
         UIView.animate(withDuration: Constants.сellAnimationDuration, delay: 0) {
             cell.frame.origin.x += cell.frame.width + Constants.spacing
             cell.layer.opacity = 0
@@ -88,7 +89,7 @@ private extension GalleryCollectionViewManager {
             guard let self = self else { return }
 
             self.items.remove(at: indexPath.row)
-            self.updateItems(items: self.items)
+            self.update(items: self.items)
             self.collectionView.deleteItems(at: [indexPath])
             self.collectionView.isUserInteractionEnabled = true
         }
