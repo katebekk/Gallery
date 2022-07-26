@@ -9,6 +9,6 @@ import Foundation
 
 final class GalleryItemBuilder {
     func build(urlStrings: [String]) -> [GalleryItem] {
-        urlStrings.map { GalleryItem(urlString: $0)}
+        urlStrings.map { GalleryItem(urlString: $0) }
     }
 }
