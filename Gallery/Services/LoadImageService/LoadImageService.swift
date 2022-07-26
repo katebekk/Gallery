@@ -9,16 +9,12 @@ import Foundation
 import UIKit
 
 final class LoadImageService {
-    private enum Constants {
-        static let imageErrorMessage = "Не удалось загрузить изображение"
-    }
-
     static let shared = LoadImageService()
     private let cachedImages = NSCache<NSString, UIImage>()
 }
 
 extension LoadImageService {
-    func fetchImage(urlString: String, completionHandler: @escaping (UIImage?, String?) -> Void) {
+    func fetchImage(urlString: String, completionHandler: @escaping (UIImage?, Error?) -> Void) {
         if let cachedImage = getImageFromCache(url: urlString as NSString) {
             DispatchQueue.main.async {
                 completionHandler(cachedImage, nil)
@@ -34,7 +30,7 @@ extension LoadImageService {
         let getDataTask = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
             guard let data = data, error == nil else {
                 DispatchQueue.main.async {
-                    completionHandler(nil, error?.localizedDescription)
+                    completionHandler(nil, error)
                 }
 
                 return
@@ -47,7 +43,7 @@ extension LoadImageService {
                 }
             } else {
                 DispatchQueue.main.async {
-                    completionHandler(nil, Constants.imageErrorMessage)
+                    completionHandler(nil, nil)
                 }
             }
         }

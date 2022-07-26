@@ -84,7 +84,6 @@ private extension GalleryCollectionViewManager {
             cell.layer.opacity = 0
         }
 
-        collectionView.isUserInteractionEnabled = false
         DispatchQueue.main.asyncAfter(deadline: .now() + Constants.сellAnimationDuration) { [weak self] in
             guard let self = self else { return }
 

@@ -13,6 +13,8 @@ final class GalleryCell: UICollectionViewCell {
         static let backgroundColor: UIColor = .gray
         static let textLinesNumber = 5
         static let textSpacing = -10.0
+
+        static let imageErrorMessage = "Не удалось загрузить изображение"
     }
 
     // MARK: - Properties
@@ -55,11 +57,11 @@ final class GalleryCell: UICollectionViewCell {
 
 extension GalleryCell {
     func set(galleryItem: GalleryItem) {
-        loadImageService.fetchImage(urlString: galleryItem.urlString) { [weak self] fetchedImage, errorMessage in
+        loadImageService.fetchImage(urlString: galleryItem.urlString) { [weak self] fetchedImage, error in
             self?.spinner.stopAnimating()
 
-            guard let image = fetchedImage, errorMessage == nil else {
-                self?.label.text = "⚠️ " + (errorMessage ?? "")
+            guard let image = fetchedImage, error == nil else {
+                self?.label.text = "⚠️ " + (error?.localizedDescription ?? Constants.imageErrorMessage)
 
                 return
             }
