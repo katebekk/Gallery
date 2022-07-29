@@ -18,44 +18,52 @@ final class MenuViewController: UIViewController {
     }
 
     // MARK: - Properties
-    private var galleryCityButton = MenuButton(title: Constants.cityTitle, color: Constants.cityButtonColor)
-    private var galleryCatsButton = MenuButton(title: Constants.catsTitle, color: Constants.catsButtonColor)
+    private var router: MenuViewControllerRouter!
+    private var galleryItemBuilder: GalleryItemBuilder
 
-    // MARK: - Life Cycles
+    private let galleryCityButton = MenuButton(title: Constants.cityTitle, color: Constants.cityButtonColor)
+    private let galleryCatsButton = MenuButton(title: Constants.catsTitle, color: Constants.catsButtonColor)
+
+    // MARK: - LifeCycle
+    init() {
+        galleryItemBuilder = GalleryItemBuilder()
+
+        super.init(nibName: nil, bundle: nil)
+
+        router = MenuViewControllerRouter(menuViewController: self)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Constants.menuViewTitle
+
+        setupSelf()
         setupViews()
-        setupButtons()
+        setupActions()
         setupLayouts()
     }
 }
 
 // MARK: - Private
 private extension MenuViewController {
-    @objc func goToCityGalleryView(sender: UIButton) {
-        let viewController = GalleryViewController(
-            galleryItemsList: GalleryItem.imagesCityUrls,
-            title: Constants.cityTitle)
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-
-    @objc func goToCatsGalleryView(sender: UIButton) {
-        let viewController = GalleryViewController(
-            galleryItemsList: GalleryItem.imagesCatsUrls,
-            title: Constants.catsTitle)
-        navigationController?.pushViewController(viewController, animated: true)
+    func setupSelf() {
+        title = Constants.menuViewTitle
     }
 
     func setupViews() {
         view.backgroundColor = .white
+
         view.addSubview(galleryCityButton)
         view.addSubview(galleryCatsButton)
     }
 
-    func setupButtons() {
-        galleryCityButton.addTarget(self, action: #selector(goToCityGalleryView), for: .touchUpInside)
-        galleryCatsButton.addTarget(self, action: #selector(goToCatsGalleryView), for: .touchUpInside)
+    func setupActions() {
+        galleryCityButton.addTarget(self, action: #selector(galleryCityButtonTouchedSender), for: .touchUpInside)
+        galleryCatsButton.addTarget(self, action: #selector(galleryCatsButtonTouchedSender), for: .touchUpInside)
     }
 
     func setupLayouts() {
@@ -73,5 +81,18 @@ private extension MenuViewController {
             galleryCatsButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             galleryCatsButton.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1 / 2)
         ])
+    }
+}
+
+// MARK: - Actions
+private extension MenuViewController {
+    @objc func galleryCityButtonTouchedSender(sender: UIButton) {
+        let items = galleryItemBuilder.build(urlStrings: GlobalConstants.сityImagesUrlStings)
+        router.presentGalleryView(items: items, title: Constants.cityTitle)
+    }
+
+    @objc func galleryCatsButtonTouchedSender(sender: UIButton) {
+        let items = galleryItemBuilder.build(urlStrings: GlobalConstants.сatsImagesUrlStings)
+        router.presentGalleryView(items: items, title: Constants.catsTitle)
     }
 }

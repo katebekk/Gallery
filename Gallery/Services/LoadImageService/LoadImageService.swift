@@ -8,45 +8,55 @@
 import Foundation
 import UIKit
 
-final class ImageCacheService {
-    static let shared = ImageCacheService()
+final class LoadImageService {
+    static let shared = LoadImageService()
     private let cachedImages = NSCache<NSString, UIImage>()
-
-    private init() {}
 }
 
-extension ImageCacheService {
-    func fetchImage(urlString: String, setImageHandler: @escaping (UIImage) -> Void, stopSpinerHandler: @escaping () -> Void) {
+extension LoadImageService {
+    func fetchImage(urlString: String, completionHandler: @escaping (UIImage?, Error?) -> Void) {
+        if let cachedImage = getImageFromCache(url: urlString as NSString) {
+            DispatchQueue.main.async {
+                completionHandler(cachedImage, nil)
+            }
+
+            return
+        }
+
         guard let url = URL(string: urlString) else {
             return
         }
 
         let getDataTask = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
             guard let data = data, error == nil else {
+                DispatchQueue.main.async {
+                    completionHandler(nil, error)
+                }
+
                 return
             }
 
-            if let cachedImage = self?.getImageFromCache(url: urlString as NSString) {
-                DispatchQueue.main.async {
-                    setImageHandler(cachedImage)
-                    stopSpinerHandler()
-                }
-                return
-            }
             if let image = UIImage(data: data) {
                 self?.cachedImages.setObject(image, forKey: urlString as NSString)
                 DispatchQueue.main.async {
-                    setImageHandler(image)
-                    stopSpinerHandler()
+                    completionHandler(image, nil)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completionHandler(nil, nil)
                 }
             }
         }
 
         getDataTask.resume()
     }
+
+    func clearCache() {
+        cachedImages.removeAllObjects()
+    }
 }
 
-private extension ImageCacheService {
+private extension LoadImageService {
     func getImageFromCache(url: NSString) -> UIImage? {
         cachedImages.object(forKey: url)
     }
