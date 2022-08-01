@@ -19,14 +19,14 @@ final class MenuViewController: UIViewController {
 
     // MARK: - Properties
     private var router: MenuViewControllerRouter!
-    private var galleryItemBuilder: GalleryItemBuilder
+    private var galleryItemBuilder: GalleryItemBuilderImpl
 
     private let galleryCityButton = MenuButton(title: Constants.cityTitle, color: Constants.cityButtonColor)
     private let galleryCatsButton = MenuButton(title: Constants.catsTitle, color: Constants.catsButtonColor)
 
     // MARK: - LifeCycle
     init() {
-        galleryItemBuilder = GalleryItemBuilder()
+        galleryItemBuilder = GalleryItemBuilderImpl()
 
         super.init(nibName: nil, bundle: nil)
 

@@ -21,7 +21,7 @@ final class GalleryCell: UICollectionViewCell {
     private let spinner = UIActivityIndicatorView()
     private var galleryItem: GalleryItem?
 
-    private let loadImageService = LoadImageService.shared
+    private let loadImageService = ImageLoaderImpl.shared
 
     private let label: UILabel = {
         let label = UILabel()

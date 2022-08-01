@@ -2,13 +2,11 @@
 //  GalleryItemBuilder.swift
 //  Gallery
 //
-//  Created by bekkerman on 04.07.2022.
+//  Created by bekkerman on 01.08.2022.
 //
 
 import Foundation
 
-final class GalleryItemBuilder {
-    func build(urlStrings: [String]) -> [GalleryItem] {
-        urlStrings.map { GalleryItem(urlString: $0) }
-    }
+protocol GalleryItemBuilder {
+    func build(urlStrings: [String]) -> [GalleryItem]
 }

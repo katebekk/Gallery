@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-final class LoadImageService {
-    static let shared = LoadImageService()
+final class ImageLoaderImpl: ImageLoader {
+    static let shared = ImageLoaderImpl()
     private let cachedImages = NSCache<NSString, UIImage>()
 }
 
-extension LoadImageService {
+extension ImageLoaderImpl {
     func fetchImage(urlString: String, completionHandler: @escaping (UIImage?, Error?) -> Void) {
         if let cachedImage = getImageFromCache(url: urlString as NSString) {
             DispatchQueue.main.async {
@@ -56,7 +56,7 @@ extension LoadImageService {
     }
 }
 
-private extension LoadImageService {
+private extension ImageLoaderImpl {
     func getImageFromCache(url: NSString) -> UIImage? {
         cachedImages.object(forKey: url)
     }
