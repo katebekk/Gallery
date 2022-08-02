@@ -9,7 +9,11 @@ import Foundation
 
 final class MenuViewAssembly {
     func assemble() -> MenuViewController {
-        let viewController = MenuViewController()
+        let router = MenuViewControllerRouter()
+        let builder = ServiceAssembly.shared.assembleGalleryItemBuilder()
+
+        let viewController = MenuViewController(router: router, builder: builder)
+
         return viewController
     }
 }

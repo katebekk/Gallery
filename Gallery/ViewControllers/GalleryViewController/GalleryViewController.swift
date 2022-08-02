@@ -16,8 +16,8 @@ final class GalleryViewController: UIViewController {
     }
 
     // MARK: - Properties
-    private let galleryItems: [GalleryItem]
-    private let pageTitle: String
+    private var galleryItems: [GalleryItem] = []
+    private var pageTitle: String = ""
 
     private let refresh = UIRefreshControl()
     private let collectionView: UICollectionView = {
@@ -28,7 +28,7 @@ final class GalleryViewController: UIViewController {
         return collectionView
     }()
 
-    private let collectionViewManager: GalleryCollectionViewManager
+    var collectionViewManager: GalleryCollectionViewManager!
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -40,11 +40,8 @@ final class GalleryViewController: UIViewController {
         setupLayouts()
     }
 
-    init(items: [GalleryItem], title: String) {
-        self.galleryItems = items
-        pageTitle = title
-
-        collectionViewManager = GalleryCollectionViewManager(collectionView: collectionView)
+    init(maneger: GalleryCollectionViewManager) {
+        collectionViewManager = maneger
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -66,8 +63,24 @@ final class GalleryViewController: UIViewController {
     }
 }
 
+// MARK: - Public
+extension GalleryViewController {
+    func configure(items: [GalleryItem], title: String) {
+        setItems(items)
+        setTitle(title)
+    }
+}
+
 // MARK: - Private
 private extension GalleryViewController {
+    func setTitle(_ title: String) {
+        self.pageTitle = title
+    }
+
+    func setItems(_ items: [GalleryItem]) {
+        self.galleryItems = items
+    }
+
     func setupViews() {
         title = pageTitle
         view.addSubview(collectionView)

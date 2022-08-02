@@ -12,9 +12,15 @@ final class GalleryCollectionViewModel: NSObject {
         static let cellIdentifier = "Cell"
     }
 
+    private var loader: ImageLoader!
+
     private var items: [GalleryItem] = []
 
     // MARK: - LifeCycle
+    init(loader: ImageLoader) {
+        self.loader = loader
+    }
+
     func updateItems(items: [GalleryItem]) {
         self.items = items
     }
@@ -28,7 +34,8 @@ extension GalleryCollectionViewModel: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! GalleryCell
-        cell.set(galleryItem: items[indexPath.row])
+
+        cell.set(galleryItem: items[indexPath.row], loader: loader)
 
         return cell
     }

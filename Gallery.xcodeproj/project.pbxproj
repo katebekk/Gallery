@@ -13,6 +13,7 @@
 		C058AC8C28975FC300EDE2D3 /* GalleryItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058AC8B28975FC300EDE2D3 /* GalleryItemBuilder.swift */; };
 		C058AC8F2897652C00EDE2D3 /* MenuViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058AC8E2897652C00EDE2D3 /* MenuViewAssembly.swift */; };
 		C058AC9128976AEC00EDE2D3 /* GalleryViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058AC9028976AEC00EDE2D3 /* GalleryViewAssembly.swift */; };
+		C058AC9628976FE300EDE2D3 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058AC9528976FE300EDE2D3 /* ServiceAssembly.swift */; };
 		C0739CF02869708D006B8BB2 /* GalleryCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0739CEF2869708D006B8BB2 /* GalleryCollectionViewModel.swift */; };
 		C0739CF2286970B9006B8BB2 /* GalleryCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0739CF1286970B9006B8BB2 /* GalleryCollectionViewManager.swift */; };
 		C0845BB22872E6000082D035 /* GalleryItemBuilderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0845BB12872E6000082D035 /* GalleryItemBuilderImpl.swift */; };
@@ -48,6 +49,7 @@
 		C058AC8B28975FC300EDE2D3 /* GalleryItemBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryItemBuilder.swift; sourceTree = "<group>"; };
 		C058AC8E2897652C00EDE2D3 /* MenuViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewAssembly.swift; sourceTree = "<group>"; };
 		C058AC9028976AEC00EDE2D3 /* GalleryViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewAssembly.swift; sourceTree = "<group>"; };
+		C058AC9528976FE300EDE2D3 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		C0739CEF2869708D006B8BB2 /* GalleryCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewModel.swift; sourceTree = "<group>"; };
 		C0739CF1286970B9006B8BB2 /* GalleryCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewManager.swift; sourceTree = "<group>"; };
 		C0845BB12872E6000082D035 /* GalleryItemBuilderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryItemBuilderImpl.swift; sourceTree = "<group>"; };
@@ -114,6 +116,22 @@
 				C058AC9028976AEC00EDE2D3 /* GalleryViewAssembly.swift */,
 			);
 			path = Assembly;
+			sourceTree = "<group>";
+		};
+		C058AC9328976D1800EDE2D3 /* GalleryCell */ = {
+			isa = PBXGroup;
+			children = (
+				C0FBCB2627AFE5F60078C90D /* GalleryCell.swift */,
+			);
+			path = GalleryCell;
+			sourceTree = "<group>";
+		};
+		C058AC9428976FA100EDE2D3 /* ApplicationAssembly */ = {
+			isa = PBXGroup;
+			children = (
+				C058AC9528976FE300EDE2D3 /* ServiceAssembly.swift */,
+			);
+			path = ApplicationAssembly;
 			sourceTree = "<group>";
 		};
 		C05B59CE2845928B00E820B1 /* Services */ = {
@@ -219,6 +237,7 @@
 		C0FBCB0C27AFE2A70078C90D /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				C058AC9428976FA100EDE2D3 /* ApplicationAssembly */,
 				C0845BB32872E6CF0082D035 /* Constants */,
 				C05B59CE2845928B00E820B1 /* Services */,
 				C0FBCB2327AFE2CD0078C90D /* ViewControllers */,
@@ -235,7 +254,7 @@
 		C0FBCB2127AFE2B00078C90D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C0FBCB2627AFE5F60078C90D /* GalleryCell.swift */,
+				C058AC9328976D1800EDE2D3 /* GalleryCell */,
 				C0869A0327E40DB000BF5ED8 /* MenuButton.swift */,
 			);
 			path = Views;
@@ -458,6 +477,7 @@
 				C0845BB52872E7230082D035 /* GlobalConstants.swift in Sources */,
 				C058AC8C28975FC300EDE2D3 /* GalleryItemBuilder.swift in Sources */,
 				C0FBCB2727AFE5F60078C90D /* GalleryCell.swift in Sources */,
+				C058AC9628976FE300EDE2D3 /* ServiceAssembly.swift in Sources */,
 				C058AC9128976AEC00EDE2D3 /* GalleryViewAssembly.swift in Sources */,
 				C058AC8A2897533A00EDE2D3 /* ImageLoader.swift in Sources */,
 			);

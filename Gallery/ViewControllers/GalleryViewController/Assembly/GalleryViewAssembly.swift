@@ -8,8 +8,13 @@
 import Foundation
 
 final class GalleryViewAssembly {
-    func assemble() -> GalleryViewAssembly {
-        let viewController = GalleryViewAssembly()
+    func assemble() -> GalleryViewController {
+        let loader = ServiceAssembly.shared.assembleImageLoader()
+        let model = GalleryCollectionViewModel(loader: loader)
+        let maneger = GalleryCollectionViewManager(model: model)
+
+        let viewController = GalleryViewController(maneger: maneger)
+
         return viewController
     }
 }

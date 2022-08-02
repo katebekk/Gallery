@@ -21,8 +21,6 @@ final class GalleryCell: UICollectionViewCell {
     private let spinner = UIActivityIndicatorView()
     private var galleryItem: GalleryItem?
 
-    private let loadImageService = ImageLoaderImpl.shared
-
     private let label: UILabel = {
         let label = UILabel()
         label.textColor = .systemYellow
@@ -56,8 +54,8 @@ final class GalleryCell: UICollectionViewCell {
 }
 
 extension GalleryCell {
-    func set(galleryItem: GalleryItem) {
-        loadImageService.fetchImage(urlString: galleryItem.urlString) { [weak self] fetchedImage, error in
+    func set(galleryItem: GalleryItem, loader: ImageLoader) {
+        loader.fetchImage(urlString: galleryItem.urlString) { [weak self] fetchedImage, error in
             self?.spinner.stopAnimating()
 
             guard let image = fetchedImage, error == nil else {

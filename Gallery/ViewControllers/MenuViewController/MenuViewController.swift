@@ -19,18 +19,17 @@ final class MenuViewController: UIViewController {
 
     // MARK: - Properties
     private var router: MenuViewControllerRouter!
-    private var galleryItemBuilder: GalleryItemBuilderImpl
+    private var galleryItemBuilder: GalleryItemBuilder!
 
     private let galleryCityButton = MenuButton(title: Constants.cityTitle, color: Constants.cityButtonColor)
     private let galleryCatsButton = MenuButton(title: Constants.catsTitle, color: Constants.catsButtonColor)
 
     // MARK: - LifeCycle
-    init() {
-        galleryItemBuilder = GalleryItemBuilderImpl()
+    init(router: MenuViewControllerRouter, builder: GalleryItemBuilder) {
+        self.router = router
+        self.galleryItemBuilder = builder
 
         super.init(nibName: nil, bundle: nil)
-
-        router = MenuViewControllerRouter(menuViewController: self)
     }
 
     @available(*, unavailable)
@@ -88,11 +87,11 @@ private extension MenuViewController {
 private extension MenuViewController {
     @objc func galleryCityButtonTouchedSender(sender: UIButton) {
         let items = galleryItemBuilder.build(urlStrings: GlobalConstants.сityImagesUrlStings)
-        router.presentGalleryView(items: items, title: Constants.cityTitle)
+        router.presentGalleryView(viewController: self, items: items, title: Constants.cityTitle)
     }
 
     @objc func galleryCatsButtonTouchedSender(sender: UIButton) {
         let items = galleryItemBuilder.build(urlStrings: GlobalConstants.сatsImagesUrlStings)
-        router.presentGalleryView(items: items, title: Constants.catsTitle)
+        router.presentGalleryView(viewController: self, items: items, title: Constants.catsTitle)
     }
 }

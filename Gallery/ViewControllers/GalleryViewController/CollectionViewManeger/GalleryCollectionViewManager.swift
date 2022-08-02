@@ -15,15 +15,13 @@ final class GalleryCollectionViewManager: NSObject {
         static let сellAnimationDuration = 1.0
     }
 
-    let collectionViewModel: GalleryCollectionViewModel
+    let collectionViewModel: GalleryCollectionViewModel!
 
-    private let collectionView: UICollectionView
     private var items: [GalleryItem] = []
 
     // MARK: - LifeCycle
-    init(collectionView: UICollectionView) {
-        self.collectionView = collectionView
-        collectionViewModel = GalleryCollectionViewModel()
+    init(model: GalleryCollectionViewModel) {
+        collectionViewModel = model
     }
 }
 
@@ -42,7 +40,7 @@ extension GalleryCollectionViewManager: UICollectionViewDelegate {
             return
         }
 
-        deleteCell(cell, indexPath: indexPath)
+        deleteCell(cell, indexPath: indexPath, collectionView: collectionView)
     }
 
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
@@ -77,7 +75,7 @@ extension GalleryCollectionViewManager: UICollectionViewDelegateFlowLayout {
 
 // MARK: - Private
 private extension GalleryCollectionViewManager {
-    func deleteCell(_ cell: GalleryCell, indexPath: IndexPath) {
+    func deleteCell(_ cell: GalleryCell, indexPath: IndexPath, collectionView: UICollectionView) {
         collectionView.isUserInteractionEnabled = false
         UIView.animate(withDuration: Constants.сellAnimationDuration, delay: 0) {
             cell.frame.origin.x += cell.frame.width + Constants.spacing
@@ -89,8 +87,8 @@ private extension GalleryCollectionViewManager {
 
             self.items.remove(at: indexPath.row)
             self.update(items: self.items)
-            self.collectionView.deleteItems(at: [indexPath])
-            self.collectionView.isUserInteractionEnabled = true
+            collectionView.deleteItems(at: [indexPath])
+            collectionView.isUserInteractionEnabled = true
         }
     }
 }
