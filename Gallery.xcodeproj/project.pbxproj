@@ -118,14 +118,6 @@
 			path = Assembly;
 			sourceTree = "<group>";
 		};
-		C058AC9328976D1800EDE2D3 /* GalleryCell */ = {
-			isa = PBXGroup;
-			children = (
-				C0FBCB2627AFE5F60078C90D /* GalleryCell.swift */,
-			);
-			path = GalleryCell;
-			sourceTree = "<group>";
-		};
 		C058AC9428976FA100EDE2D3 /* ApplicationAssembly */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,7 +246,7 @@
 		C0FBCB2127AFE2B00078C90D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C058AC9328976D1800EDE2D3 /* GalleryCell */,
+				C0FBCB2627AFE5F60078C90D /* GalleryCell.swift */,
 				C0869A0327E40DB000BF5ED8 /* MenuButton.swift */,
 			);
 			path = Views;

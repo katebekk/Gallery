@@ -12,6 +12,7 @@ final class GalleryCollectionViewModel: NSObject {
         static let cellIdentifier = "Cell"
     }
 
+    // MARK: - Properties
     private var loader: ImageLoader!
 
     private var items: [GalleryItem] = []

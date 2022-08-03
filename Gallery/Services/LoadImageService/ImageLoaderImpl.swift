@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-final class ImageLoaderImpl: ImageLoader {
+final class ImageLoaderImpl {
     static let shared = ImageLoaderImpl()
     private let cachedImages = NSCache<NSString, UIImage>()
 }
 
-extension ImageLoaderImpl {
+extension ImageLoaderImpl: ImageLoader {
     func fetchImage(urlString: String, completionHandler: @escaping (UIImage?, Error?) -> Void) {
         if let cachedImage = getImageFromCache(url: urlString as NSString) {
             DispatchQueue.main.async {

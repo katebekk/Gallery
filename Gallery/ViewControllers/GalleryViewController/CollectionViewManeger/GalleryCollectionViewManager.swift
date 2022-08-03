@@ -15,6 +15,7 @@ final class GalleryCollectionViewManager: NSObject {
         static let сellAnimationDuration = 1.0
     }
 
+    // MARK: - Properties
     let collectionViewModel: GalleryCollectionViewModel!
 
     private var items: [GalleryItem] = []
