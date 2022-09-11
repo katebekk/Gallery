@@ -8,12 +8,12 @@
 import Foundation
 
 final class GalleryViewAssembly {
-    func assemble() -> GalleryViewController {
-        let loader = ServiceAssembly.shared.assembleImageLoader()
+    func viewController() -> GalleryViewController {
+        let loader = ServiceAssembly.shared.imageLoader()
         let model = GalleryCollectionViewModel(loader: loader)
-        let maneger = GalleryCollectionViewManager(model: model)
+        let manager = GalleryCollectionViewManager(model: model)
 
-        let viewController = GalleryViewController(maneger: maneger)
+        let viewController = GalleryViewController(сollectionViewManager: manager)
 
         return viewController
     }

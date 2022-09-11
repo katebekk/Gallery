@@ -10,15 +10,11 @@ import Foundation
 final class ServiceAssembly {
     static let shared = ServiceAssembly()
 
-    func assembleGalleryItemBuilder() -> GalleryItemBuilder {
-        let builder = GalleryItemBuilderImpl()
-
-        return builder
+    func galleryItemBuilder() -> GalleryItemBuilder {
+        GalleryItemBuilderImpl()
     }
 
-    func assembleImageLoader() -> ImageLoader {
-        let loader = ImageLoaderImpl()
-
-        return loader
+    func imageLoader() -> ImageLoader {
+        ImageLoaderImpl()
     }
 }
