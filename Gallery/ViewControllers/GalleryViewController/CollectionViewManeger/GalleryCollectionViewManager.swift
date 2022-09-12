@@ -16,14 +16,9 @@ final class GalleryCollectionViewManager: NSObject {
     }
 
     // MARK: - Properties
-    let collectionViewModel: GalleryCollectionViewModel!
+    var collectionViewModel: GalleryCollectionViewModel!
 
     private var items: [GalleryItem] = []
-
-    // MARK: - LifeCycle
-    init(model: GalleryCollectionViewModel) {
-        collectionViewModel = model
-    }
 }
 
 // MARK: - Public

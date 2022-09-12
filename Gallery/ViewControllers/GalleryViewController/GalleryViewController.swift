@@ -16,7 +16,7 @@ final class GalleryViewController: UIViewController {
     }
 
     // MARK: - Properties
-    private var collectionViewManager: GalleryCollectionViewManager!
+    var collectionViewManager: GalleryCollectionViewManager!
 
     private var galleryItems: [GalleryItem]!
     private var pageTitle: String!
@@ -31,17 +31,6 @@ final class GalleryViewController: UIViewController {
     }()
 
     // MARK: - LifeCycle
-    init(сollectionViewManager: GalleryCollectionViewManager) {
-        self.collectionViewManager = сollectionViewManager
-
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 

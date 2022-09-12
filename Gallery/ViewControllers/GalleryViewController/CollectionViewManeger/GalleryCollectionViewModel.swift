@@ -13,15 +13,11 @@ final class GalleryCollectionViewModel: NSObject {
     }
 
     // MARK: - Properties
-    private var loader: ImageLoader!
+    var loader: ImageLoader!
 
     private var items: [GalleryItem] = []
 
     // MARK: - LifeCycle
-    init(loader: ImageLoader) {
-        self.loader = loader
-    }
-
     func updateItems(items: [GalleryItem]) {
         self.items = items
     }

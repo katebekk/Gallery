@@ -18,25 +18,13 @@ final class MenuViewController: UIViewController {
     }
 
     // MARK: - Properties
-    private var router: MenuViewControllerRouter!
-    private var galleryItemBuilder: GalleryItemBuilder!
+    var router: MenuViewControllerRouter!
+    var galleryItemBuilder: GalleryItemBuilder!
 
     private let galleryCityButton = MenuButton(title: Constants.cityTitle, color: Constants.cityButtonColor)
     private let galleryCatsButton = MenuButton(title: Constants.catsTitle, color: Constants.catsButtonColor)
 
     // MARK: - LifeCycle
-    init(router: MenuViewControllerRouter, builder: GalleryItemBuilder) {
-        self.router = router
-        self.galleryItemBuilder = builder
-
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
