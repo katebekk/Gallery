@@ -8,29 +8,15 @@
 import Swinject
 import Foundation
 
-final class MenuViewAssembly {
-    private let container: Container = {
-        let container = Container()
-
-        container.register(MenuViewControllerRouter.self) { _ in
-            MenuViewControllerRouter()
-        }
-
-        container.register(GalleryItemBuilder.self) { _ in
-            ServiceAssembly.shared.galleryItemBuilder()
-        }
-
+final class MenuViewAssembly: Assembly {
+    func assemble(container: Container) {
         container.register(MenuViewController.self) { resolver in
             let viewController = MenuViewController()
-            viewController.router = resolver.resolve(MenuViewControllerRouter.self)
+
+            viewController.router = MenuViewControllerRouter()
             viewController.galleryItemBuilder = resolver.resolve(GalleryItemBuilder.self)
+
             return viewController
         }
-
-        return container
-    }()
-
-    func viewController() -> MenuViewController {
-        container.resolve(MenuViewController.self)!
     }
 }

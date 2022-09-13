@@ -9,7 +9,7 @@ import Foundation
 
 final class MenuViewControllerRouter {
     func presentGalleryView(viewController: MenuViewController, items: [GalleryItem], title: String) {
-        let galleryViewController = GalleryViewAssembly().viewController()
+        let galleryViewController = MainAssembler.assembler.resolver.resolve(GalleryViewController.self)!
         galleryViewController.configure(items: items, title: title)
 
         viewController.navigationController?.pushViewController(galleryViewController, animated: true)
