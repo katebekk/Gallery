@@ -104,6 +104,47 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C012916628D3066C00EC23D7 /* ApplicationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				C012916928D3086600EC23D7 /* AppDelegates */,
+				C058AC9428976FA100EDE2D3 /* ApplicationAssembly */,
+			);
+			path = ApplicationLayer;
+			sourceTree = "<group>";
+		};
+		C012916728D3067A00EC23D7 /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				C012916A28D3088000EC23D7 /* Assemblies */,
+				C05B59CE2845928B00E820B1 /* Services */,
+			);
+			path = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		C012916828D306BD00EC23D7 /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		C012916928D3086600EC23D7 /* AppDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				C0FBCB0D27AFE2A70078C90D /* AppDelegate.swift */,
+			);
+			path = AppDelegates;
+			sourceTree = "<group>";
+		};
+		C012916A28D3088000EC23D7 /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				C058AC9528976FE300EDE2D3 /* ServiceAssembly.swift */,
+			);
+			path = Assemblies;
+			sourceTree = "<group>";
+		};
 		C058AC8D289764CF00EDE2D3 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,7 +164,6 @@
 		C058AC9428976FA100EDE2D3 /* ApplicationAssembly */ = {
 			isa = PBXGroup;
 			children = (
-				C058AC9528976FE300EDE2D3 /* ServiceAssembly.swift */,
 				C0B582B928CF224400644D9B /* MainAssembler.swift */,
 			);
 			path = ApplicationAssembly;
@@ -232,13 +272,13 @@
 		C0FBCB0C27AFE2A70078C90D /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
-				C058AC9428976FA100EDE2D3 /* ApplicationAssembly */,
+				C012916828D306BD00EC23D7 /* PresentationLayer */,
+				C012916728D3067A00EC23D7 /* ServiceLayer */,
+				C012916628D3066C00EC23D7 /* ApplicationLayer */,
 				C0845BB32872E6CF0082D035 /* Constants */,
-				C05B59CE2845928B00E820B1 /* Services */,
 				C0FBCB2327AFE2CD0078C90D /* ViewControllers */,
 				C0FBCB2227AFE2C20078C90D /* Model */,
 				C0FBCB2127AFE2B00078C90D /* Views */,
-				C0FBCB0D27AFE2A70078C90D /* AppDelegate.swift */,
 				C0FBCB1627AFE2A80078C90D /* Assets.xcassets */,
 				C0FBCB1827AFE2A80078C90D /* LaunchScreen.storyboard */,
 				C0FBCB1B27AFE2A80078C90D /* Info.plist */,
