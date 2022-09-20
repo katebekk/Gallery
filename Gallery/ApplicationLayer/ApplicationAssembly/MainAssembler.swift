@@ -12,7 +12,7 @@ final class MainAssembler {
     static let assembler = Assembler([
         ServiceAssembly(),
         MenuViewAssembly(),
-        GalleryViewAssembly()
+        GalleryAssembly()
     ])
 
     private init() {

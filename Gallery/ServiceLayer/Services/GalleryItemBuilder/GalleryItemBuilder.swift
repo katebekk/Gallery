@@ -8,5 +8,5 @@
 import Foundation
 
 protocol GalleryItemBuilder {
-    func build(urlStrings: [String]) -> [GalleryItem]
+    func build(urlStrings: [String]) -> [GalleryCellModel]
 }

@@ -18,14 +18,14 @@ final class GalleryCollectionViewManager: NSObject {
     // MARK: - Properties
     var collectionViewModel: GalleryCollectionViewModel!
 
-    private var items: [GalleryItem] = []
+    private var cellModels: [GalleryCellModel] = []
 }
 
 // MARK: - Public
 extension GalleryCollectionViewManager {
-    func update(items: [GalleryItem]) {
-        self.items = items
-        collectionViewModel.updateItems(items: items)
+    func reload(with cellModels: [GalleryCellModel]) {
+        self.cellModels = cellModels
+        collectionViewModel.reload(with: cellModels)
     }
 }
 
@@ -81,8 +81,8 @@ private extension GalleryCollectionViewManager {
         DispatchQueue.main.asyncAfter(deadline: .now() + Constants.сellAnimationDuration) { [weak self] in
             guard let self = self else { return }
 
-            self.items.remove(at: indexPath.row)
-            self.update(items: self.items)
+            self.cellModels.remove(at: indexPath.row)
+            self.reload(with: self.cellModels)
             collectionView.deleteItems(at: [indexPath])
             collectionView.isUserInteractionEnabled = true
         }

@@ -18,10 +18,10 @@ final class GalleryCell: UICollectionViewCell {
     }
 
     // MARK: - Properties
-    private let spinner = UIActivityIndicatorView()
-    private var galleryItem: GalleryItem?
+    let spinner = UIActivityIndicatorView()
+    private var galleryItem: GalleryCellModel?
 
-    private let label: UILabel = {
+    let label: UILabel = {
         let label = UILabel()
         label.textColor = .systemYellow
 
@@ -31,7 +31,7 @@ final class GalleryCell: UICollectionViewCell {
 
         return label
     }()
-    private let galleryImageView: UIImageView = {
+    let galleryImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -54,8 +54,8 @@ final class GalleryCell: UICollectionViewCell {
 }
 
 extension GalleryCell {
-    func set(galleryItem: GalleryItem, loader: ImageLoader) {
-        loader.fetchImage(urlString: galleryItem.urlString) { [weak self] fetchedImage, error in
+    func configure(with cellModel: GalleryCellModel, loader: ImageLoader) {
+        loader.fetchImage(urlString: cellModel.urlString) { [weak self] fetchedImage, error in
             self?.spinner.stopAnimating()
 
             guard let image = fetchedImage, error == nil else {

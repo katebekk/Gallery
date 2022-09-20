@@ -13,26 +13,26 @@ final class GalleryCollectionViewModel: NSObject {
     }
 
     // MARK: - Properties
-    var loader: ImageLoader!
+    var interactor: GalleryInteractor!
 
-    private var items: [GalleryItem] = []
+    private var cellModels: [GalleryCellModel] = []
 
     // MARK: - LifeCycle
-    func updateItems(items: [GalleryItem]) {
-        self.items = items
+    func reload(with cellModels: [GalleryCellModel]) {
+        self.cellModels = cellModels
     }
 }
 
 // MARK: - UICollectionViewDataSource
 extension GalleryCollectionViewModel: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        items.count
+        cellModels.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! GalleryCell
 
-        cell.set(galleryItem: items[indexPath.row], loader: loader)
+        interactor.fetchImage(to: cell, url: cellModels[indexPath.row].urlString)
 
         return cell
     }

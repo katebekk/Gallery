@@ -8,7 +8,7 @@
 import Foundation
 
 final class GalleryItemBuilderImpl: GalleryItemBuilder {
-    func build(urlStrings: [String]) -> [GalleryItem] {
-        urlStrings.map { GalleryItem(urlString: $0) }
+    func build(urlStrings: [String]) -> [GalleryCellModel] {
+        urlStrings.map { GalleryCellModel(urlString: $0) }
     }
 }

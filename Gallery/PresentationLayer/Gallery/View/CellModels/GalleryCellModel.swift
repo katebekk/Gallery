@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct GalleryItem {
+struct GalleryCellModel {
     let urlString: String
 }

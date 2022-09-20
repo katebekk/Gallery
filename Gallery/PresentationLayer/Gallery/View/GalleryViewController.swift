@@ -1,8 +1,9 @@
 //
-//  SecondViewController.swift
-//  TestTakFirstTry
+//  GalleryViewController.swift
+//  Gallery
 //
-//  Created by bekkerman on 08.02.2022.
+//  Created by Kate Bekkerman on 17/09/2022.
+//  Copyright © 2022 katebekk. All rights reserved.
 //
 
 import UIKit
@@ -11,17 +12,19 @@ final class GalleryViewController: UIViewController {
     private enum Constants {
         static let cellIdentifier = "Cell"
 
-        static let refreshDuration = 1.0
-        static let сellAnimationDuration = 1.0
+        static let indexSet = IndexSet(integer: 0)
     }
 
     // MARK: - Properties
     var collectionViewManager: GalleryCollectionViewManager!
+    var module: GalleryModule!
+    var output: GalleryViewOutput!
 
-    private var galleryItems: [GalleryItem]!
+    private var cellModels: [GalleryCellModel]!
     private var pageTitle: String!
 
     private let refresh = UIRefreshControl()
+
     private let collectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
@@ -33,11 +36,7 @@ final class GalleryViewController: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupViews()
-        setupActions()
-        setupCollectionView()
-        setupLayouts()
+        output.viewDidLoad()
     }
 
     override func viewDidLayoutSubviews() {
@@ -52,11 +51,26 @@ final class GalleryViewController: UIViewController {
     }
 }
 
-// MARK: - Public
-extension GalleryViewController {
-    func configure(items: [GalleryItem], title: String) {
+extension GalleryViewController: GalleryViewInput {
+    func configureView() {
+        setupViews()
+        setupActions()
+        setupCollectionView()
+        setupLayouts()
+    }
+
+    func configure(items: [GalleryCellModel], title: String) {
         pageTitle = title
-        galleryItems = items
+        cellModels = items
+    }
+
+    func reload(with cellModels: [GalleryCellModel]) {
+        collectionViewManager.reload(with: cellModels)
+        collectionView.reloadSections(Constants.indexSet)
+    }
+
+    func endRefreshing() {
+        refresh.endRefreshing()
     }
 }
 
@@ -72,7 +86,7 @@ private extension GalleryViewController {
     }
 
     func setupCollectionView() {
-        collectionViewManager.update(items: galleryItems)
+        collectionViewManager.reload(with: cellModels)
 
         collectionView.dataSource = collectionViewManager.collectionViewModel
         collectionView.delegate = collectionViewManager
@@ -96,14 +110,6 @@ private extension GalleryViewController {
 // MARK: - Actions
 private extension GalleryViewController {
     @objc func handleRefresh(sender: UIRefreshControl) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.refreshDuration) { [weak self] in
-            guard let self = self else { return }
-
-            let indexSet = IndexSet(integer: 0)
-
-            self.collectionViewManager.update(items: self.galleryItems)
-            self.collectionView.reloadSections(indexSet)
-            self.refresh.endRefreshing()
-        }
+        output.onRefreshControlPull(with: self.cellModels)
     }
 }

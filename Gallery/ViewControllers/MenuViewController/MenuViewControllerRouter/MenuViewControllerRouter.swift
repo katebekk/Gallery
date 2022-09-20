@@ -8,7 +8,7 @@
 import Foundation
 
 final class MenuViewControllerRouter {
-    func presentGalleryView(viewController: MenuViewController, items: [GalleryItem], title: String) {
+    func presentGalleryView(viewController: MenuViewController, items: [GalleryCellModel], title: String) {
         let galleryViewController = MainAssembler.assembler.resolver.resolve(GalleryViewController.self)!
         galleryViewController.configure(items: items, title: title)
 
