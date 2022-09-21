@@ -10,10 +10,7 @@ import Foundation
 
 final class GalleryPresenter {
     private enum Constants {
-        static let cellIdentifier = "Cell"
-
         static let refreshDuration = 1.0
-        static let сellAnimationDuration = 1.0
     }
 
     var interactor: GalleryInteractorInput!
