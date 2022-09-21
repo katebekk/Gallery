@@ -53,22 +53,6 @@ final class GalleryCell: UICollectionViewCell {
     }
 }
 
-extension GalleryCell {
-    func configure(with cellModel: GalleryCellModel, loader: ImageLoader) {
-        loader.fetchImage(urlString: cellModel.urlString) { [weak self] fetchedImage, error in
-            self?.spinner.stopAnimating()
-
-            guard let image = fetchedImage, error == nil else {
-                self?.label.text = "⚠️ " + (error?.localizedDescription ?? Constants.imageErrorMessage)
-
-                return
-            }
-
-            self?.galleryImageView.image = image
-        }
-    }
-}
-
 private extension GalleryCell {
     func setupViews() {
         contentView.clipsToBounds = true
