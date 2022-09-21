@@ -1,8 +1,9 @@
 //
-//  ViewController.swift
-//  TestTakFirstTry
+//  MenuViewController.swift
+//  Gallery
 //
-//  Created by bekkerman on 06.02.2022.
+//  Created by Kate Bekkerman on 20/09/2022.
+//  Copyright © 2022 katebekk. All rights reserved.
 //
 
 import UIKit
@@ -18,16 +19,20 @@ final class MenuViewController: UIViewController {
     }
 
     // MARK: - Properties
-    var router: MenuViewControllerRouter!
-    var galleryItemBuilder: GalleryItemBuilder!
+    var module: MenuModule!
+    var output: MenuViewOutput!
 
     private let galleryCityButton = MenuButton(title: Constants.cityTitle, color: Constants.cityButtonColor)
     private let galleryCatsButton = MenuButton(title: Constants.catsTitle, color: Constants.catsButtonColor)
 
-    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        output.viewDidLoad()
+    }
+}
 
+extension MenuViewController: MenuViewInput {
+    func configureView() {
         setupSelf()
         setupViews()
         setupActions()
@@ -74,12 +79,10 @@ private extension MenuViewController {
 // MARK: - Actions
 private extension MenuViewController {
     @objc func galleryCityButtonTouchedSender(sender: UIButton) {
-        let items = galleryItemBuilder.build(urlStrings: GlobalConstants.сityImagesUrlStings)
-        router.presentGalleryView(viewController: self, items: items, title: Constants.cityTitle)
+        output.presentGalleryView(urlStrings: GlobalConstants.сityImagesUrlStings, title: Constants.catsTitle)
     }
 
     @objc func galleryCatsButtonTouchedSender(sender: UIButton) {
-        let items = galleryItemBuilder.build(urlStrings: GlobalConstants.сatsImagesUrlStings)
-        router.presentGalleryView(viewController: self, items: items, title: Constants.catsTitle)
+        output.presentGalleryView(urlStrings: GlobalConstants.сatsImagesUrlStings, title: Constants.catsTitle)
     }
 }

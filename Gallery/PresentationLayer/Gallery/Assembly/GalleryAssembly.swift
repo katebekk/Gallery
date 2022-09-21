@@ -16,10 +16,11 @@ final class GalleryAssembly: Assembly {
         }.initCompleted { resolver, viewController in
             let interactor = GalleryInteractor()
             let imageLoader = resolver.resolve(ImageLoader.self)
-            interactor.imageLoader = imageLoader
-
             let presenter = GalleryPresenter()
             let stateStorage = GalleryStateStorage()
+
+            interactor.imageLoader = imageLoader
+
             presenter.view = viewController
             presenter.interactor = interactor
             presenter.stateStorage = stateStorage

@@ -1,0 +1,19 @@
+{% include 'header' %}
+
+final class {{ module_info.name }}Presenter {
+    var interactor: {{ module_info.name }}InteractorInput!
+    var router: {{ module_info.name }}RouterInput!
+    var stateStorage: {{ module_info.name }}StateStorage!
+
+    weak var view: {{ module_info.name }}ViewInput?
+    weak var moduleOutput: {{ module_info.name }}ModuleOutput?
+}
+
+extension {{ module_info.name }}Presenter: {{ module_info.name }}Module {
+}
+
+extension {{ module_info.name }}Presenter: {{ module_info.name }}ViewOutput {
+    func viewDidLoad() {
+        view?.configureView()
+    }
+}

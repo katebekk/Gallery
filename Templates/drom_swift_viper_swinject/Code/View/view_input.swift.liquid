@@ -1,0 +1,9 @@
+{% include 'header' %}
+
+protocol {{ module_info.name }}ViewInput: AnyObject {
+    func configureView()
+}
+
+protocol {{ module_info.name }}ViewOutput {
+    func viewDidLoad()
+}

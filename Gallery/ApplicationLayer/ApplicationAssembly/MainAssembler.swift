@@ -11,7 +11,7 @@ import Foundation
 final class MainAssembler {
     static let assembler = Assembler([
         ServiceAssembly(),
-        MenuViewAssembly(),
+        MenuAssembly(),
         GalleryAssembly()
     ])
 

@@ -1,0 +1,24 @@
+### Headers settings
+company: katebekk
+
+### Xcode project settings
+project_name: Gallery
+xcodeproj_path: Gallery.xcodeproj
+
+### Code generation settings section
+# The main project target name
+project_target: Gallery
+
+# The file path for new modules
+project_file_path: Gallery/PresentationLayer
+
+# The Xcode group path to new modules
+project_group_path: Gallery/PresentationLayer
+
+### Dependencies settings section
+podfile_path: Podfile
+
+### Templates
+
+templates:
+- { name: drom_swift_viper_swinject, local: 'drom_swift_viper_swinject' }

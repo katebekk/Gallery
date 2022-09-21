@@ -8,7 +8,7 @@
 
 protocol GalleryViewInput: AnyObject {
     func configureView()
-    func configure(items: [GalleryCellModel], title: String)
+    func configure(with cellModels: [GalleryCellModel], title: String)
     func reload(with cellModels: [GalleryCellModel])
     func endRefreshing()
 }

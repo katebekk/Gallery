@@ -59,9 +59,9 @@ extension GalleryViewController: GalleryViewInput {
         setupLayouts()
     }
 
-    func configure(items: [GalleryCellModel], title: String) {
+    func configure(with cellModels: [GalleryCellModel], title: String) {
         pageTitle = title
-        cellModels = items
+        self.cellModels = cellModels
     }
 
     func reload(with cellModels: [GalleryCellModel]) {
