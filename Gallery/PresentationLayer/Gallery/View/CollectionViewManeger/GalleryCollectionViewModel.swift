@@ -18,7 +18,7 @@ final class GalleryCollectionViewModel: NSObject {
     private var cellModels: [GalleryCellModel] = []
 
     // MARK: - LifeCycle
-    func reload(with cellModels: [GalleryCellModel]) {
+    func configure(with cellModels: [GalleryCellModel]) {
         self.cellModels = cellModels
     }
 }
@@ -32,7 +32,8 @@ extension GalleryCollectionViewModel: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! GalleryCell
 
-        interactor.fetchImage(to: cell, url: cellModels[indexPath.row].urlString)
+//        во вью не место интерактору
+//        interactor.fetchImage(to: cell, url: cellModels[indexPath.row].urlString)
 
         return cell
     }

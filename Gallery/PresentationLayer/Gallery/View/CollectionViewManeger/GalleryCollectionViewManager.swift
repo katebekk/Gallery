@@ -25,7 +25,7 @@ final class GalleryCollectionViewManager: NSObject {
 extension GalleryCollectionViewManager {
     func reload(with cellModels: [GalleryCellModel]) {
         self.cellModels = cellModels
-        collectionViewModel.reload(with: cellModels)
+        collectionViewModel.configure(with: cellModels)
     }
 }
 

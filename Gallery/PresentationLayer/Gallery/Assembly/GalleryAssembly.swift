@@ -25,7 +25,6 @@ final class GalleryAssembly: Assembly {
             presenter.interactor = interactor
             presenter.stateStorage = stateStorage
 
-            viewController.module = presenter
             viewController.output = presenter
 
             let model = GalleryCollectionViewModel()

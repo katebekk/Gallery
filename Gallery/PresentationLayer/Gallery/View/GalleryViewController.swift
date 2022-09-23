@@ -17,7 +17,6 @@ final class GalleryViewController: UIViewController {
 
     // MARK: - Properties
     var collectionViewManager: GalleryCollectionViewManager!
-    var module: GalleryModule!
     var output: GalleryViewOutput!
 
     private var cellModels: [GalleryCellModel]!
@@ -110,6 +109,6 @@ private extension GalleryViewController {
 // MARK: - Actions
 private extension GalleryViewController {
     @objc func handleRefresh(sender: UIRefreshControl) {
-        output.onRefreshControlPull(with: self.cellModels)
+        output.onRefreshControlPull(with: cellModels)
     }
 }

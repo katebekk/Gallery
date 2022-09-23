@@ -17,10 +17,6 @@ final class GalleryPresenter {
     var stateStorage: GalleryStateStorage!
 
     weak var view: GalleryViewInput?
-    weak var moduleOutput: GalleryModuleOutput?
-}
-
-extension GalleryPresenter: GalleryModule {
 }
 
 extension GalleryPresenter: GalleryViewOutput {
