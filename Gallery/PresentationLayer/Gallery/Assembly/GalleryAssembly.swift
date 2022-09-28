@@ -28,12 +28,12 @@ final class GalleryAssembly: Assembly {
             viewController.output = presenter
 
             let model = GalleryCollectionViewModel()
-            model.interactor = interactor
+            model.imageLoader = imageLoader
 
-            let manager = GalleryCollectionViewManager()
-            manager.collectionViewModel = model
+            let maneger = GalleryCollectionViewManeger()
+            maneger.collectionViewModel = model
 
-            viewController.collectionViewManager = manager
+            viewController.collectionViewManeger = maneger
         }
     }
 }

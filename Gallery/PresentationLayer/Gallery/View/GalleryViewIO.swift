@@ -9,8 +9,7 @@
 protocol GalleryViewInput: AnyObject {
     func configureView()
     func configure(with cellModels: [GalleryCellModel], title: String)
-    func reload(with cellModels: [GalleryCellModel])
-    func endRefreshing()
+    func refreshWithDelay(_ delay: Double)
 }
 
 protocol GalleryViewOutput {

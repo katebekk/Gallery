@@ -1,5 +1,5 @@
 //
-//  CollectionViewManager.swift
+//  GalleryCollectionViewManeger.swift
 //  Gallery
 //
 //  Created by bekkerman on 27.06.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class GalleryCollectionViewManager: NSObject {
+final class GalleryCollectionViewManeger: NSObject {
     private enum Constants {
         static let spacing = 10.0
         static let highlightedItemOpacity: Float = 0.9
@@ -22,7 +22,7 @@ final class GalleryCollectionViewManager: NSObject {
 }
 
 // MARK: - Public
-extension GalleryCollectionViewManager {
+extension GalleryCollectionViewManeger {
     func reload(with cellModels: [GalleryCellModel]) {
         self.cellModels = cellModels
         collectionViewModel.configure(with: cellModels)
@@ -30,7 +30,7 @@ extension GalleryCollectionViewManager {
 }
 
 // MARK: - UICollectionViewDelegate
-extension GalleryCollectionViewManager: UICollectionViewDelegate {
+extension GalleryCollectionViewManeger: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? GalleryCell else {
             return
@@ -53,7 +53,7 @@ extension GalleryCollectionViewManager: UICollectionViewDelegate {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension GalleryCollectionViewManager: UICollectionViewDelegateFlowLayout {
+extension GalleryCollectionViewManeger: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = UIScreen.main.bounds.width - 2 * Constants.spacing
 
@@ -70,7 +70,7 @@ extension GalleryCollectionViewManager: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - Private
-private extension GalleryCollectionViewManager {
+private extension GalleryCollectionViewManeger {
     func deleteCell(_ cell: GalleryCell, indexPath: IndexPath, collectionView: UICollectionView) {
         collectionView.isUserInteractionEnabled = false
         UIView.animate(withDuration: Constants.сellAnimationDuration, delay: 0) {
