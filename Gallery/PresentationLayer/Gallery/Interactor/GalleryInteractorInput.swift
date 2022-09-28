@@ -9,5 +9,4 @@
 import Foundation
 
 protocol GalleryInteractorInput {
-    func fetchImage(to cell: GalleryCell, url: String)
 }

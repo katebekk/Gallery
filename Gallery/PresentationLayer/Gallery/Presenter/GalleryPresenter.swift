@@ -10,10 +10,9 @@ import Foundation
 
 final class GalleryPresenter {
     private enum Constants {
-        static let refreshDuration = 1.0
+        static let delay = 1.0
     }
 
-    var interactor: GalleryInteractorInput!
     var stateStorage: GalleryStateStorage!
 
     weak var view: GalleryViewInput?
@@ -25,11 +24,6 @@ extension GalleryPresenter: GalleryViewOutput {
     }
 
     func onRefreshControlPull(with cellModels: [GalleryCellModel]) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.refreshDuration) { [weak self] in
-            guard let self = self else { return }
-
-            self.view?.reload(with: cellModels)
-            self.view?.endRefreshing()
-        }
+        view?.refreshWithDelay(Constants.delay)
     }
 }

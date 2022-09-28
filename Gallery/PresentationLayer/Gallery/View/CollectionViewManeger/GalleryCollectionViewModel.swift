@@ -10,10 +10,11 @@ import UIKit
 final class GalleryCollectionViewModel: NSObject {
     private enum Constants {
         static let cellIdentifier = "Cell"
+        static let imageErrorMessage = "Не удалось загрузить изображение"
     }
 
     // MARK: - Properties
-    var interactor: GalleryInteractor!
+    var imageLoader: ImageLoader!
 
     private var cellModels: [GalleryCellModel] = []
 
@@ -32,8 +33,17 @@ extension GalleryCollectionViewModel: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! GalleryCell
 
-//        во вью не место интерактору
-//        interactor.fetchImage(to: cell, url: cellModels[indexPath.row].urlString)
+        imageLoader.fetchImage(urlString: cellModels[indexPath.row].urlString) { fetchedImage, error in
+            cell.spinner.stopAnimating()
+
+            guard let image = fetchedImage, error == nil else {
+                cell.label.text = "⚠️ " + (error?.localizedDescription ?? Constants.imageErrorMessage)
+
+                return
+            }
+
+            cell.galleryImageView.image = image
+        }
 
         return cell
     }
