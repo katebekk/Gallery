@@ -33,15 +33,7 @@ extension GalleryCollectionViewModel: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCell.cellIdentifier, for: indexPath) as! GalleryCell
 
         imageLoader.fetchImage(urlString: cellModels[indexPath.row].urlString) { fetchedImage, error in
-            cell.spinner.stopAnimating()
-
-            guard let image = fetchedImage, error == nil else {
-                cell.label.text = "⚠️ " + (error?.localizedDescription ?? Constants.imageErrorMessage)
-
-                return
-            }
-
-            cell.galleryImageView.image = image
+            cell.configure(with: fetchedImage, error: error)
         }
 
         return cell

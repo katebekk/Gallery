@@ -23,7 +23,7 @@ final class GalleryCell: UICollectionViewCell {
     let spinner = UIActivityIndicatorView()
     private var galleryItem: GalleryCellModel?
 
-    let label: UILabel = {
+    private let label: UILabel = {
         let label = UILabel()
         label.textColor = .systemYellow
 
@@ -33,7 +33,7 @@ final class GalleryCell: UICollectionViewCell {
 
         return label
     }()
-    let galleryImageView: UIImageView = {
+    private let galleryImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -52,6 +52,18 @@ final class GalleryCell: UICollectionViewCell {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func configure(with image: UIImage?, error: Error?) {
+        spinner.stopAnimating()
+
+        guard let image = image, error == nil else {
+            label.text = "⚠️ " + (error?.localizedDescription ?? Constants.imageErrorMessage)
+
+            return
+        }
+
+        galleryImageView.image = image
     }
 }
 
