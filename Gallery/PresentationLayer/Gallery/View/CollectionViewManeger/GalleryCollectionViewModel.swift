@@ -9,7 +9,6 @@ import UIKit
 
 final class GalleryCollectionViewModel: NSObject {
     private enum Constants {
-        static let cellIdentifier = "Cell"
         static let imageErrorMessage = "Не удалось загрузить изображение"
     }
 
@@ -31,7 +30,7 @@ extension GalleryCollectionViewModel: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! GalleryCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCell.cellIdentifier, for: indexPath) as! GalleryCell
 
         imageLoader.fetchImage(urlString: cellModels[indexPath.row].urlString) { fetchedImage, error in
             cell.spinner.stopAnimating()

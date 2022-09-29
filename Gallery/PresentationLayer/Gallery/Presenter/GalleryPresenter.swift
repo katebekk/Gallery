@@ -9,13 +9,16 @@
 import Foundation
 
 final class GalleryPresenter {
-    private enum Constants {
-        static let delay = 1.0
-    }
-
     var stateStorage: GalleryStateStorage!
 
     weak var view: GalleryViewInput?
+    weak var moduleOutput: GalleryModuleOutput?
+}
+
+extension GalleryPresenter: GalleryModule {
+    func configure(with cellModels: [GalleryCellModel], title: String) {
+        view?.configure(with: cellModels, title: title)
+    }
 }
 
 extension GalleryPresenter: GalleryViewOutput {
@@ -23,7 +26,7 @@ extension GalleryPresenter: GalleryViewOutput {
         view?.configureView()
     }
 
-    func onRefreshControlPull(with cellModels: [GalleryCellModel]) {
-        view?.refreshWithDelay(Constants.delay)
+    func onRefresh(with cellModels: [GalleryCellModel]) {
+        view?.refreshWithDelay()
     }
 }

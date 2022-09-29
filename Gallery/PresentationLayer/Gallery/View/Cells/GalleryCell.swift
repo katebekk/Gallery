@@ -8,6 +8,8 @@
 import UIKit
 
 final class GalleryCell: UICollectionViewCell {
+    static let cellIdentifier = "Cell"
+
     private enum Constants {
         static let contentViewCornerRadius = 4.0
         static let backgroundColor: UIColor = .gray

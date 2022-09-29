@@ -10,13 +10,13 @@ import UIKit
 
 final class GalleryViewController: UIViewController {
     private enum Constants {
-        static let cellIdentifier = "Cell"
-
+        static let delay = 1.0
         static let indexSet = IndexSet(integer: 0)
     }
 
     // MARK: - Properties
     var collectionViewManager: GalleryCollectionViewManager!
+    var module: GalleryModule!
     var output: GalleryViewOutput!
 
     private var cellModels: [GalleryCellModel]!
@@ -63,8 +63,8 @@ extension GalleryViewController: GalleryViewInput {
         self.cellModels = cellModels
     }
 
-    func refreshWithDelay(_ delay: Double) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
+    func refreshWithDelay() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.delay) { [weak self] in
             guard let self = self else { return }
 
             self.collectionViewManager.reload(with: self.cellModels)
@@ -111,6 +111,6 @@ private extension GalleryViewController {
 // MARK: - Actions
 private extension GalleryViewController {
     @objc func handleRefresh(sender: UIRefreshControl) {
-        output.onRefreshControlPull(with: cellModels)
+        output.onRefresh(with: cellModels)
     }
 }

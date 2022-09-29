@@ -27,6 +27,8 @@
 		C058AC9628976FE300EDE2D3 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058AC9528976FE300EDE2D3 /* ServiceAssembly.swift */; };
 		C0739CF02869708D006B8BB2 /* GalleryCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0739CEF2869708D006B8BB2 /* GalleryCollectionViewModel.swift */; };
 		C0739CF2286970B9006B8BB2 /* GalleryCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0739CF1286970B9006B8BB2 /* GalleryCollectionViewManager.swift */; };
+		C07D6E1128E53985005D2D28 /* GalleryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D6E1028E53985005D2D28 /* GalleryModule.swift */; };
+		C07D6E1328E539BC005D2D28 /* GalleryModuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D6E1228E539BC005D2D28 /* GalleryModuleData.swift */; };
 		C0845BB22872E6000082D035 /* GalleryItemBuilderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0845BB12872E6000082D035 /* GalleryItemBuilderImpl.swift */; };
 		C0845BB52872E7230082D035 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0845BB42872E7230082D035 /* GlobalConstants.swift */; };
 		C0869A0427E40DB000BF5ED8 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0869A0327E40DB000BF5ED8 /* MenuButton.swift */; };
@@ -78,6 +80,8 @@
 		C058AC9528976FE300EDE2D3 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		C0739CEF2869708D006B8BB2 /* GalleryCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewModel.swift; sourceTree = "<group>"; };
 		C0739CF1286970B9006B8BB2 /* GalleryCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewManager.swift; sourceTree = "<group>"; };
+		C07D6E1028E53985005D2D28 /* GalleryModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryModule.swift; sourceTree = "<group>"; };
+		C07D6E1228E539BC005D2D28 /* GalleryModuleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryModuleData.swift; sourceTree = "<group>"; };
 		C0845BB12872E6000082D035 /* GalleryItemBuilderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryItemBuilderImpl.swift; sourceTree = "<group>"; };
 		C0845BB42872E7230082D035 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		C0869A0327E40DB000BF5ED8 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 		96D379FE18D7394BCA03FE97 /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				C07D6E0F28E538F9005D2D28 /* Module */,
 				141F86D35A5B783AB0F69E09 /* View */,
 				06F927046122605AEFA8A57C /* Presenter */,
 				DA00799921AE4BEE4560B301 /* Interactor */,
@@ -311,6 +316,15 @@
 				C0739CF1286970B9006B8BB2 /* GalleryCollectionViewManager.swift */,
 			);
 			path = CollectionViewManeger;
+			sourceTree = "<group>";
+		};
+		C07D6E0F28E538F9005D2D28 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				C07D6E1028E53985005D2D28 /* GalleryModule.swift */,
+				C07D6E1228E539BC005D2D28 /* GalleryModuleData.swift */,
+			);
+			path = Module;
 			sourceTree = "<group>";
 		};
 		C0845BB02872E5F30082D035 /* GalleryItemBuilder */ = {
@@ -607,6 +621,7 @@
 				C0FBCB0E27AFE2A70078C90D /* AppDelegate.swift in Sources */,
 				C0739CF2286970B9006B8BB2 /* GalleryCollectionViewManager.swift in Sources */,
 				C0869A0427E40DB000BF5ED8 /* MenuButton.swift in Sources */,
+				C07D6E1128E53985005D2D28 /* GalleryModule.swift in Sources */,
 				C0BF55B227CC503D00D8C7B4 /* ImageLoaderImpl.swift in Sources */,
 				C0739CF02869708D006B8BB2 /* GalleryCollectionViewModel.swift in Sources */,
 				C0845BB22872E6000082D035 /* GalleryItemBuilderImpl.swift in Sources */,
@@ -625,6 +640,7 @@
 				3D765B7CAF492C3D620D544B /* GalleryAssembly.swift in Sources */,
 				0D4E7E6A1413C7D3757DDE5C /* MenuViewIO.swift in Sources */,
 				28F4286DE60B5241A2178D80 /* MenuViewController.swift in Sources */,
+				C07D6E1328E539BC005D2D28 /* GalleryModuleData.swift in Sources */,
 				7654F351392D22AD9EAC05B2 /* MenuPresenter.swift in Sources */,
 				40F7D56B63B5735BD08B6111 /* MenuStateStorage.swift in Sources */,
 				D584330D1F1382E0A2445515 /* MenuInteractorInput.swift in Sources */,

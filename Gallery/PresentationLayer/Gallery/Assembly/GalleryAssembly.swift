@@ -29,6 +29,7 @@ final class GalleryAssembly: Assembly {
             let manager = GalleryCollectionViewManager()
             manager.collectionViewModel = model
 
+            viewController.module = presenter
             viewController.collectionViewManager = manager
         }
     }
