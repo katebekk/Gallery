@@ -16,7 +16,7 @@ final class GalleryViewController: UIViewController {
     }
 
     // MARK: - Properties
-    var collectionViewManeger: GalleryCollectionViewManeger!
+    var collectionViewManager: GalleryCollectionViewManager!
     var output: GalleryViewOutput!
 
     private var cellModels: [GalleryCellModel]!
@@ -67,7 +67,7 @@ extension GalleryViewController: GalleryViewInput {
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
             guard let self = self else { return }
 
-            self.collectionViewManeger.reload(with: self.cellModels)
+            self.collectionViewManager.reload(with: self.cellModels)
             self.collectionView.reloadSections(Constants.indexSet)
 
             self.refresh.endRefreshing()
@@ -87,11 +87,11 @@ private extension GalleryViewController {
     }
 
     func setupCollectionView() {
-        collectionViewManeger.reload(with: cellModels)
+        collectionViewManager.reload(with: cellModels)
 
-        collectionView.dataSource = collectionViewManeger.collectionViewModel
-        collectionView.delegate = collectionViewManeger
-        collectionView.register(GalleryCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
+        collectionView.dataSource = collectionViewManager.collectionViewModel
+        collectionView.delegate = collectionViewManager
+        collectionView.register(GalleryCell.self, forCellWithReuseIdentifier: GalleryCell.cellIdentifier)
 
         collectionView.refreshControl = refresh
     }

@@ -26,10 +26,10 @@ final class GalleryAssembly: Assembly {
             let model = GalleryCollectionViewModel()
             model.imageLoader = imageLoader
 
-            let maneger = GalleryCollectionViewManeger()
-            maneger.collectionViewModel = model
+            let manager = GalleryCollectionViewManager()
+            manager.collectionViewModel = model
 
-            viewController.collectionViewManeger = maneger
+            viewController.collectionViewManager = manager
         }
     }
 }
