@@ -104,8 +104,8 @@ identifier_name:
     max_length: 60
     allowed_symbols: "_"
 
-file_name:
-    suffix_pattern: "Extensions?|\\+.*"
+#file_name:
+#    suffix_pattern: "Extensions?|\\+.*"
 
 nesting:
     type_level: 3
