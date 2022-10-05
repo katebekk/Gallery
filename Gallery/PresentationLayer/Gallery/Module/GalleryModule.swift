@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol GalleryModule {
+@objc protocol GalleryModule: AnyObject {
     var moduleOutput: GalleryModuleOutput? { get set }
 
     func configure(with cellModels: [GalleryCellModel], title: String)
 }
 
-protocol GalleryModuleOutput: AnyObject {
+@objc protocol GalleryModuleOutput: AnyObject {
 }

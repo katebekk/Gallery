@@ -26,7 +26,7 @@ final class GalleryAssembly: Assembly {
             let model = GalleryCollectionViewModel()
             model.imageLoader = imageLoader
 
-            let manager = GalleryCollectionViewManager()
+            let manager = GalleryCollectionViewManagerImpl()
             manager.collectionViewModel = model
 
             viewController.module = presenter

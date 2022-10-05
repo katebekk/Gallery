@@ -29,6 +29,7 @@
 		C0739CF2286970B9006B8BB2 /* GalleryCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0739CF1286970B9006B8BB2 /* GalleryCollectionViewManager.swift */; };
 		C07D6E1128E53985005D2D28 /* GalleryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D6E1028E53985005D2D28 /* GalleryModule.swift */; };
 		C07D6E1328E539BC005D2D28 /* GalleryModuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D6E1228E539BC005D2D28 /* GalleryModuleData.swift */; };
+		C07D6E1C28E69610005D2D28 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C07D6E1B28E69610005D2D28 /* GalleryViewController.m */; };
 		C0845BB22872E6000082D035 /* GalleryItemBuilderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0845BB12872E6000082D035 /* GalleryItemBuilderImpl.swift */; };
 		C0845BB52872E7230082D035 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0845BB42872E7230082D035 /* GlobalConstants.swift */; };
 		C0869A0427E40DB000BF5ED8 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0869A0327E40DB000BF5ED8 /* MenuButton.swift */; };
@@ -42,9 +43,8 @@
 		C0FBCB2727AFE5F60078C90D /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FBCB2627AFE5F60078C90D /* GalleryCell.swift */; };
 		C2FB212B41664A1125F644E1 /* GalleryInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F815A4D03F5DAC03AE75804 /* GalleryInteractorInput.swift */; };
 		D584330D1F1382E0A2445515 /* MenuInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC17789B7B6491AC64623BC /* MenuInteractorInput.swift */; };
-		F35BFC90C9CE00191B2B7BEE /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1D85EC54A3201CAD4B1210 /* GalleryViewController.swift */; };
 		F44E8714369B9DFCBD6C1B6A /* GalleryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9E51BC95323825E486FA4 /* GalleryInteractor.swift */; };
-		F84904939BA88DF0B66F5D9A /* GalleryViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07901C6DEB2E75285557D40C /* GalleryViewIO.swift */; };
+		F84904939BA88DF0B66F5D9A /* GalleryViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07901C6DEB2E75285557D40C /* GalleryViewOutput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +60,7 @@
 /* Begin PBXFileReference section */
 		01206B90B59D9661D881638F /* MenuInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuInteractor.swift; sourceTree = "<group>"; };
 		0303BE3172315E068FFE2B81 /* Pods-Gallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery.release.xcconfig"; path = "Target Support Files/Pods-Gallery/Pods-Gallery.release.xcconfig"; sourceTree = "<group>"; };
-		07901C6DEB2E75285557D40C /* GalleryViewIO.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GalleryViewIO.swift; sourceTree = "<group>"; };
+		07901C6DEB2E75285557D40C /* GalleryViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GalleryViewOutput.swift; sourceTree = "<group>"; };
 		11FF367737961B9D560205E5 /* MenuModuleData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuModuleData.swift; sourceTree = "<group>"; };
 		1DAE9A60398B82A9FFEE421F /* MenuViewIO.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuViewIO.swift; sourceTree = "<group>"; };
 		2031AEC349ADD00FF7CA7BC2 /* GalleryStateStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GalleryStateStorage.swift; sourceTree = "<group>"; };
@@ -74,7 +74,8 @@
 		8D41CC98229ADAD3D9A4A71A /* GalleryAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GalleryAssembly.swift; sourceTree = "<group>"; };
 		8EB019162D188D2236B2CA27 /* MenuModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuModule.swift; sourceTree = "<group>"; };
 		9AAF8195C2BFC5A7513737E3 /* MenuViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		9E1D85EC54A3201CAD4B1210 /* GalleryViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		C055972328EBC4B800E3A1DE /* Gallery-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gallery-Bridging-Header.h"; sourceTree = "<group>"; };
+		C055972528EC613A00E3A1DE /* GalleryViewInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryViewInput.h; sourceTree = "<group>"; };
 		C058AC892897533A00EDE2D3 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		C058AC8B28975FC300EDE2D3 /* GalleryItemBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryItemBuilder.swift; sourceTree = "<group>"; };
 		C058AC9528976FE300EDE2D3 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
@@ -82,12 +83,15 @@
 		C0739CF1286970B9006B8BB2 /* GalleryCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewManager.swift; sourceTree = "<group>"; };
 		C07D6E1028E53985005D2D28 /* GalleryModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryModule.swift; sourceTree = "<group>"; };
 		C07D6E1228E539BC005D2D28 /* GalleryModuleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryModuleData.swift; sourceTree = "<group>"; };
+		C07D6E1A28E69610005D2D28 /* GalleryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
+		C07D6E1B28E69610005D2D28 /* GalleryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
 		C0845BB12872E6000082D035 /* GalleryItemBuilderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryItemBuilderImpl.swift; sourceTree = "<group>"; };
 		C0845BB42872E7230082D035 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		C0869A0327E40DB000BF5ED8 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		C0869A0927E4644300BF5ED8 /* GalleryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GalleryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0869A0B27E4644300BF5ED8 /* GalleryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryTests.swift; sourceTree = "<group>"; };
 		C09ED72527E029D700460FDE /* GalleryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCellModel.swift; sourceTree = "<group>"; };
+		C0AA02C728ECF75800BFDF8D /* Gallery-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gallery-Prefix.pch"; sourceTree = "<group>"; };
 		C0B582B928CF224400644D9B /* MainAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembler.swift; sourceTree = "<group>"; };
 		C0BF55B127CC503D00D8C7B4 /* ImageLoaderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderImpl.swift; sourceTree = "<group>"; };
 		C0FBCB0A27AFE2A70078C90D /* Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,8 +153,10 @@
 				C0739CF3286BD43C006B8BB2 /* CollectionViewManeger */,
 				C0033D4F28D94C5900D53D43 /* Cells */,
 				C0033D4E28D94C1300D53D43 /* CellModels */,
-				07901C6DEB2E75285557D40C /* GalleryViewIO.swift */,
-				9E1D85EC54A3201CAD4B1210 /* GalleryViewController.swift */,
+				07901C6DEB2E75285557D40C /* GalleryViewOutput.swift */,
+				C07D6E1B28E69610005D2D28 /* GalleryViewController.m */,
+				C07D6E1A28E69610005D2D28 /* GalleryViewController.h */,
+				C055972528EC613A00E3A1DE /* GalleryViewInput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -381,7 +387,9 @@
 				C0845BB32872E6CF0082D035 /* Constants */,
 				C0FBCB1627AFE2A80078C90D /* Assets.xcassets */,
 				C0FBCB1827AFE2A80078C90D /* LaunchScreen.storyboard */,
+				C055972328EBC4B800E3A1DE /* Gallery-Bridging-Header.h */,
 				C0FBCB1B27AFE2A80078C90D /* Info.plist */,
+				C0AA02C728ECF75800BFDF8D /* Gallery-Prefix.pch */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
@@ -426,6 +434,16 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		C055972428EC24D900E3A1DE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		C0869A0827E4644300BF5ED8 /* GalleryTests */ = {
 			isa = PBXNativeTarget;
@@ -451,6 +469,7 @@
 			buildConfigurationList = C0FBCB1E27AFE2A80078C90D /* Build configuration list for PBXNativeTarget "Gallery" */;
 			buildPhases = (
 				3290B5515AAE7871235AC1A9 /* [CP] Check Pods Manifest.lock */,
+				C055972428EC24D900E3A1DE /* Headers */,
 				C0FBCB0627AFE2A70078C90D /* Sources */,
 				C0FBCB0727AFE2A70078C90D /* Frameworks */,
 				C0FBCB0827AFE2A70078C90D /* Resources */,
@@ -482,6 +501,7 @@
 					};
 					C0FBCB0927AFE2A70078C90D = {
 						CreatedOnToolsVersion = 13.1;
+						LastSwiftMigration = 1340;
 					};
 				};
 			};
@@ -631,8 +651,7 @@
 				C058AC9628976FE300EDE2D3 /* ServiceAssembly.swift in Sources */,
 				C058AC8A2897533A00EDE2D3 /* ImageLoader.swift in Sources */,
 				C0B582BA28CF224400644D9B /* MainAssembler.swift in Sources */,
-				F84904939BA88DF0B66F5D9A /* GalleryViewIO.swift in Sources */,
-				F35BFC90C9CE00191B2B7BEE /* GalleryViewController.swift in Sources */,
+				F84904939BA88DF0B66F5D9A /* GalleryViewOutput.swift in Sources */,
 				13418B74D424FBF191FA0610 /* GalleryPresenter.swift in Sources */,
 				1CCDFE980871FE99E102AB84 /* GalleryStateStorage.swift in Sources */,
 				C2FB212B41664A1125F644E1 /* GalleryInteractorInput.swift in Sources */,
@@ -642,6 +661,7 @@
 				28F4286DE60B5241A2178D80 /* MenuViewController.swift in Sources */,
 				C07D6E1328E539BC005D2D28 /* GalleryModuleData.swift in Sources */,
 				7654F351392D22AD9EAC05B2 /* MenuPresenter.swift in Sources */,
+				C07D6E1C28E69610005D2D28 /* GalleryViewController.m in Sources */,
 				40F7D56B63B5735BD08B6111 /* MenuStateStorage.swift in Sources */,
 				D584330D1F1382E0A2445515 /* MenuInteractorInput.swift in Sources */,
 				A7D17C3B16672F5A8C5470D1 /* MenuInteractor.swift in Sources */,
@@ -845,9 +865,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 76DU36462D;
+				GCC_PREFIX_HEADER = "Gallery/Gallery-Prefix.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gallery/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -863,6 +885,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = katebekk.Gallery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Gallery/Gallery-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -874,9 +898,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 76DU36462D;
+				GCC_PREFIX_HEADER = "Gallery/Gallery-Prefix.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gallery/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -892,6 +918,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = katebekk.Gallery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Gallery/Gallery-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

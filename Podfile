@@ -8,6 +8,7 @@ target 'Gallery' do
   # Pods for Gallery
   pod 'SwiftLint'
   pod 'Swinject'
+  pod 'PureLayout'
 
   target 'GalleryTests' do
     inherit! :search_paths

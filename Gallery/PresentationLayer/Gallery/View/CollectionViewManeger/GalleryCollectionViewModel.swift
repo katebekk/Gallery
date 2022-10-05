@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class GalleryCollectionViewModel: NSObject {
+@objc final class GalleryCollectionViewModel: NSObject {
     private enum Constants {
         static let imageErrorMessage = "Не удалось загрузить изображение"
     }

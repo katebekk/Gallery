@@ -1,20 +1,24 @@
 PODS:
+  - PureLayout (3.1.9)
   - SwiftLint (0.47.1)
   - Swinject (2.8.2)
 
 DEPENDENCIES:
+  - PureLayout
   - SwiftLint
   - Swinject
 
 SPEC REPOS:
   trunk:
+    - PureLayout
     - SwiftLint
     - Swinject
 
 SPEC CHECKSUMS:
+  PureLayout: 5fb5e5429519627d60d079ccb1eaa7265ce7cf88
   SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
   Swinject: b4a11b31992e8668308dc594ba1cb9b3164a37ab
 
-PODFILE CHECKSUM: b0e5279ea542f6181583f76552552f90296846f3
+PODFILE CHECKSUM: 3fc7f5947781f6d80fd37ea7d96e1acf10c17f31
 
 COCOAPODS: 1.11.3

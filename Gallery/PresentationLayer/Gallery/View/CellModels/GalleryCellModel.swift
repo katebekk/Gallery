@@ -7,6 +7,11 @@
 
 import Foundation
 
-struct GalleryCellModel {
-    let urlString: String
+@objcMembers
+final class GalleryCellModel: NSObject {
+    var urlString: String!
+
+    init(urlString: String) {
+        self.urlString = urlString
+    }
 }

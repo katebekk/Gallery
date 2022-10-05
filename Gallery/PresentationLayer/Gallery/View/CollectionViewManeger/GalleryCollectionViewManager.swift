@@ -7,7 +7,14 @@
 
 import UIKit
 
-final class GalleryCollectionViewManager: NSObject {
+@objc protocol GalleryCollectionViewManager: AnyObject {
+    var collectionViewModel: GalleryCollectionViewModel! { get set }
+
+    func reload(with cellModels: [GalleryCellModel])
+    func delegate() -> UICollectionViewDelegate
+}
+
+@objc final class GalleryCollectionViewManagerImpl: NSObject {
     private enum Constants {
         static let spacing = 10.0
         static let highlightedItemOpacity: Float = 0.9
@@ -22,15 +29,19 @@ final class GalleryCollectionViewManager: NSObject {
 }
 
 // MARK: - Public
-extension GalleryCollectionViewManager {
+extension GalleryCollectionViewManagerImpl: GalleryCollectionViewManager {
     func reload(with cellModels: [GalleryCellModel]) {
         self.cellModels = cellModels
         collectionViewModel.configure(with: cellModels)
     }
+
+    func delegate() -> UICollectionViewDelegate {
+        self
+    }
 }
 
 // MARK: - UICollectionViewDelegate
-extension GalleryCollectionViewManager: UICollectionViewDelegate {
+extension GalleryCollectionViewManagerImpl: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? GalleryCell else {
             return
@@ -53,7 +64,7 @@ extension GalleryCollectionViewManager: UICollectionViewDelegate {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension GalleryCollectionViewManager: UICollectionViewDelegateFlowLayout {
+extension GalleryCollectionViewManagerImpl: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = UIScreen.main.bounds.width - 2 * Constants.spacing
 
@@ -70,7 +81,7 @@ extension GalleryCollectionViewManager: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - Private
-private extension GalleryCollectionViewManager {
+private extension GalleryCollectionViewManagerImpl {
     func deleteCell(_ cell: GalleryCell, indexPath: IndexPath, collectionView: UICollectionView) {
         collectionView.isUserInteractionEnabled = false
         UIView.animate(withDuration: Constants.сellAnimationDuration, delay: 0) {

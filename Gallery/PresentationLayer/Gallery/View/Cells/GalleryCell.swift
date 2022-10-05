@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class GalleryCell: UICollectionViewCell {
-    static let cellIdentifier = String(describing: GalleryCell.self)
+@objc final class GalleryCell: UICollectionViewCell {
+    @objc static let cellIdentifier = String(describing: GalleryCell.self)
 
     private enum Constants {
         static let contentViewCornerRadius = 4.0

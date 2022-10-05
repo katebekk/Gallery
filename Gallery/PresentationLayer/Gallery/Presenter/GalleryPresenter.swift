@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class GalleryPresenter {
+@objc final class GalleryPresenter: NSObject {
     var stateStorage: GalleryStateStorage!
 
     weak var view: GalleryViewInput?
@@ -17,7 +17,7 @@ final class GalleryPresenter {
 
 extension GalleryPresenter: GalleryModule {
     func configure(with cellModels: [GalleryCellModel], title: String) {
-        view?.configure(with: cellModels, title: title)
+        view?.configure(cellModels, title: title)
     }
 }
 
