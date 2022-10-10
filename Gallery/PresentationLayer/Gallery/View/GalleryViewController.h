@@ -10,16 +10,13 @@
 
 @protocol GalleryViewOutput;
 @protocol GalleryModule;
-@protocol GalleryCollectionViewManager;
+@class GalleryCollectionViewManager;
 @class GalleryCellModel;
 
 @interface GalleryViewController : UIViewController <GalleryViewInput>
 
 @property (nonatomic) id<GalleryViewOutput> output;
 @property (nonatomic, weak) id<GalleryModule> module;
-@property (nonatomic) id<GalleryCollectionViewManager> collectionViewManager;
-
-@property (nonatomic, readonly) NSArray<GalleryCellModel *> *cellModels;
-@property (nonatomic, readonly) NSString *pageTitle;
+@property (nonatomic) GalleryCollectionViewManager *collectionViewManager;
 
 @end

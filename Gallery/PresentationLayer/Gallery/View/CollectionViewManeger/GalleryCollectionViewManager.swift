@@ -7,14 +7,7 @@
 
 import UIKit
 
-@objc protocol GalleryCollectionViewManager: AnyObject {
-    var collectionViewModel: GalleryCollectionViewModel! { get set }
-
-    func reload(with cellModels: [GalleryCellModel])
-    func delegate() -> UICollectionViewDelegate
-}
-
-@objc final class GalleryCollectionViewManagerImpl: NSObject {
+@objc final class GalleryCollectionViewManager: NSObject {
     private enum Constants {
         static let spacing = 10.0
         static let highlightedItemOpacity: Float = 0.9
@@ -23,25 +16,21 @@ import UIKit
     }
 
     // MARK: - Properties
-    var collectionViewModel: GalleryCollectionViewModel!
+    @objc var collectionViewModel: GalleryCollectionViewModel!
 
     private var cellModels: [GalleryCellModel] = []
 }
 
 // MARK: - Public
-extension GalleryCollectionViewManagerImpl: GalleryCollectionViewManager {
-    func reload(with cellModels: [GalleryCellModel]) {
+extension GalleryCollectionViewManager {
+    @objc func reload(with cellModels: [GalleryCellModel]) {
         self.cellModels = cellModels
         collectionViewModel.configure(with: cellModels)
-    }
-
-    func delegate() -> UICollectionViewDelegate {
-        self
     }
 }
 
 // MARK: - UICollectionViewDelegate
-extension GalleryCollectionViewManagerImpl: UICollectionViewDelegate {
+extension GalleryCollectionViewManager: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? GalleryCell else {
             return
@@ -64,7 +53,7 @@ extension GalleryCollectionViewManagerImpl: UICollectionViewDelegate {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension GalleryCollectionViewManagerImpl: UICollectionViewDelegateFlowLayout {
+extension GalleryCollectionViewManager: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = UIScreen.main.bounds.width - 2 * Constants.spacing
 
@@ -81,7 +70,7 @@ extension GalleryCollectionViewManagerImpl: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - Private
-private extension GalleryCollectionViewManagerImpl {
+private extension GalleryCollectionViewManager {
     func deleteCell(_ cell: GalleryCell, indexPath: IndexPath, collectionView: UICollectionView) {
         collectionView.isUserInteractionEnabled = false
         UIView.animate(withDuration: Constants.сellAnimationDuration, delay: 0) {

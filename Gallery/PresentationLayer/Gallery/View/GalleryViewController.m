@@ -16,10 +16,11 @@ static double const delay = 1.0;
 
 @interface GalleryViewController ()
 
+@property (nonatomic) NSArray<GalleryCellModel *> *cellModels;
+@property (nonatomic) NSString *pageTitle;
+
 @property (nonatomic) UIRefreshControl *refresh;
 @property (nonatomic) UICollectionView *collectionView;
-
-@property (nonatomic) BOOL didSetupConstraints;
 
 @end
 
@@ -68,14 +69,15 @@ static double const delay = 1.0;
 }
 
 - (void)configure:(NSArray<GalleryCellModel *> *)cellModels title:(NSString *)title {
-    _pageTitle = title;
-    _cellModels = cellModels;
+    self.pageTitle = title;
+    self.cellModels = cellModels;
 }
 
 - (void)refreshWithDelay {
     __weak typeof(self) weakSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         __strong typeof(weakSelf) strongSelf = weakSelf;
+
         [strongSelf.collectionViewManager reloadWith:strongSelf.cellModels];
         [strongSelf.collectionView reloadSections:[[NSIndexSet alloc] initWithIndex:0]];
 
@@ -98,7 +100,7 @@ static double const delay = 1.0;
     [self.collectionViewManager reloadWith:self.cellModels];
 
     self.collectionView.dataSource = self.collectionViewManager.collectionViewModel;
-    self.collectionView.delegate = [self.collectionViewManager delegate];
+    self.collectionView.delegate = self.collectionViewManager;
 
     [self.collectionView registerClass:GalleryCell.self
             forCellWithReuseIdentifier:GalleryCell.cellIdentifier];
