@@ -1,0 +1,32 @@
+# Template information section
+name: "drom_swift_viper_swinject"
+summary: "Swift VIPER module template with UIViewController playing as a View. Output protocols removed. Closures used instead of them. Swinject for Assembly."
+author: "Denis Sushko"
+version: "0.1.0"
+license: "MIT"
+
+# The declarations for code files
+
+code_files:
+# View layer
+- {name: View/ViewIO.swift, path: Code/View/view_input.swift.liquid}
+- {name: View/ViewController.swift, path: Code/View/viewcontroller.swift.liquid}
+
+# Presenter layer
+- {name: Presenter/Presenter.swift, path: Code/Presenter/presenter.swift.liquid}
+- {name: Presenter/StateStorage.swift, path: Code/Presenter/statestorage.swift.liquid}
+
+# Interactor layer
+- {name: Interactor/InteractorInput.swift, path: Code/Interactor/interactor_input.swift.liquid}
+- {name: Interactor/Interactor.swift, path: Code/Interactor/interactor.swift.liquid}
+
+# Router layer
+- {name: Router/RouterInput.swift, path: Code/Router/router_input.swift.liquid}
+- {name: Router/Router.swift, path: Code/Router/router.swift.liquid}
+
+# Assembly
+- {name: Assembly/Assembly.swift, path: Code/Assembly/assembly.swift.liquid}
+
+# Module
+- {name: Module/Module.swift, path: Code/Module/module.swift.liquid}
+- {name: Module/ModuleData.swift, path: Code/Module/module_data.swift.liquid}

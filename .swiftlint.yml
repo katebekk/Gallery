@@ -41,7 +41,7 @@ opt_in_rules:
 - explicit_init
 - fallthrough
 - fatal_error_message
-- file_name
+#- file_name
 - file_name_no_space
 - first_where
 - flatmap_over_map_reduce
@@ -104,8 +104,8 @@ identifier_name:
     max_length: 60
     allowed_symbols: "_"
 
-file_name:
-    suffix_pattern: "Extensions?|\\+.*"
+#file_name:
+#    suffix_pattern: "Extensions?|\\+.*"
 
 nesting:
     type_level: 3

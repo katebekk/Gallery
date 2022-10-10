@@ -1,0 +1,27 @@
+{% include 'header' %}
+
+import UIKit
+import Swinject
+
+final class {{ module_info.name }}Assembly: Assembly {
+    func assemble(container: Container) {
+        container.register({{ module_info.name }}ViewController.self) { _ in
+            {{ module_info.name }}ViewController()
+        }.initCompleted { resolver, viewController in
+            let router = {{ module_info.name }}Router()
+            let interactor = {{ module_info.name }}Interactor()
+            let presenter = {{ module_info.name }}Presenter()
+            let stateStorage = {{ module_info.name }}StateStorage()
+
+            router.viewController = viewController
+
+            presenter.view = viewController
+            presenter.interactor = interactor
+            presenter.router = router
+            presenter.stateStorage = stateStorage
+
+            viewController.module = presenter
+            viewController.output = presenter
+        }
+    }
+}

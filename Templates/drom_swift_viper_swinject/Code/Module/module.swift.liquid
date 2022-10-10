@@ -1,0 +1,10 @@
+{% include 'header' %}
+
+import Foundation
+
+protocol {{ module_info.name }}Module {
+    var moduleOutput: {{ module_info.name }}ModuleOutput? { get set }
+}
+
+protocol {{ module_info.name }}ModuleOutput: AnyObject {
+}
