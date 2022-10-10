@@ -1,5 +1,5 @@
 //
-//  GalleryViewInput.h
+//  GAGalleryViewInput.h
 //  Gallery
 //
 //  Created by bekkerman on 04.10.2022.
@@ -9,7 +9,8 @@
 
 @class GalleryCellModel;
 
-@protocol GalleryViewInput <NSObject>
+NS_SWIFT_NAME(GalleryViewInput)
+@protocol GAGalleryViewInput <NSObject>
 
 - (void)configureView;
 - (void)configure:(NSArray<GalleryCellModel *> *)cellModels title:(NSString *)title;

@@ -8,13 +8,13 @@
 #import <UIKit/UIKit.h>
 #import <PureLayout/PureLayout.h>
 
-#import "GalleryViewController.h"
+#import "GAGalleryViewController.h"
 
 #import "Gallery-Swift.h"
 
 static double const delay = 1.0;
 
-@interface GalleryViewController ()
+@interface GAGalleryViewController ()
 
 @property (nonatomic) NSArray<GalleryCellModel *> *cellModels;
 @property (nonatomic) NSString *pageTitle;
@@ -24,7 +24,7 @@ static double const delay = 1.0;
 
 @end
 
-@implementation GalleryViewController
+@implementation GAGalleryViewController
 
 #pragma mark - Initialization
 
@@ -59,7 +59,7 @@ static double const delay = 1.0;
     }];
 }
 
-#pragma mark - GalleryViewInput
+#pragma mark - GAGalleryViewInput
 
 - (void)configureView {
     [self setupViews];
