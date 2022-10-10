@@ -22,6 +22,7 @@
 		A48D46F12B780624A3A4FEF5 /* Pods_Gallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AC376461F26EBD5A82C0DC /* Pods_Gallery.framework */; };
 		A7D17C3B16672F5A8C5470D1 /* MenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01206B90B59D9661D881638F /* MenuInteractor.swift */; };
 		ABF723E14CB31D617B1E5595 /* MenuModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB019162D188D2236B2CA27 /* MenuModule.swift */; };
+		C01F835B28F3EEB700719914 /* GalleryViewControllerFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01F835A28F3EEB700719914 /* GalleryViewControllerFirst.swift */; };
 		C058AC8A2897533A00EDE2D3 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058AC892897533A00EDE2D3 /* ImageLoader.swift */; };
 		C058AC8C28975FC300EDE2D3 /* GalleryItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058AC8B28975FC300EDE2D3 /* GalleryItemBuilder.swift */; };
 		C058AC9628976FE300EDE2D3 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058AC9528976FE300EDE2D3 /* ServiceAssembly.swift */; };
@@ -74,6 +75,7 @@
 		8D41CC98229ADAD3D9A4A71A /* GalleryAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GalleryAssembly.swift; sourceTree = "<group>"; };
 		8EB019162D188D2236B2CA27 /* MenuModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuModule.swift; sourceTree = "<group>"; };
 		9AAF8195C2BFC5A7513737E3 /* MenuViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		C01F835A28F3EEB700719914 /* GalleryViewControllerFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewControllerFirst.swift; sourceTree = "<group>"; };
 		C055972328EBC4B800E3A1DE /* Gallery-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gallery-Bridging-Header.h"; sourceTree = "<group>"; };
 		C055972528EC613A00E3A1DE /* GalleryViewInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryViewInput.h; sourceTree = "<group>"; };
 		C058AC892897533A00EDE2D3 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				C07D6E1B28E69610005D2D28 /* GalleryViewController.m */,
 				C07D6E1A28E69610005D2D28 /* GalleryViewController.h */,
 				C055972528EC613A00E3A1DE /* GalleryViewInput.h */,
+				C01F835A28F3EEB700719914 /* GalleryViewControllerFirst.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -645,6 +648,7 @@
 				C0BF55B227CC503D00D8C7B4 /* ImageLoaderImpl.swift in Sources */,
 				C0739CF02869708D006B8BB2 /* GalleryCollectionViewModel.swift in Sources */,
 				C0845BB22872E6000082D035 /* GalleryItemBuilderImpl.swift in Sources */,
+				C01F835B28F3EEB700719914 /* GalleryViewControllerFirst.swift in Sources */,
 				C0845BB52872E7230082D035 /* GlobalConstants.swift in Sources */,
 				C058AC8C28975FC300EDE2D3 /* GalleryItemBuilder.swift in Sources */,
 				C0FBCB2727AFE5F60078C90D /* GalleryCell.swift in Sources */,
