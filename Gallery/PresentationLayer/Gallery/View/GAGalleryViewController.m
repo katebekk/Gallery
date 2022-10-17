@@ -12,7 +12,7 @@
 
 #import "Gallery-Swift.h"
 
-static double const delay = 1.0;
+static double const kGalleryViewRefreshDelay = 1.0;
 
 @interface GAGalleryViewController ()
 
@@ -75,7 +75,7 @@ static double const delay = 1.0;
 
 - (void)refreshWithDelay {
     __weak typeof(self) weakSelf = self;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kGalleryViewRefreshDelay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         __strong typeof(weakSelf) strongSelf = weakSelf;
 
         [strongSelf.collectionViewManager reloadWith:strongSelf.cellModels];
