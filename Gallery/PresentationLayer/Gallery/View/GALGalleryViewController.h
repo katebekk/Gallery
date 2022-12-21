@@ -1,12 +1,12 @@
 //
-//  GalleryViewController.h
+//  GALGalleryViewController.h
 //  Gallery
 //
 //  Created by bekkerman on 30.09.2022.
 //
 
 #import <UIKit/UIKit.h>
-#import "GAGalleryViewInput.h"
+#import "GALGalleryViewInput.h"
 
 @protocol GalleryViewOutput;
 @protocol GalleryModule;
@@ -16,7 +16,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(GalleryViewController)
-@interface GAGalleryViewController : UIViewController <GAGalleryViewInput>
+@interface GALGalleryViewController : UIViewController <GALGalleryViewInput>
 
 @property (nonatomic) id<GalleryViewOutput> output;
 @property (nonatomic, weak) id<GalleryModule> module;

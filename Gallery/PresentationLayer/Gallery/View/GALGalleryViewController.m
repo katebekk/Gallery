@@ -1,5 +1,5 @@
 //
-//  GalleryViewController.m
+//  GALGalleryViewController.m
 //  Gallery
 //
 //  Created by bekkerman on 30.09.2022.
@@ -8,13 +8,13 @@
 #import <UIKit/UIKit.h>
 #import <PureLayout/PureLayout.h>
 
-#import "GAGalleryViewController.h"
+#import "GALGalleryViewController.h"
 
 #import "Gallery-Swift.h"
 
 static double const kGalleryViewRefreshDelay = 1.0;
 
-@interface GAGalleryViewController ()
+@interface GALGalleryViewController ()
 
 @property (nonatomic) NSArray<GalleryCellModel *> *cellModels;
 @property (nonatomic) NSString *pageTitle;
@@ -24,7 +24,7 @@ static double const kGalleryViewRefreshDelay = 1.0;
 
 @end
 
-@implementation GAGalleryViewController
+@implementation GALGalleryViewController
 
 #pragma mark - Initialization
 

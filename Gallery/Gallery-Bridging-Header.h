@@ -5,4 +5,4 @@
 //  Created by bekkerman on 04.10.2022.
 //
 
-#import "GAGalleryViewController.h"
+#import "GALGalleryViewController.h"

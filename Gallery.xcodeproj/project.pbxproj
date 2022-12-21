@@ -30,7 +30,7 @@
 		C0739CF2286970B9006B8BB2 /* GalleryCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0739CF1286970B9006B8BB2 /* GalleryCollectionViewManager.swift */; };
 		C07D6E1128E53985005D2D28 /* GalleryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D6E1028E53985005D2D28 /* GalleryModule.swift */; };
 		C07D6E1328E539BC005D2D28 /* GalleryModuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D6E1228E539BC005D2D28 /* GalleryModuleData.swift */; };
-		C07D6E1C28E69610005D2D28 /* GAGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C07D6E1B28E69610005D2D28 /* GAGalleryViewController.m */; };
+		C07D6E1C28E69610005D2D28 /* GALGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C07D6E1B28E69610005D2D28 /* GALGalleryViewController.m */; };
 		C0845BB22872E6000082D035 /* GalleryItemBuilderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0845BB12872E6000082D035 /* GalleryItemBuilderImpl.swift */; };
 		C0845BB52872E7230082D035 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0845BB42872E7230082D035 /* GlobalConstants.swift */; };
 		C0869A0427E40DB000BF5ED8 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0869A0327E40DB000BF5ED8 /* MenuButton.swift */; };
@@ -77,7 +77,7 @@
 		9AAF8195C2BFC5A7513737E3 /* MenuViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		C01F835A28F3EEB700719914 /* GalleryViewControllerFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewControllerFirst.swift; sourceTree = "<group>"; };
 		C055972328EBC4B800E3A1DE /* Gallery-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gallery-Bridging-Header.h"; sourceTree = "<group>"; };
-		C055972528EC613A00E3A1DE /* GAGalleryViewInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAGalleryViewInput.h; sourceTree = "<group>"; };
+		C055972528EC613A00E3A1DE /* GALGalleryViewInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GALGalleryViewInput.h; sourceTree = "<group>"; };
 		C058AC892897533A00EDE2D3 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		C058AC8B28975FC300EDE2D3 /* GalleryItemBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryItemBuilder.swift; sourceTree = "<group>"; };
 		C058AC9528976FE300EDE2D3 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
@@ -85,8 +85,8 @@
 		C0739CF1286970B9006B8BB2 /* GalleryCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewManager.swift; sourceTree = "<group>"; };
 		C07D6E1028E53985005D2D28 /* GalleryModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryModule.swift; sourceTree = "<group>"; };
 		C07D6E1228E539BC005D2D28 /* GalleryModuleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryModuleData.swift; sourceTree = "<group>"; };
-		C07D6E1A28E69610005D2D28 /* GAGalleryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAGalleryViewController.h; sourceTree = "<group>"; };
-		C07D6E1B28E69610005D2D28 /* GAGalleryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAGalleryViewController.m; sourceTree = "<group>"; };
+		C07D6E1A28E69610005D2D28 /* GALGalleryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GALGalleryViewController.h; sourceTree = "<group>"; };
+		C07D6E1B28E69610005D2D28 /* GALGalleryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GALGalleryViewController.m; sourceTree = "<group>"; };
 		C0845BB12872E6000082D035 /* GalleryItemBuilderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryItemBuilderImpl.swift; sourceTree = "<group>"; };
 		C0845BB42872E7230082D035 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		C0869A0327E40DB000BF5ED8 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
@@ -156,9 +156,9 @@
 				C0033D4F28D94C5900D53D43 /* Cells */,
 				C0033D4E28D94C1300D53D43 /* CellModels */,
 				07901C6DEB2E75285557D40C /* GalleryViewOutput.swift */,
-				C07D6E1B28E69610005D2D28 /* GAGalleryViewController.m */,
-				C07D6E1A28E69610005D2D28 /* GAGalleryViewController.h */,
-				C055972528EC613A00E3A1DE /* GAGalleryViewInput.h */,
+				C07D6E1B28E69610005D2D28 /* GALGalleryViewController.m */,
+				C07D6E1A28E69610005D2D28 /* GALGalleryViewController.h */,
+				C055972528EC613A00E3A1DE /* GALGalleryViewInput.h */,
 				C01F835A28F3EEB700719914 /* GalleryViewControllerFirst.swift */,
 			);
 			path = View;
@@ -495,7 +495,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				CLASSPREFIX = GA;
+				CLASSPREFIX = GAL;
 				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
@@ -666,7 +666,7 @@
 				28F4286DE60B5241A2178D80 /* MenuViewController.swift in Sources */,
 				C07D6E1328E539BC005D2D28 /* GalleryModuleData.swift in Sources */,
 				7654F351392D22AD9EAC05B2 /* MenuPresenter.swift in Sources */,
-				C07D6E1C28E69610005D2D28 /* GAGalleryViewController.m in Sources */,
+				C07D6E1C28E69610005D2D28 /* GALGalleryViewController.m in Sources */,
 				40F7D56B63B5735BD08B6111 /* MenuStateStorage.swift in Sources */,
 				D584330D1F1382E0A2445515 /* MenuInteractorInput.swift in Sources */,
 				A7D17C3B16672F5A8C5470D1 /* MenuInteractor.swift in Sources */,
