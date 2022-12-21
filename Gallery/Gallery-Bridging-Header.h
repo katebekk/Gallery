@@ -6,3 +6,4 @@
 //
 
 #import "GALGalleryViewController.h"
+#import "GALGalleryCell.h"

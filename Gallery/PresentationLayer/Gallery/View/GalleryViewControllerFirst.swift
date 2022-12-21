@@ -91,7 +91,7 @@ private extension GalleryViewControllerFirst {
 
         collectionView.dataSource = collectionViewManager.collectionViewModel
         collectionView.delegate = collectionViewManager
-        collectionView.register(GalleryCell.self, forCellWithReuseIdentifier: GalleryCell.cellIdentifier)
+        collectionView.register(GalleryCell.self, forCellWithReuseIdentifier: kGalleryCollectionViewCellIdentifier)
 
         collectionView.refreshControl = refresh
     }

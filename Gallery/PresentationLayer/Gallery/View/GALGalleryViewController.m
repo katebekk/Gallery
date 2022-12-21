@@ -102,8 +102,8 @@ static double const kGalleryViewRefreshDelay = 1.0;
     self.collectionView.dataSource = self.collectionViewManager.collectionViewModel;
     self.collectionView.delegate = self.collectionViewManager;
 
-    [self.collectionView registerClass:GalleryCell.self
-            forCellWithReuseIdentifier:GalleryCell.cellIdentifier];
+    [self.collectionView registerClass:GALGalleryCell.self
+            forCellWithReuseIdentifier:kGalleryCollectionViewCellIdentifier];
 
     self.collectionView.refreshControl = self.refresh;
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-@objc final class GalleryCell: UICollectionViewCell {
+@objc final class GalleryCellFirst: UICollectionViewCell {
     @objc static let cellIdentifier = String(describing: GalleryCell.self)
 
     private enum Constants {
@@ -21,7 +21,6 @@ import UIKit
 
     // MARK: - Properties
     let spinner = UIActivityIndicatorView()
-    private var galleryItem: GalleryCellModel?
 
     private let label: UILabel = {
         let label = UILabel()
@@ -67,7 +66,7 @@ import UIKit
     }
 }
 
-private extension GalleryCell {
+private extension GalleryCellFirst {
     func setupViews() {
         contentView.clipsToBounds = true
         contentView.backgroundColor = Constants.backgroundColor
