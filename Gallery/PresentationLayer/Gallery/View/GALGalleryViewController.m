@@ -9,6 +9,7 @@
 #import <PureLayout/PureLayout.h>
 
 #import "GALGalleryViewController.h"
+#import "GALGalleryCellModel.h"
 
 #import "Gallery-Swift.h"
 
@@ -16,7 +17,7 @@ static double const kGalleryViewRefreshDelay = 1.0;
 
 @interface GALGalleryViewController ()
 
-@property (nonatomic) NSArray<GalleryCellModel *> *cellModels;
+@property (nonatomic) NSArray<GALGalleryCellModel *> *cellModels;
 @property (nonatomic) NSString *pageTitle;
 
 @property (nonatomic) UIRefreshControl *refresh;
@@ -68,7 +69,7 @@ static double const kGalleryViewRefreshDelay = 1.0;
     [self setupConstraints];
 }
 
-- (void)configure:(NSArray<GalleryCellModel *> *)cellModels title:(NSString *)title {
+- (void)configure:(NSArray<GALGalleryCellModel *> *)cellModels title:(NSString *)title {
     self.pageTitle = title;
     self.cellModels = cellModels;
 }

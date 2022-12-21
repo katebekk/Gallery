@@ -1,5 +1,5 @@
 //
-//  GalleryItem.swift
+//  GalleryCellModelFirst.swift
 //  TestTakFirstTry
 //
 //  Created by bekkerman on 15.03.2022.
@@ -8,7 +8,7 @@
 import Foundation
 
 @objcMembers
-final class GalleryCellModel: NSObject {
+final class GalleryCellModelFirst: NSObject {
     var urlString: String!
 
     init(urlString: String) {

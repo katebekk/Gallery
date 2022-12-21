@@ -7,3 +7,4 @@
 
 #import "GALGalleryViewController.h"
 #import "GALGalleryCell.h"
+#import "GALGalleryCellModel.h"

@@ -7,13 +7,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class GalleryCellModel;
+@class GALGalleryCellModel;
 
 NS_SWIFT_NAME(GalleryViewInput)
 @protocol GALGalleryViewInput <NSObject>
 
 - (void)configureView;
-- (void)configure:(NSArray<GalleryCellModel *> *)cellModels title:(NSString *)title;
+- (void)configure:(NSArray<GALGalleryCellModel *> *)cellModels title:(NSString *)title;
 - (void)refreshWithDelay;
 
 @end
