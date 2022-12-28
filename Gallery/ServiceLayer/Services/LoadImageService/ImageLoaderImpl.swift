@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class ImageLoaderImpl {
+final class ImageLoaderImpl: NSObject {
     static let shared = ImageLoaderImpl()
     private let cachedImages = NSCache<NSString, UIImage>()
 }

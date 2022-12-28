@@ -6,5 +6,5 @@
 //  Copyright © 2022 katebekk. All rights reserved.
 //
 
-struct GalleryStateStorage {
+@objc class GalleryStateStorage: NSObject {
 }

@@ -13,3 +13,5 @@ extern NSInteger const GALGalleryCollectionViewTextLinesNumber;
 extern CGFloat const GALGalleryCollectionViewLabelHorizontalMargin;
 
 extern NSString *const GALGalleryCollectionViewImageErrorMessage;
+
+extern NSString *const GALGalleryCollectionViewCellIdentifier;

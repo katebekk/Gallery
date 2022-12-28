@@ -9,8 +9,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-static NSString * const kGalleryCollectionViewCellIdentifier = @"galleryCollectionViewCellIdentifier";
-
 NS_SWIFT_NAME(GalleryCell)
 @interface GALGalleryCell : UICollectionViewCell
 

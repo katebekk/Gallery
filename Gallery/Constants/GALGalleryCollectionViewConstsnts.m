@@ -12,3 +12,5 @@ NSInteger const GALGalleryCollectionViewTextLinesNumber = 5;
 CGFloat const GALGalleryCollectionViewLabelHorizontalMargin = -10.0;
 
 NSString *const GALGalleryCollectionViewImageErrorMessage = @"Не удалось загрузить изображение";
+
+NSString *const GALGalleryCollectionViewCellIdentifier = @"galleryCollectionViewCellIdentifier";

@@ -15,7 +15,7 @@ final class MenuRouter {
 extension MenuRouter: MenuRouterInput {
     func presentGalleryView(with cellModels: [GalleryCellModel], title: String) {
         let galleryViewController = MainAssembler.assembler.resolver.resolve(GalleryViewController.self)!
-        galleryViewController.module?.configure(with: cellModels, title: title)
+        galleryViewController.galleryModule.configure(cellModels, title: title)
 
         viewController?.navigationController?.pushViewController(galleryViewController, animated: true)
     }

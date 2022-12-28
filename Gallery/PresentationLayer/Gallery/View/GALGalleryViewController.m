@@ -10,6 +10,8 @@
 
 #import "GALGalleryViewController.h"
 #import "GALGalleryCellModel.h"
+#import "GALGalleryCollectionViewConstsnts.h"
+#import "GALGalleryViewOutput.h"
 
 #import "Gallery-Swift.h"
 
@@ -104,7 +106,7 @@ static double const kGalleryViewRefreshDelay = 1.0;
     self.collectionView.delegate = self.collectionViewManager;
 
     [self.collectionView registerClass:GALGalleryCell.self
-            forCellWithReuseIdentifier:kGalleryCollectionViewCellIdentifier];
+            forCellWithReuseIdentifier:GALGalleryCollectionViewCellIdentifier];
 
     self.collectionView.refreshControl = self.refresh;
 }
@@ -117,7 +119,7 @@ static double const kGalleryViewRefreshDelay = 1.0;
 #pragma mark - Actions
 
 - (void)handleRefresh:(UIRefreshControl *)sender  {
-    [self.output onRefreshWith:self.cellModels];
+    [self.output onRefresh];
 }
 
 @end

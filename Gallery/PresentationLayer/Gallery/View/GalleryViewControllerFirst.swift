@@ -111,6 +111,6 @@ private extension GalleryViewControllerFirst {
 // MARK: - Actions
 private extension GalleryViewControllerFirst {
     @objc func handleRefresh(sender: UIRefreshControl) {
-        output.onRefresh(with: cellModels)
+        output.onRefresh()
     }
 }

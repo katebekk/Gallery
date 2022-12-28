@@ -6,20 +6,20 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "GALGalleryViewInput.h"
 
-@protocol GalleryViewOutput;
-@protocol GalleryModule;
+@protocol GALGalleryViewOutput;
+@protocol GALGalleryModule;
 @class GalleryCollectionViewManager;
-@class GalleryCellModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(GalleryViewController)
 @interface GALGalleryViewController : UIViewController <GALGalleryViewInput>
 
-@property (nonatomic) id<GalleryViewOutput> output;
-@property (nonatomic, weak) id<GalleryModule> module;
+@property (nonatomic) id<GALGalleryViewOutput> output;
+@property (nonatomic, strong) id<GALGalleryModule> galleryModule;
 @property (nonatomic) GalleryCollectionViewManager *collectionViewManager;
 
 @end

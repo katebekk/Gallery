@@ -7,7 +7,7 @@
 
 import UIKit
 
-@objc final class GalleryCollectionViewModel: NSObject {
+@objc final class GalleryCollectionViewModelFirst: NSObject {
     private enum Constants {
         static let imageErrorMessage = "Не удалось загрузить изображение"
     }
@@ -24,7 +24,7 @@ import UIKit
 }
 
 // MARK: - UICollectionViewDataSource
-extension GalleryCollectionViewModel: UICollectionViewDataSource {
+extension GalleryCollectionViewModelFirst: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         cellModels.count
     }
