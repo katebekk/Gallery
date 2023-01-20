@@ -7,7 +7,7 @@
 
 import UIKit
 
-@objc final class GalleryCollectionViewManager: NSObject {
+@objc final class GalleryCollectionViewManagerFirst: NSObject {
     private enum Constants {
         static let spacing = 10.0
         static let highlightedItemOpacity: Float = 0.9
@@ -22,7 +22,7 @@ import UIKit
 }
 
 // MARK: - Public
-extension GalleryCollectionViewManager {
+extension GalleryCollectionViewManagerFirst {
     @objc func reload(with cellModels: [GalleryCellModel]) {
         self.cellModels = cellModels
         collectionViewModel.configure(with: cellModels)
@@ -30,7 +30,7 @@ extension GalleryCollectionViewManager {
 }
 
 // MARK: - UICollectionViewDelegate
-extension GalleryCollectionViewManager: UICollectionViewDelegate {
+extension GalleryCollectionViewManagerFirst: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? GalleryCell else {
             return
@@ -53,7 +53,7 @@ extension GalleryCollectionViewManager: UICollectionViewDelegate {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension GalleryCollectionViewManager: UICollectionViewDelegateFlowLayout {
+extension GalleryCollectionViewManagerFirst: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = UIScreen.main.bounds.width - 2 * Constants.spacing
 
@@ -70,7 +70,7 @@ extension GalleryCollectionViewManager: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - Private
-private extension GalleryCollectionViewManager {
+private extension GalleryCollectionViewManagerFirst {
     func deleteCell(_ cell: GalleryCell, indexPath: IndexPath, collectionView: UICollectionView) {
         collectionView.isUserInteractionEnabled = false
         UIView.animate(withDuration: Constants.сellAnimationDuration, delay: 0) {

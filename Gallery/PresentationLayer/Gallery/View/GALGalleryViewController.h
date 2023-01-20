@@ -11,16 +11,16 @@
 
 @protocol GALGalleryViewOutput;
 @protocol GALGalleryModule;
-@class GalleryCollectionViewManager;
+@class GALGalleryCollectionViewManager;
 
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(GalleryViewController)
 @interface GALGalleryViewController : UIViewController <GALGalleryViewInput>
 
-@property (nonatomic) id<GALGalleryViewOutput> output;
+@property (nonatomic, strong) id<GALGalleryViewOutput> output;
 @property (nonatomic, strong) id<GALGalleryModule> galleryModule;
-@property (nonatomic) GalleryCollectionViewManager *collectionViewManager;
+@property (nonatomic, strong) GALGalleryCollectionViewManager *collectionViewManager;
 
 @end
 

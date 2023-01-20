@@ -22,6 +22,7 @@
 		A7D17C3B16672F5A8C5470D1 /* MenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01206B90B59D9661D881638F /* MenuInteractor.swift */; };
 		ABF723E14CB31D617B1E5595 /* MenuModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB019162D188D2236B2CA27 /* MenuModule.swift */; };
 		AFE58803487B2BC81194F8F1 /* libPods-GalleryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90700D197CCAE6D0673013F4 /* libPods-GalleryTests.a */; };
+		C0047138297006490093498A /* GALGalleryCollectionViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0047137297006490093498A /* GALGalleryCollectionViewManager.m */; };
 		C007EC42295452F6007D917C /* GALGalleryViewOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = C007EC41295452F6007D917C /* GALGalleryViewOutput.h */; };
 		C007EC44295453ED007D917C /* GALGalleryModule.h in Headers */ = {isa = PBXBuildFile; fileRef = C007EC43295453ED007D917C /* GALGalleryModule.h */; };
 		C007EC462954540E007D917C /* GALGalleryModuleOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = C007EC452954540E007D917C /* GALGalleryModuleOutput.h */; };
@@ -34,7 +35,7 @@
 		C058AC9628976FE300EDE2D3 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058AC9528976FE300EDE2D3 /* ServiceAssembly.swift */; };
 		C06ECCE3295424D30082FB9B /* GALGalleryPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = C06ECCE2295424D30082FB9B /* GALGalleryPresenter.m */; };
 		C0739CF02869708D006B8BB2 /* GalleryCollectionViewModelFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0739CEF2869708D006B8BB2 /* GalleryCollectionViewModelFirst.swift */; };
-		C0739CF2286970B9006B8BB2 /* GalleryCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0739CF1286970B9006B8BB2 /* GalleryCollectionViewManager.swift */; };
+		C0739CF2286970B9006B8BB2 /* GalleryCollectionViewManagerFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0739CF1286970B9006B8BB2 /* GalleryCollectionViewManagerFirst.swift */; };
 		C07D6E1128E53985005D2D28 /* GalleryModuleFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D6E1028E53985005D2D28 /* GalleryModuleFirst.swift */; };
 		C07D6E1328E539BC005D2D28 /* GalleryModuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D6E1228E539BC005D2D28 /* GalleryModuleData.swift */; };
 		C07D6E1C28E69610005D2D28 /* GALGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C07D6E1B28E69610005D2D28 /* GALGalleryViewController.m */; };
@@ -84,6 +85,8 @@
 		8EB019162D188D2236B2CA27 /* MenuModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuModule.swift; sourceTree = "<group>"; };
 		90700D197CCAE6D0673013F4 /* libPods-GalleryTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GalleryTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AAF8195C2BFC5A7513737E3 /* MenuViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		C0047137297006490093498A /* GALGalleryCollectionViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GALGalleryCollectionViewManager.m; sourceTree = "<group>"; };
+		C00471392970065C0093498A /* GALGalleryCollectionViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GALGalleryCollectionViewManager.h; sourceTree = "<group>"; };
 		C007EC41295452F6007D917C /* GALGalleryViewOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GALGalleryViewOutput.h; sourceTree = "<group>"; };
 		C007EC43295453ED007D917C /* GALGalleryModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GALGalleryModule.h; sourceTree = "<group>"; };
 		C007EC452954540E007D917C /* GALGalleryModuleOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GALGalleryModuleOutput.h; sourceTree = "<group>"; };
@@ -102,7 +105,7 @@
 		C058AC9528976FE300EDE2D3 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		C06ECCE2295424D30082FB9B /* GALGalleryPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GALGalleryPresenter.m; sourceTree = "<group>"; };
 		C0739CEF2869708D006B8BB2 /* GalleryCollectionViewModelFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewModelFirst.swift; sourceTree = "<group>"; };
-		C0739CF1286970B9006B8BB2 /* GalleryCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewManager.swift; sourceTree = "<group>"; };
+		C0739CF1286970B9006B8BB2 /* GalleryCollectionViewManagerFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewManagerFirst.swift; sourceTree = "<group>"; };
 		C07D6E1028E53985005D2D28 /* GalleryModuleFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryModuleFirst.swift; sourceTree = "<group>"; };
 		C07D6E1228E539BC005D2D28 /* GalleryModuleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryModuleData.swift; sourceTree = "<group>"; };
 		C07D6E1A28E69610005D2D28 /* GALGalleryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GALGalleryViewController.h; sourceTree = "<group>"; };
@@ -351,9 +354,11 @@
 			isa = PBXGroup;
 			children = (
 				C0739CEF2869708D006B8BB2 /* GalleryCollectionViewModelFirst.swift */,
-				C0739CF1286970B9006B8BB2 /* GalleryCollectionViewManager.swift */,
+				C0739CF1286970B9006B8BB2 /* GalleryCollectionViewManagerFirst.swift */,
 				C0EA4AB4295C015B00C50DD1 /* GALGalleryCollectionViewModel.h */,
 				C0EA4AB5295C015B00C50DD1 /* GALGalleryCollectionViewModel.m */,
+				C0047137297006490093498A /* GALGalleryCollectionViewManager.m */,
+				C00471392970065C0093498A /* GALGalleryCollectionViewManager.h */,
 			);
 			path = CollectionViewManeger;
 			sourceTree = "<group>";
@@ -666,7 +671,7 @@
 				C09ED72627E029D700460FDE /* GalleryCellModelFirst.swift in Sources */,
 				C06ECCE3295424D30082FB9B /* GALGalleryPresenter.m in Sources */,
 				C0FBCB0E27AFE2A70078C90D /* AppDelegate.swift in Sources */,
-				C0739CF2286970B9006B8BB2 /* GalleryCollectionViewManager.swift in Sources */,
+				C0739CF2286970B9006B8BB2 /* GalleryCollectionViewManagerFirst.swift in Sources */,
 				C0869A0427E40DB000BF5ED8 /* MenuButton.swift in Sources */,
 				C0EA4AB7295C015B00C50DD1 /* GALGalleryCollectionViewModel.m in Sources */,
 				C07D6E1128E53985005D2D28 /* GalleryModuleFirst.swift in Sources */,
@@ -676,6 +681,7 @@
 				C01F835B28F3EEB700719914 /* GalleryViewControllerFirst.swift in Sources */,
 				C0845BB52872E7230082D035 /* GlobalConstants.swift in Sources */,
 				C058AC8C28975FC300EDE2D3 /* GalleryItemBuilder.swift in Sources */,
+				C0047138297006490093498A /* GALGalleryCollectionViewManager.m in Sources */,
 				C0FBCB2727AFE5F60078C90D /* GalleryCellFirst.swift in Sources */,
 				C058AC9628976FE300EDE2D3 /* ServiceAssembly.swift in Sources */,
 				C058AC8A2897533A00EDE2D3 /* ImageLoader.swift in Sources */,

@@ -30,7 +30,7 @@ extension GalleryCollectionViewModelFirst: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kGalleryCollectionViewCellIdentifier, for: indexPath) as! GalleryCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "kGalleryCollectionViewCellIdentifier", for: indexPath) as! GalleryCell
 
         imageLoader.fetchImage(urlString: cellModels[indexPath.row].urlString) { fetchedImage, error in
             cell.configure(with: fetchedImage, error: error)

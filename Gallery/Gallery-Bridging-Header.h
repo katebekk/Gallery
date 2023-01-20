@@ -14,3 +14,4 @@
 #import "GALGalleryViewOutput.h"
 #import "GALGalleryViewInput.h"
 #import "GALGalleryCollectionViewModel.h"
+#import "GALGalleryCollectionViewManager.h"

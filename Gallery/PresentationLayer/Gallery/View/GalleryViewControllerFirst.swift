@@ -67,7 +67,7 @@ extension GalleryViewControllerFirst: GalleryViewInput {
         DispatchQueue.main.asyncAfter(deadline: .now() + Constants.delay) { [weak self] in
             guard let self = self else { return }
 
-            self.collectionViewManager.reload(with: self.cellModels)
+//            self.collectionViewManager.reload(with: self.cellModels)
             self.collectionView.reloadSections(Constants.indexSet)
 
             self.refresh.endRefreshing()
@@ -87,11 +87,11 @@ private extension GalleryViewControllerFirst {
     }
 
     func setupCollectionView() {
-        collectionViewManager.reload(with: cellModels)
+//        collectionViewManager.reload(with: cellModels)
 
         collectionView.dataSource = collectionViewManager.collectionViewModel
         collectionView.delegate = collectionViewManager
-        collectionView.register(GalleryCell.self, forCellWithReuseIdentifier: kGalleryCollectionViewCellIdentifier)
+        collectionView.register(GalleryCell.self, forCellWithReuseIdentifier: "kGalleryCollectionViewCellIdentifier")
 
         collectionView.refreshControl = refresh
     }
