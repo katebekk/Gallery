@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(GalleryCellModel)
 @interface GALGalleryCellModel : NSObject
 
-@property (nonatomic, strong) NSString *urlString;
+@property (nonatomic) NSString *urlString;
 
 - (instancetype)initWithUrlString:(NSString *)urlString;
 

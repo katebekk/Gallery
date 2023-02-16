@@ -18,9 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(GalleryViewController)
 @interface GALGalleryViewController : UIViewController <GALGalleryViewInput>
 
-@property (nonatomic, strong) id<GALGalleryViewOutput> output;
-@property (nonatomic, strong) id<GALGalleryModule> galleryModule;
-@property (nonatomic, strong) GALGalleryCollectionViewManager *collectionViewManager;
+@property (nonatomic) id<GALGalleryViewOutput> output;
+@property (nonatomic) id<GALGalleryModule> galleryModule;
+@property (nonatomic) GALGalleryCollectionViewManager *collectionViewManager;
 
 @end
 

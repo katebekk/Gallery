@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(GalleryCollectionViewModel)
 @interface GALGalleryCollectionViewModel : NSObject <UICollectionViewDataSource>
 
-@property (nonatomic, strong) id<ImageLoader> imageLoader;
+@property (nonatomic) id<ImageLoader> imageLoader;
 
 - (void)configureWith:(NSArray<GALGalleryCellModel *> *)cellModels;
 
