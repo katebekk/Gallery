@@ -5,8 +5,12 @@
 //  Created by bekkerman on 28.02.2022.
 //
 
-import Foundation
 import UIKit
+
+@objc enum ImageLoaderCacheMode: Int {
+    case any
+    case cacheOnly
+}
 
 final class ImageLoaderImpl: NSObject {
     static let shared = ImageLoaderImpl()
@@ -14,7 +18,7 @@ final class ImageLoaderImpl: NSObject {
 }
 
 extension ImageLoaderImpl: ImageLoader {
-    func fetchImage(urlString: String, completionHandler: @escaping (UIImage?, Error?) -> Void) {
+    func fetchImage(urlString: String, cacheMode: ImageLoaderCacheMode, completionHandler: @escaping (UIImage?, Error?) -> Void) {
         if let cachedImage = getImageFromCache(url: urlString as NSString) {
             DispatchQueue.main.async {
                 completionHandler(cachedImage, nil)
@@ -22,6 +26,8 @@ extension ImageLoaderImpl: ImageLoader {
 
             return
         }
+
+        if cacheMode == .cacheOnly { return }
 
         guard let url = URL(string: urlString) else {
             return

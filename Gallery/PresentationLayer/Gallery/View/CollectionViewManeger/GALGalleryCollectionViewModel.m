@@ -28,7 +28,7 @@
     GALGalleryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:GALGalleryCollectionViewCellIdentifier forIndexPath:indexPath];
 
     NSString *urlString = [self.cellModels objectAtIndex:indexPath.row].urlString;
-    [self.imageLoader fetchImageWithUrlString:urlString completionHandler:^(UIImage * _Nullable fetchedImage, NSError * _Nullable error) {
+    [self.imageLoader fetchImageWithUrlString:urlString cacheMode:ImageLoaderCacheModeCacheOnly completionHandler:^(UIImage * _Nullable fetchedImage, NSError * _Nullable error) {
         
         [cell configureWith:fetchedImage error:error];
     }];

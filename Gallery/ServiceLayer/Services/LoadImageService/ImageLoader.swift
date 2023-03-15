@@ -8,6 +8,6 @@
 import UIKit
 
 @objc protocol ImageLoader: AnyObject {
-    func fetchImage(urlString: String, completionHandler: @escaping (UIImage?, Error?) -> Void)
+    func fetchImage(urlString: String, cacheMode: ImageLoaderCacheMode, completionHandler: @escaping (UIImage?, Error?) -> Void)
     func clearCache()
 }
