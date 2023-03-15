@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class GalleryCollectionViewModel: NSObject {
+@objc final class GalleryCollectionViewModelFirst: NSObject {
     private enum Constants {
         static let imageErrorMessage = "Не удалось загрузить изображение"
     }
@@ -24,13 +24,13 @@ final class GalleryCollectionViewModel: NSObject {
 }
 
 // MARK: - UICollectionViewDataSource
-extension GalleryCollectionViewModel: UICollectionViewDataSource {
+extension GalleryCollectionViewModelFirst: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         cellModels.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCell.cellIdentifier, for: indexPath) as! GalleryCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "kGalleryCollectionViewCellIdentifier", for: indexPath) as! GalleryCell
 
         imageLoader.fetchImage(urlString: cellModels[indexPath.row].urlString) { fetchedImage, error in
             cell.configure(with: fetchedImage, error: error)

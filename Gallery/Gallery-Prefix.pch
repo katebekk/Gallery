@@ -1,0 +1,12 @@
+//
+//  Gallery-Prefix.pch
+//  Gallery
+//
+//  Created by bekkerman on 05.10.2022.
+//
+
+#ifndef Gallery_Prefix_pch
+#define Gallery_Prefix_pch
+
+
+#endif /* Gallery_Prefix_pch */

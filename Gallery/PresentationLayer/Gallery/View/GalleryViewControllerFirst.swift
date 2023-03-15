@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GalleryViewController: UIViewController {
+final class GalleryViewControllerFirst: UIViewController {
     private enum Constants {
         static let delay = 1.0
         static let indexSet = IndexSet(integer: 0)
@@ -50,7 +50,7 @@ final class GalleryViewController: UIViewController {
     }
 }
 
-extension GalleryViewController: GalleryViewInput {
+extension GalleryViewControllerFirst: GalleryViewInput {
     func configureView() {
         setupViews()
         setupActions()
@@ -58,7 +58,7 @@ extension GalleryViewController: GalleryViewInput {
         setupLayouts()
     }
 
-    func configure(with cellModels: [GalleryCellModel], title: String) {
+    func configure(_ cellModels: [GalleryCellModel], title: String) {
         pageTitle = title
         self.cellModels = cellModels
     }
@@ -67,7 +67,7 @@ extension GalleryViewController: GalleryViewInput {
         DispatchQueue.main.asyncAfter(deadline: .now() + Constants.delay) { [weak self] in
             guard let self = self else { return }
 
-            self.collectionViewManager.reload(with: self.cellModels)
+//            self.collectionViewManager.reload(with: self.cellModels)
             self.collectionView.reloadSections(Constants.indexSet)
 
             self.refresh.endRefreshing()
@@ -76,7 +76,7 @@ extension GalleryViewController: GalleryViewInput {
 }
 
 // MARK: - Private
-private extension GalleryViewController {
+private extension GalleryViewControllerFirst {
     func setupViews() {
         title = pageTitle
         view.addSubview(collectionView)
@@ -87,11 +87,11 @@ private extension GalleryViewController {
     }
 
     func setupCollectionView() {
-        collectionViewManager.reload(with: cellModels)
+//        collectionViewManager.reload(with: cellModels)
 
         collectionView.dataSource = collectionViewManager.collectionViewModel
         collectionView.delegate = collectionViewManager
-        collectionView.register(GalleryCell.self, forCellWithReuseIdentifier: GalleryCell.cellIdentifier)
+        collectionView.register(GalleryCell.self, forCellWithReuseIdentifier: "kGalleryCollectionViewCellIdentifier")
 
         collectionView.refreshControl = refresh
     }
@@ -109,8 +109,8 @@ private extension GalleryViewController {
 }
 
 // MARK: - Actions
-private extension GalleryViewController {
+private extension GalleryViewControllerFirst {
     @objc func handleRefresh(sender: UIRefreshControl) {
-        output.onRefresh(with: cellModels)
+        output.onRefresh()
     }
 }

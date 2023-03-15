@@ -24,12 +24,12 @@ final class GalleryAssembly: Assembly {
             viewController.output = presenter
 
             let model = GalleryCollectionViewModel()
-            model.imageLoader = imageLoader
+            model.imageLoader = imageLoader!
 
             let manager = GalleryCollectionViewManager()
             manager.collectionViewModel = model
 
-            viewController.module = presenter
+            viewController.galleryModule = presenter
             viewController.collectionViewManager = manager
         }
     }

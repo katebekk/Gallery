@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class GalleryCell: UICollectionViewCell {
-    static let cellIdentifier = String(describing: GalleryCell.self)
+@objc final class GalleryCellFirst: UICollectionViewCell {
+    @objc static let cellIdentifier = String(describing: GalleryCell.self)
 
     private enum Constants {
         static let contentViewCornerRadius = 4.0
@@ -21,7 +21,6 @@ final class GalleryCell: UICollectionViewCell {
 
     // MARK: - Properties
     let spinner = UIActivityIndicatorView()
-    private var galleryItem: GalleryCellModel?
 
     private let label: UILabel = {
         let label = UILabel()
@@ -67,7 +66,7 @@ final class GalleryCell: UICollectionViewCell {
     }
 }
 
-private extension GalleryCell {
+private extension GalleryCellFirst {
     func setupViews() {
         contentView.clipsToBounds = true
         contentView.backgroundColor = Constants.backgroundColor

@@ -1,5 +1,5 @@
 //
-//  GalleryPresenter.swift
+//  GalleryPresenterFirst.swift
 //  Gallery
 //
 //  Created by Kate Bekkerman on 17/09/2022.
@@ -8,25 +8,25 @@
 
 import Foundation
 
-@objc final class GalleryPresenter: NSObject {
+final class GalleryPresenterFirst: NSObject {
     var stateStorage: GalleryStateStorage!
 
     weak var view: GalleryViewInput?
     weak var moduleOutput: GalleryModuleOutput?
 }
 
-extension GalleryPresenter: GalleryModule {
-    func configure(with cellModels: [GalleryCellModel], title: String) {
+extension GalleryPresenterFirst: GalleryModule {
+    func configure(_ cellModels: [GalleryCellModel], title: String) {
         view?.configure(cellModels, title: title)
     }
 }
 
-extension GalleryPresenter: GalleryViewOutput {
+extension GalleryPresenterFirst: GalleryViewOutput {
     func viewDidLoad() {
         view?.configureView()
     }
 
-    func onRefresh(with cellModels: [GalleryCellModel]) {
+    func onRefresh() {
         view?.refreshWithDelay()
     }
 }
