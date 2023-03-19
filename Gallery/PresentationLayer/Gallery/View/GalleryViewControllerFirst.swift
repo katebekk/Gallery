@@ -17,7 +17,7 @@ final class GalleryViewControllerFirst: UIViewController {
     // MARK: - Properties
     var collectionViewManager: GalleryCollectionViewManager!
     var module: GalleryModule!
-    var output: GalleryViewOutput!
+    var output: GalleryViewOutputFirst!
 
     private var cellModels: [GalleryCellModel]!
     private var pageTitle: String!

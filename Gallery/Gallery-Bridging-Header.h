@@ -15,3 +15,6 @@
 #import "GALGalleryViewInput.h"
 #import "GALGalleryCollectionViewModel.h"
 #import "GALGalleryCollectionViewManager.h"
+#import "GALImageLoader.h"
+#import "GALImageLoaderImpl.h"
+#import "GALImageLoaderCacheMode.h"

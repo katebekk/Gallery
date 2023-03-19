@@ -10,12 +10,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class GALGalleryCellModel;
-@protocol ImageLoader;
+@protocol GALImageLoader;
 
 NS_SWIFT_NAME(GalleryCollectionViewModel)
 @interface GALGalleryCollectionViewModel : NSObject <UICollectionViewDataSource>
 
-@property (nonatomic) id<ImageLoader> imageLoader;
+@property (nonatomic) id<GALImageLoader> imageLoader;
 
 - (void)configureWith:(NSArray<GALGalleryCellModel *> *)cellModels;
 

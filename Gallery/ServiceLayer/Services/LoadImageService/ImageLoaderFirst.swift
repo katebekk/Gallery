@@ -7,7 +7,7 @@
 
 import UIKit
 
-@objc protocol ImageLoader: AnyObject {
+@objc protocol ImageLoaderFirst: AnyObject {
     func fetchImage(urlString: String, cacheMode: ImageLoaderCacheMode, completionHandler: @escaping (UIImage?, Error?) -> Void)
     func clearCache()
 }

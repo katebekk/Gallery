@@ -12,12 +12,12 @@ import UIKit
     case cacheOnly
 }
 
-final class ImageLoaderImpl: NSObject {
+final class ImageLoaderImplFirst: NSObject {
     static let shared = ImageLoaderImpl()
     private let cachedImages = NSCache<NSString, UIImage>()
 }
 
-extension ImageLoaderImpl: ImageLoader {
+extension ImageLoaderImplFirst: ImageLoaderFirst {
     func fetchImage(urlString: String, cacheMode: ImageLoaderCacheMode, completionHandler: @escaping (UIImage?, Error?) -> Void) {
         if let cachedImage = getImageFromCache(url: urlString as NSString) {
             DispatchQueue.main.async {
@@ -62,7 +62,7 @@ extension ImageLoaderImpl: ImageLoader {
     }
 }
 
-private extension ImageLoaderImpl {
+private extension ImageLoaderImplFirst {
     func getImageFromCache(url: NSString) -> UIImage? {
         cachedImages.object(forKey: url)
     }

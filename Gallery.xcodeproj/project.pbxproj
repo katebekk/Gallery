@@ -30,7 +30,7 @@
 		C045848B2952D3D100F8F919 /* GALGalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C045848A2952D3D100F8F919 /* GALGalleryCell.m */; };
 		C045848E2952E11300F8F919 /* GALGalleryCollectionViewConstsnts.m in Sources */ = {isa = PBXBuildFile; fileRef = C045848D2952E11300F8F919 /* GALGalleryCollectionViewConstsnts.m */; };
 		C045849129530CC400F8F919 /* GALGalleryCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C045849029530CC400F8F919 /* GALGalleryCellModel.m */; };
-		C058AC8A2897533A00EDE2D3 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058AC892897533A00EDE2D3 /* ImageLoader.swift */; };
+		C058AC8A2897533A00EDE2D3 /* ImageLoaderFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058AC892897533A00EDE2D3 /* ImageLoaderFirst.swift */; };
 		C058AC8C28975FC300EDE2D3 /* GalleryItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058AC8B28975FC300EDE2D3 /* GalleryItemBuilder.swift */; };
 		C058AC9628976FE300EDE2D3 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058AC9528976FE300EDE2D3 /* ServiceAssembly.swift */; };
 		C06ECCE3295424D30082FB9B /* GALGalleryPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = C06ECCE2295424D30082FB9B /* GALGalleryPresenter.m */; };
@@ -45,7 +45,8 @@
 		C0869A0C27E4644300BF5ED8 /* GalleryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0869A0B27E4644300BF5ED8 /* GalleryTests.swift */; };
 		C09ED72627E029D700460FDE /* GalleryCellModelFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09ED72527E029D700460FDE /* GalleryCellModelFirst.swift */; };
 		C0B582BA28CF224400644D9B /* MainAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B582B928CF224400644D9B /* MainAssembler.swift */; };
-		C0BF55B227CC503D00D8C7B4 /* ImageLoaderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BF55B127CC503D00D8C7B4 /* ImageLoaderImpl.swift */; };
+		C0BF55B227CC503D00D8C7B4 /* ImageLoaderImplFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BF55B127CC503D00D8C7B4 /* ImageLoaderImplFirst.swift */; };
+		C0DC884B29C1D6A600CC35B1 /* GALImageLoaderImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DC884A29C1D6A600CC35B1 /* GALImageLoaderImpl.m */; };
 		C0EA4AB6295C015B00C50DD1 /* GALGalleryCollectionViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = C0EA4AB4295C015B00C50DD1 /* GALGalleryCollectionViewModel.h */; };
 		C0EA4AB7295C015B00C50DD1 /* GALGalleryCollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0EA4AB5295C015B00C50DD1 /* GALGalleryCollectionViewModel.m */; };
 		C0FBCB0E27AFE2A70078C90D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FBCB0D27AFE2A70078C90D /* AppDelegate.swift */; };
@@ -90,6 +91,7 @@
 		C007EC41295452F6007D917C /* GALGalleryViewOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GALGalleryViewOutput.h; sourceTree = "<group>"; };
 		C007EC43295453ED007D917C /* GALGalleryModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GALGalleryModule.h; sourceTree = "<group>"; };
 		C007EC452954540E007D917C /* GALGalleryModuleOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GALGalleryModuleOutput.h; sourceTree = "<group>"; };
+		C0099E4429C6DADF0038BE4D /* GALImageLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GALImageLoader.h; sourceTree = "<group>"; };
 		C01DCF0E295447E600405B12 /* GALGalleryPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GALGalleryPresenter.h; sourceTree = "<group>"; };
 		C01F835A28F3EEB700719914 /* GalleryViewControllerFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewControllerFirst.swift; sourceTree = "<group>"; };
 		C045848A2952D3D100F8F919 /* GALGalleryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GALGalleryCell.m; sourceTree = "<group>"; };
@@ -100,7 +102,7 @@
 		C045849229530CCE00F8F919 /* GALGalleryCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GALGalleryCellModel.h; sourceTree = "<group>"; };
 		C055972328EBC4B800E3A1DE /* Gallery-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gallery-Bridging-Header.h"; sourceTree = "<group>"; };
 		C055972528EC613A00E3A1DE /* GALGalleryViewInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GALGalleryViewInput.h; sourceTree = "<group>"; };
-		C058AC892897533A00EDE2D3 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		C058AC892897533A00EDE2D3 /* ImageLoaderFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderFirst.swift; sourceTree = "<group>"; };
 		C058AC8B28975FC300EDE2D3 /* GalleryItemBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryItemBuilder.swift; sourceTree = "<group>"; };
 		C058AC9528976FE300EDE2D3 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		C06ECCE2295424D30082FB9B /* GALGalleryPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GALGalleryPresenter.m; sourceTree = "<group>"; };
@@ -118,7 +120,10 @@
 		C09ED72527E029D700460FDE /* GalleryCellModelFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCellModelFirst.swift; sourceTree = "<group>"; };
 		C0AA02C728ECF75800BFDF8D /* Gallery-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gallery-Prefix.pch"; sourceTree = "<group>"; };
 		C0B582B928CF224400644D9B /* MainAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembler.swift; sourceTree = "<group>"; };
-		C0BF55B127CC503D00D8C7B4 /* ImageLoaderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderImpl.swift; sourceTree = "<group>"; };
+		C0BF55B127CC503D00D8C7B4 /* ImageLoaderImplFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderImplFirst.swift; sourceTree = "<group>"; };
+		C0DC884929C1D68300CC35B1 /* GALImageLoaderImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GALImageLoaderImpl.h; sourceTree = "<group>"; };
+		C0DC884A29C1D6A600CC35B1 /* GALImageLoaderImpl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GALImageLoaderImpl.m; sourceTree = "<group>"; };
+		C0DC884D29C1D7A700CC35B1 /* GALImageLoaderCacheMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GALImageLoaderCacheMode.h; sourceTree = "<group>"; };
 		C0EA4AB4295C015B00C50DD1 /* GALGalleryCollectionViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GALGalleryCollectionViewModel.h; sourceTree = "<group>"; };
 		C0EA4AB5295C015B00C50DD1 /* GALGalleryCollectionViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GALGalleryCollectionViewModel.m; sourceTree = "<group>"; };
 		C0FBCB0A27AFE2A70078C90D /* Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -344,8 +349,11 @@
 		C05B59CF2845929F00E820B1 /* LoadImageService */ = {
 			isa = PBXGroup;
 			children = (
-				C0BF55B127CC503D00D8C7B4 /* ImageLoaderImpl.swift */,
-				C058AC892897533A00EDE2D3 /* ImageLoader.swift */,
+				C0BF55B127CC503D00D8C7B4 /* ImageLoaderImplFirst.swift */,
+				C058AC892897533A00EDE2D3 /* ImageLoaderFirst.swift */,
+				C0DC884929C1D68300CC35B1 /* GALImageLoaderImpl.h */,
+				C0DC884A29C1D6A600CC35B1 /* GALImageLoaderImpl.m */,
+				C0099E4429C6DADF0038BE4D /* GALImageLoader.h */,
 			);
 			path = LoadImageService;
 			sourceTree = "<group>";
@@ -386,6 +394,7 @@
 		C0845BB32872E6CF0082D035 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				C0DC884C29C1D77A00CC35B1 /* ImageLoader */,
 				C0845BB42872E7230082D035 /* GlobalConstants.swift */,
 				C045848D2952E11300F8F919 /* GALGalleryCollectionViewConstsnts.m */,
 				C045848F2952E12400F8F919 /* GALGalleryCollectionViewConstsnts.h */,
@@ -399,6 +408,14 @@
 				C0869A0B27E4644300BF5ED8 /* GalleryTests.swift */,
 			);
 			path = GalleryTests;
+			sourceTree = "<group>";
+		};
+		C0DC884C29C1D77A00CC35B1 /* ImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				C0DC884D29C1D7A700CC35B1 /* GALImageLoaderCacheMode.h */,
+			);
+			path = ImageLoader;
 			sourceTree = "<group>";
 		};
 		C0FBCB0127AFE2A70078C90D = {
@@ -675,7 +692,7 @@
 				C0869A0427E40DB000BF5ED8 /* MenuButton.swift in Sources */,
 				C0EA4AB7295C015B00C50DD1 /* GALGalleryCollectionViewModel.m in Sources */,
 				C07D6E1128E53985005D2D28 /* GalleryModuleFirst.swift in Sources */,
-				C0BF55B227CC503D00D8C7B4 /* ImageLoaderImpl.swift in Sources */,
+				C0BF55B227CC503D00D8C7B4 /* ImageLoaderImplFirst.swift in Sources */,
 				C0739CF02869708D006B8BB2 /* GalleryCollectionViewModelFirst.swift in Sources */,
 				C0845BB22872E6000082D035 /* GalleryItemBuilderImpl.swift in Sources */,
 				C01F835B28F3EEB700719914 /* GalleryViewControllerFirst.swift in Sources */,
@@ -684,7 +701,7 @@
 				C0047138297006490093498A /* GALGalleryCollectionViewManager.m in Sources */,
 				C0FBCB2727AFE5F60078C90D /* GalleryCellFirst.swift in Sources */,
 				C058AC9628976FE300EDE2D3 /* ServiceAssembly.swift in Sources */,
-				C058AC8A2897533A00EDE2D3 /* ImageLoader.swift in Sources */,
+				C058AC8A2897533A00EDE2D3 /* ImageLoaderFirst.swift in Sources */,
 				C0B582BA28CF224400644D9B /* MainAssembler.swift in Sources */,
 				C045848B2952D3D100F8F919 /* GALGalleryCell.m in Sources */,
 				C045849129530CC400F8F919 /* GALGalleryCellModel.m in Sources */,
@@ -697,6 +714,7 @@
 				0D4E7E6A1413C7D3757DDE5C /* MenuViewIO.swift in Sources */,
 				28F4286DE60B5241A2178D80 /* MenuViewController.swift in Sources */,
 				C07D6E1328E539BC005D2D28 /* GalleryModuleData.swift in Sources */,
+				C0DC884B29C1D6A600CC35B1 /* GALImageLoaderImpl.m in Sources */,
 				7654F351392D22AD9EAC05B2 /* MenuPresenter.swift in Sources */,
 				C07D6E1C28E69610005D2D28 /* GALGalleryViewController.m in Sources */,
 				40F7D56B63B5735BD08B6111 /* MenuStateStorage.swift in Sources */,

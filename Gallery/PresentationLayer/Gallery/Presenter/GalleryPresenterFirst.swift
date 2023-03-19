@@ -21,7 +21,7 @@ extension GalleryPresenterFirst: GalleryModule {
     }
 }
 
-extension GalleryPresenterFirst: GalleryViewOutput {
+extension GalleryPresenterFirst: GalleryViewOutputFirst {
     func viewDidLoad() {
         view?.configureView()
     }
